@@ -9,6 +9,7 @@
 --   │ Условие                     │ Решение     │
 --   ├─────────────────────────────┼─────────────┤
 --   │ Хотя бы один DENY           │ deny        │
+--   │ Исключен (bypassName ≠ '')  │ allow       │
 --   │ Нет DENY, есть хотя бы REVIEW│ review      │
 --   │ Все ALLOW                   │ allow       │
 --   │ Нет фигурантов              │ empty       │
@@ -27,6 +28,7 @@
 --
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-10-27 - Оптимизация через early exit и кэширование
+--   2025-11-25 - Добавлена обработка bypass: исключенные фигуранты приравниваются к allow
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.check_transaction_status(input_data JSONB)
@@ -56,6 +58,13 @@ BEGIN
     FOR v_figurant IN 
         SELECT * FROM jsonb_array_elements(input_data->'searchCheckResultKCKH')
     LOOP
+        -- Исключенные фигуранты приравниваются к allow
+        IF (v_figurant->>'bypassName') IS NOT NULL 
+           AND (v_figurant->>'bypassName') != '' THEN
+            v_has_allow := TRUE;
+            CONTINUE;
+        END IF;
+
         v_figurant_status := check_figurant_status(v_figurant);
 
         -- Early exit: deny имеет наивысший приоритет
