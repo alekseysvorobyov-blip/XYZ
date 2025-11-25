@@ -27,9 +27,8 @@
 --   - resolution          VARCHAR(20)
 --
 -- ЗАМЕТКИ:
---   - В 5-10 раз быстрее версии с извлечением из JSON
---   - Использует прямой доступ к структурированным колонкам
---   - Если list_codes не указан, выбирает все списки
+--   - Bypass-фигуранты исключены из расчёта total_allow, total_review, total_deny
+--   - total = total_allow + total_review + total_deny + total_bypass
 --
 -- ПРИМЕР ПАРАМЕТРОВ:
 --   NULL                                    -- Все списки
@@ -37,8 +36,8 @@
 --
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-10-25 - Оптимизация: переход на структурированные поля
--- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-11-20 - Добавлено поле exclusion_name_list - список исключений
+--   2025-01-XX - Bypass-фигуранты исключены из расчёта разрешений
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_figurants(
@@ -83,13 +82,14 @@ BEGIN
         exclusion_name_list,        
         -- Агрегированные счётчики
         COUNT(*) AS total,
-        COUNT(*) FILTER (WHERE resolution = 'allow') AS total_allow,
-        COUNT(*) FILTER (WHERE resolution = 'review') AS total_review,
-        COUNT(*) FILTER (WHERE resolution = 'deny') AS total_deny,
+        -- Bypass-фигуранты исключены из расчёта разрешений
+        COUNT(*) FILTER (WHERE resolution = 'allow' AND is_bypass != 'yes') AS total_allow,
+        COUNT(*) FILTER (WHERE resolution = 'review' AND is_bypass != 'yes') AS total_review,
+        COUNT(*) FILTER (WHERE resolution = 'deny' AND is_bypass != 'yes') AS total_deny,
         COUNT(*) FILTER (WHERE is_bypass = 'yes') AS total_bypass        
     FROM upoa_ksk_reports.ksk_figurant
     WHERE "timestamp" >= p_start_date 
-      AND "timestamp" < (p_end_date + INTERVAL '1 day')
+      AND "timestamp" < p_end_date  -- Исправлено: убрано + INTERVAL '1 day'
       -- Фильтр по list_codes (если указан)
       AND (v_list_codes IS NULL OR list_code = ANY(v_list_codes))
     GROUP BY

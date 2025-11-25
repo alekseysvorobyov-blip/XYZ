@@ -54,87 +54,85 @@ BEGIN
         total_review,
         total_deny,
         total_bypass,
-        i_total_with_list,
-        i_total_without_list,
-        i_total_allow,
-        i_total_review,
-        i_total_deny,
-        i_total_bypass,
-        o_total_with_list,
-        o_total_without_list,
-        o_total_allow,
-        o_total_review,
-        o_total_deny,
-        o_total_bypass,
-        t_total_with_list,
-        t_total_without_list,
-        t_total_allow,
-        t_total_review,
-        t_total_deny,
-        t_total_bypass,
-        m_total_with_list,
-        m_total_without_list,
-        m_total_allow,
-        m_total_review,
-        m_total_deny,
-        m_total_bypass,
-        v_total_with_list,
-        v_total_without_list,
-        v_total_allow,
-        v_total_review,
-        v_total_deny,
-        v_total_bypass
+        i_total_with_list, i_total_without_list, i_total_allow, i_total_review, i_total_deny, i_total_bypass,
+        o_total_with_list, o_total_without_list, o_total_allow, o_total_review, o_total_deny, o_total_bypass,
+        t_total_with_list, t_total_without_list, t_total_allow, t_total_review, t_total_deny, t_total_bypass,
+        m_total_with_list, m_total_without_list, m_total_allow, m_total_review, m_total_deny, m_total_bypass,
+        v_total_with_list, v_total_without_list, v_total_allow, v_total_review, v_total_deny, v_total_bypass
     )
     SELECT 
         p_report_header_id,
-        list_code,
-        COUNT(*) AS total_with_list,
-        0 AS total_without_list,
-        COUNT(*) FILTER (WHERE resolution = 'allow') AS total_allow,
-        COUNT(*) FILTER (WHERE resolution = 'review') AS total_review,
-        COUNT(*) FILTER (WHERE resolution = 'deny') AS total_deny,
-        COUNT(*) FILTER (WHERE has_bypass = 'yes') AS total_bypass,
-        -- i_* - Входящий
-        COUNT(*) FILTER (WHERE payment_type = 'Входящий') AS i_total_with_list,
-        0 AS i_total_without_list,
-        COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND resolution = 'allow') AS i_total_allow,
-        COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND resolution = 'review') AS i_total_review,
-        COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND resolution = 'deny') AS i_total_deny,
-        COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND has_bypass = 'yes') AS i_total_bypass,
+        f.list_code,        
+        -- ========================================================================
+        -- ОБЩИЕ СЧЕТЧИКИ: по ТРАНЗАКЦИЯМ (не по фигурантам)
+        -- ========================================================================
+        COUNT(DISTINCT r.id) AS total_with_list,
+        0 AS total_without_list,        
+        -- ========================================================================
+        -- СЧЕТЧИКИ РЕШЕНИЙ: по ФИГУРАНТАМ БЕЗ bypass
+        -- ========================================================================
+        COUNT(*) FILTER (WHERE f.resolution = 'allow' AND f.is_bypass != 'yes') AS total_allow,
+        COUNT(*) FILTER (WHERE f.resolution = 'review' AND f.is_bypass != 'yes') AS total_review,
+        COUNT(*) FILTER (WHERE f.resolution = 'deny' AND f.is_bypass != 'yes') AS total_deny,        
+        -- ========================================================================
+        -- СЧЕТЧИК BYPASS: по ФИГУРАНТАМ с is_bypass='yes'
+        -- ========================================================================
+        COUNT(*) FILTER (WHERE f.is_bypass = 'yes') AS total_bypass,
+        
+        -- ========================================================================
+        -- i_* - Входящий: ТРАНЗАКЦИИ для total_with_list, ФИГУРАНТЫ для решений
+        -- ========================================================================
+        COUNT(DISTINCT r.id) FILTER (WHERE r.payment_type = 'Входящий') AS i_total_with_list,
+        0 AS i_total_without_list,        
+        COUNT(*) FILTER (WHERE r.payment_type = 'Входящий' AND f.resolution = 'allow' AND f.is_bypass != 'yes') AS i_total_allow,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Входящий' AND f.resolution = 'review' AND f.is_bypass != 'yes') AS i_total_review,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Входящий' AND f.resolution = 'deny' AND f.is_bypass != 'yes') AS i_total_deny,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Входящий' AND f.is_bypass = 'yes') AS i_total_bypass,        
+        -- ========================================================================
         -- o_* - Исходящий
-        COUNT(*) FILTER (WHERE payment_type = 'Исходящий') AS o_total_with_list,
-        0 AS o_total_without_list,
-        COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND resolution = 'allow') AS o_total_allow,
-        COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND resolution = 'review') AS o_total_review,
-        COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND resolution = 'deny') AS o_total_deny,
-        COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND has_bypass = 'yes') AS o_total_bypass,
+        -- ========================================================================
+        COUNT(DISTINCT r.id) FILTER (WHERE r.payment_type = 'Исходящий') AS o_total_with_list,
+        0 AS o_total_without_list,        
+        COUNT(*) FILTER (WHERE r.payment_type = 'Исходящий' AND f.resolution = 'allow' AND f.is_bypass != 'yes') AS o_total_allow,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Исходящий' AND f.resolution = 'review' AND f.is_bypass != 'yes') AS o_total_review,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Исходящий' AND f.resolution = 'deny' AND f.is_bypass != 'yes') AS o_total_deny,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Исходящий' AND f.is_bypass = 'yes') AS o_total_bypass,        
+        -- ========================================================================
         -- t_* - Транзитный
-        COUNT(*) FILTER (WHERE payment_type = 'Транзитный') AS t_total_with_list,
-        0 AS t_total_without_list,
-        COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND resolution = 'allow') AS t_total_allow,
-        COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND resolution = 'review') AS t_total_review,
-        COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND resolution = 'deny') AS t_total_deny,
-        COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND has_bypass = 'yes') AS t_total_bypass,
+        -- ========================================================================
+        COUNT(DISTINCT r.id) FILTER (WHERE r.payment_type = 'Транзитный') AS t_total_with_list,
+        0 AS t_total_without_list,        
+        COUNT(*) FILTER (WHERE r.payment_type = 'Транзитный' AND f.resolution = 'allow' AND f.is_bypass != 'yes') AS t_total_allow,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Транзитный' AND f.resolution = 'review' AND f.is_bypass != 'yes') AS t_total_review,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Транзитный' AND f.resolution = 'deny' AND f.is_bypass != 'yes') AS t_total_deny,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Транзитный' AND f.is_bypass = 'yes') AS t_total_bypass,
+        -- ========================================================================
         -- m_* - Межфилиальный
-        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный') AS m_total_with_list,
-        0 AS m_total_without_list,
-        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND resolution = 'allow') AS m_total_allow,
-        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND resolution = 'review') AS m_total_review,
-        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND resolution = 'deny') AS m_total_deny,
-        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND has_bypass = 'yes') AS m_total_bypass,
+        -- ========================================================================
+        COUNT(DISTINCT r.id) FILTER (WHERE r.payment_type = 'Межфилиальный') AS m_total_with_list,
+        0 AS m_total_without_list,        
+        COUNT(*) FILTER (WHERE r.payment_type = 'Межфилиальный' AND f.resolution = 'allow' AND f.is_bypass != 'yes') AS m_total_allow,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Межфилиальный' AND f.resolution = 'review' AND f.is_bypass != 'yes') AS m_total_review,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Межфилиальный' AND f.resolution = 'deny' AND f.is_bypass != 'yes') AS m_total_deny,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Межфилиальный' AND f.is_bypass = 'yes') AS m_total_bypass,        
+        -- ========================================================================
         -- v_* - Внутрифилиальный
-        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный') AS v_total_with_list,
-        0 AS v_total_without_list,
-        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'allow') AS v_total_allow,
-        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'review') AS v_total_review,
-        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'deny') AS v_total_deny,
-        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND has_bypass = 'yes') AS v_total_bypass
-    FROM upoa_ksk_reports.ksk_result,
-         UNNEST(list_codes) AS list_code  -- ✅ КЛЮЧЕВАЯ ОПТИМИЗАЦИЯ: UNNEST вместо LOOP!
-    WHERE output_timestamp >= p_start_date::TIMESTAMP
-      AND output_timestamp < (p_end_date + INTERVAL '1 day')::TIMESTAMP
-    GROUP BY list_code
-    ORDER BY list_code;
+        -- ========================================================================
+        COUNT(DISTINCT r.id) FILTER (WHERE r.payment_type = 'Внутрифилиальный') AS v_total_with_list,
+        0 AS v_total_without_list,        
+        COUNT(*) FILTER (WHERE r.payment_type = 'Внутрифилиальный' AND f.resolution = 'allow' AND f.is_bypass != 'yes') AS v_total_allow,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Внутрифилиальный' AND f.resolution = 'review' AND f.is_bypass != 'yes') AS v_total_review,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Внутрифилиальный' AND f.resolution = 'deny' AND f.is_bypass != 'yes') AS v_total_deny,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Внутрифилиальный' AND f.is_bypass = 'yes') AS v_total_bypass        
+    FROM upoa_ksk_reports.ksk_figurant f
+    INNER JOIN upoa_ksk_reports.ksk_result r 
+        ON f.source_id = r.id 
+        AND f.timestamp = r.output_timestamp    
+    WHERE f.timestamp >= p_start_date::TIMESTAMP
+      AND f.timestamp < (p_end_date + INTERVAL '1 day')::TIMESTAMP
+      AND f.list_code IS NOT NULL    
+    GROUP BY f.list_code
+    ORDER BY f.list_code;
 END;
 $$ LANGUAGE plpgsql;
 
