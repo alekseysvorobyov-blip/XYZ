@@ -7,8 +7,8 @@
 --
 -- ПАРАМЕТРЫ:
 --   @p_report_header_id - ID заголовка отчёта
---   @p_start_date       - Начальная дата периода (DATE)
---   @p_end_date         - Конечная дата периода (DATE)
+--   @p_start_date       - Начальная дата периода (DATE, включительно)
+--   @p_end_date         - Конечная дата периода (DATE, ИСКЛЮЧАЯ)
 --   @p_parameters       - Дополнительные параметры (не используются)
 --
 -- ВОЗВРАЩАЕТ:
@@ -24,6 +24,9 @@
 --   3. allow/review/deny - исключены фигуранты с is_bypass='yes'
 --   4. bypass - фигуранты с is_bypass='yes'
 --
+-- ФИЛЬТРАЦИЯ ПО ДАТЕ:
+--   Интервал [p_start_date ... p_end_date) - исключающий конец
+--
 -- ЗАМЕТКИ:
 --   - Источник данных: таблица ksk_figurant (денормализованные поля)
 --   - Агрегирует решения фигурантов (resolution, is_bypass)
@@ -33,20 +36,20 @@
 --
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-10-25 - Форматирование и документация
---   Убран STRING_TO_ARRAY - list_codes уже массив TEXT[]
+--                Убран STRING_TO_ARRAY - list_codes уже массив TEXT[]
 --   2025-11-25 - Переделана логика: JOIN на ksk_figurant вместо ksk_result
 --   2025-11-25 - Исправлена фильтрация даты и исключение bypass из счетчиков
 --   2025-11-25 - Переведено на денормализованные поля ksk_figurant
 --   2025-11-25 - Исправлено имя поля: source_id (snake_case)
 --   2025-11-25 - Переведена фильтрация на timestamp (вместо date) для оптимизации
---   2025-11-25 - Убран INTERVAL '1 day' - фильтрация только до конца дня
+--   2025-11-26 - FIX: p_end_date исключающий, упрощено приведение типов
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_list_totals(
     p_report_header_id INTEGER,
-    p_start_date DATE,
-    p_end_date DATE,
-    p_parameters JSONB DEFAULT NULL
+    p_start_date       DATE,
+    p_end_date         DATE,
+    p_parameters       JSONB DEFAULT NULL
 )
 RETURNS VOID AS $$
 BEGIN
@@ -60,7 +63,7 @@ BEGIN
         total_deny,
         total_bypass
     )
-    SELECT 
+    SELECT
         p_report_header_id,
         fig.list_code,
         COUNT(DISTINCT fig.source_id) AS total_with_list,
@@ -70,12 +73,12 @@ BEGIN
         COUNT(*) FILTER (WHERE fig.resolution = 'deny' AND fig.is_bypass != 'yes') AS total_deny,
         COUNT(*) FILTER (WHERE fig.is_bypass = 'yes') AS total_bypass
     FROM upoa_ksk_reports.ksk_figurant fig
-    WHERE fig.timestamp >= (p_start_date::DATE)::TIMESTAMP
-      AND fig.timestamp < (p_end_date::DATE)::TIMESTAMP
+    WHERE fig.timestamp >= p_start_date::TIMESTAMP(3)
+      AND fig.timestamp < p_end_date::TIMESTAMP(3)
     GROUP BY fig.list_code
     ORDER BY fig.list_code;
 END;
 $$ LANGUAGE plpgsql;
 
-COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_list_totals(INTEGER, DATE, DATE, JSONB) IS 
-    'Генерирует отчёт по итогам по спискам с агрегацией данных фигурантов';
+COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_list_totals(INTEGER, DATE, DATE, JSONB) IS
+    'Генерирует отчёт по итогам по спискам с агрегацией данных фигурантов. Фильтр [start_date..end_date)';

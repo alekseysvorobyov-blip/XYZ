@@ -1,3 +1,11 @@
+-- ============================================================================
+-- ФУНКЦИЯ: ksk_report_create_report
+-- ============================================================================
+-- ИСТОРИЯ ИЗМЕНЕНИЙ:
+--   2025-10-25 - Создание функции
+--   2025-11-26 - FIX: end_date исключающий, валидация end_date >= start_date
+-- ============================================================================
+
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_create_report(p_header_id INTEGER)
 RETURNS INTEGER AS $$
 DECLARE
@@ -24,7 +32,6 @@ BEGIN
         v_info := FORMAT('Запись с ID %s не найдена в ksk_report_header', p_header_id);
         v_error_msg := 'Запись не найдена';
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -43,7 +50,6 @@ BEGIN
         v_info := FORMAT('Статус записи с ID %s не соответствует "created" или "in_progress". Текущий статус: %s', p_header_id, rec.status);
         v_error_msg := 'Недопустимый статус';
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -56,17 +62,40 @@ BEGIN
         RETURN -1*v_log_id;
     END IF;
 
-    -- Установка end_date по умолчанию
-    IF rec.end_date IS NULL THEN
-        rec.end_date := rec.start_date;
+    -- Валидация: end_date не может быть меньше start_date
+    IF rec.end_date IS NOT NULL AND rec.end_date < rec.start_date THEN
+        RAISE WARNING 'end_date (%) не может быть меньше start_date (%) для header_id %', rec.end_date, rec.start_date, p_header_id;
+        v_info := FORMAT('end_date (%s) не может быть меньше start_date (%s). Header ID: %s', rec.end_date, rec.start_date, p_header_id);
+        v_error_msg := 'Некорректный период: end_date < start_date';
+
+        UPDATE upoa_ksk_reports.ksk_report_header
+        SET status = 'error',
+            finished_datetime = NOW()
+        WHERE id = rec.id;
+
+        v_log_id := upoa_ksk_reports.ksk_log_operation(
+            'create_report',
+            v_info,
+            CURRENT_TIMESTAMP,
+            'error',
+            v_info,
+            v_error_msg
+        );
+
+        RETURN -1*v_log_id;
+    END IF;
+
+    -- Установка end_date по умолчанию (исключающий интервал [start_date ... start_date+1day))
+    IF rec.end_date IS NULL OR rec.end_date = rec.start_date THEN
+        rec.end_date := (rec.start_date + INTERVAL '1 day')::DATE;
     END IF;
 
     -- Получение метаданных из оркестратора
-    SELECT 
+    SELECT
         id,
         report_function,
         name,
-        CASE 
+        CASE
             WHEN rec.initiator = 'system' THEN system_ttl
             WHEN rec.initiator = 'user' THEN user_ttl
             ELSE NULL
@@ -80,13 +109,11 @@ BEGIN
         v_info := FORMAT('Отчет с orchestrator_id %s не найден. Header ID: %s', rec.orchestrator_id, rec.id);
         v_error_msg := 'Отчет не найден в оркестраторе';
 
-        -- Обновление статуса на 'error'
         UPDATE upoa_ksk_reports.ksk_report_header
         SET status = 'error',
             finished_datetime = NOW()
         WHERE id = rec.id;
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -107,13 +134,11 @@ BEGIN
         v_info := FORMAT('Не задан TTL для отчета с orchestrator_id %s. Header ID: %s', rec.orchestrator_id, rec.id);
         v_error_msg := 'Не задан TTL';
 
-        -- Обновление статуса на 'error'
         UPDATE upoa_ksk_reports.ksk_report_header
         SET status = 'error',
             finished_datetime = NOW()
         WHERE id = rec.id;
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -140,7 +165,6 @@ BEGIN
         EXECUTE FORMAT('SELECT %I($1, $2, $3, $4)', v_report_function)
         USING rec.id, rec.start_date, rec.end_date, rec.parameters;
 
-        -- Обновление статуса на 'done'
         UPDATE upoa_ksk_reports.ksk_report_header
         SET status = 'done',
             finished_datetime = NOW()
@@ -151,7 +175,6 @@ BEGIN
             v_report_name, rec.id, rec.start_date, rec.end_date
         );
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -168,7 +191,6 @@ BEGIN
         v_error_msg := SQLERRM;
         GET STACKED DIAGNOSTICS v_stack_trace = pg_exception_context;
 
-        -- Обновление статуса на 'error'
         UPDATE upoa_ksk_reports.ksk_report_header
         SET status = 'error',
             finished_datetime = NOW()
@@ -179,7 +201,6 @@ BEGIN
             v_report_name, rec.id, rec.start_date, rec.end_date
         );
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -196,5 +217,5 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-COMMENT ON FUNCTION ksk_report_create_report(INTEGER) IS 
-    'Функция для создания отчета по указанному header_id';
+COMMENT ON FUNCTION ksk_report_create_report(INTEGER) IS
+    'Создаёт отчёт по header_id. Фильтр [start_date..end_date). При NULL/равных датах = start_date + 1 day';

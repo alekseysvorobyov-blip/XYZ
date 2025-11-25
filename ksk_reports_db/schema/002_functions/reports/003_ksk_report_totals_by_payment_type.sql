@@ -102,8 +102,8 @@ BEGIN
         COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'deny'),
         COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'bypass')  -- FIX!
     FROM upoa_ksk_reports.ksk_result
-    WHERE output_timestamp >= p_start_date
-      AND output_timestamp < (p_end_date + INTERVAL '1 day');
+    WHERE output_timestamp >= p_start_date::TIMESTAMP(3)
+      AND output_timestamp < p_end_date::TIMESTAMP(3);
 END;
 $$ LANGUAGE plpgsql;
 
