@@ -1,0 +1,66 @@
+{
+  "headerInfo": {
+    "corrId": "35d35aee-edb1-4997-9cbd-6e2079ec1102",
+    "source": "1388_ALPP",
+    "version": "1.0",
+    "msgDateTime": "2025-07-17T18:18:00.147+03:00"
+  },
+  "paymentInfo": {
+    "operationKind": "1388.0006.0001",
+    "channel": "TP",
+    "paymentId": "2f8eee47-a877-4c08-83c5-273f84d6eef8",
+    "transactionDateTime": "2025-07-15T13:18:00.042+03:00",
+    "paymentType": "Межфилиальный",
+    "documentCode": "01",
+    "paymentNumber": "1017506305",
+    "paymentDate": "2025-07-15",
+    "amount": "40",
+    "currency": "RUB",
+    "operationType": "01",
+    "paymentPurpose": "вознаграждение",
+    "paymentPriority": "5",
+    "accountDebet": "40828810345250000745",
+    "accountCredit": "40828810145250000411"
+  },
+  "payerInfo": {
+    "clientId": "1000011961336",
+    "mdmSystemCode": "1498",
+    "clientType": "4",
+    "payerName": "ПАО БАНК ВТБ",
+    "payerInn": "7702070139",
+    "payerAccountInfo": {
+      "purpose": "счет требований 47423",
+      "payerAccountNumber": "40828810345250000745"
+    }
+  },
+  "receiverInfo": {
+    "clientId": "9991231449282",
+    "mdmSystemCode": "1498",
+    "clientType": "3",
+    "receiverMessageInfo": "receiverMessageInfo",
+    "receiverName": "ОБЩЕСТВО ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ ТЕХНО-ТЕМП",
+    "receiverInn": "7702328490",
+    "receiverAccountInfo": {
+      "purpose": "счет требований 47423",
+      "receiverAccountNumber": "40828810800819989550"
+    },
+    "documents": []
+  },
+  "payerBankInfo": {
+    "payerBankName": "T-BANK",
+    "payerBankBic": "044525745",
+    "payerBankAccountNumber": "30102810345250000745"
+  },
+  "receiverBankInfo": {
+    "receiverBankInfo": "receiverBankInfo",
+    "receiverBankName": "ФИЛИАЛ ЮЖНЫЙ ПАО БАНК УРАЛСИБ",
+    "receiverBankBic": "044525411",
+    "receiverBankAccountNumber": "30102810145250000411"
+  },
+  "mediatorBankInfo": {
+    "mediatorBankInfo": "mediatorBankInfo",
+    "mediatorBankName": "FILIAL",
+    "mediatorBankBic": "044555555",
+    "mediatorBankAccountNumber": "30102810145250000411"
+  }
+}

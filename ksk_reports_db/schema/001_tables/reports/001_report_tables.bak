@@ -1,0 +1,532 @@
+-- ============================================================================
+-- СИСТЕМА УПРАВЛЕНИЯ ОТЧЁТАМИ КСК
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Полная система управления отчётами для контроля санкционных списков
+--   Включает оркестратор отчётов, хранение данных и функции генерации
+--
+-- ДАТА: 2025-10-25
+-- ============================================================================
+
+-- ============================================================================
+-- ТАБЛИЦА 1: ksk_report_orchestrator
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Оркестратор отчётов - метаданные всех типов отчётов в системе
+--   Определяет доступные отчёты, их параметры и сроки хранения
+--
+-- ЗАМЕТКИ:
+--   - report_code - уникальный идентификатор типа отчёта
+--   - system_ttl / user_ttl - разные сроки хранения для автоматических и ручных отчётов
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS ksk_report_orchestrator (
+    -- Первичный ключ
+    id              INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    
+    -- Идентификация отчёта
+    report_code     VARCHAR(50) NOT NULL UNIQUE,
+    report_table    VARCHAR(100),
+    report_function VARCHAR(100) NOT NULL,
+    name            VARCHAR(200) NOT NULL,
+    
+    -- Параметры хранения
+    system_ttl      INTEGER NOT NULL DEFAULT 30,
+    user_ttl        INTEGER NOT NULL DEFAULT 7,
+    
+    -- Временные метки
+    created_at      TIMESTAMP DEFAULT NOW(),
+    updated_at      TIMESTAMP DEFAULT NOW()
+);
+
+-- Комментарии
+COMMENT ON TABLE ksk_report_orchestrator IS 
+    'Оркестратор отчётов - метаданные всех типов отчётов в системе';
+
+COMMENT ON COLUMN ksk_report_orchestrator.report_code IS 
+    'Уникальный код отчёта (например: totals, list_totals)';
+
+COMMENT ON COLUMN ksk_report_orchestrator.report_table IS 
+    'Таблица для хранения данных отчёта';
+
+COMMENT ON COLUMN ksk_report_orchestrator.report_function IS 
+    'Имя функции для генерации отчёта';
+
+COMMENT ON COLUMN ksk_report_orchestrator.name IS 
+    'Человекочитаемое название отчёта';
+
+COMMENT ON COLUMN ksk_report_orchestrator.system_ttl IS 
+    'TTL в днях для системных отчётов';
+
+COMMENT ON COLUMN ksk_report_orchestrator.user_ttl IS 
+    'TTL в днях для пользовательских отчётов';
+
+-- Индексы
+CREATE INDEX IF NOT EXISTS idx_ksk_report_orchestrator_code 
+    ON ksk_report_orchestrator (report_code);
+
+-- ============================================================================
+-- ТАБЛИЦА 2: ksk_report_header
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Заголовки отчётов - экземпляры сгенерированных отчётов
+--   Хранит метаданные каждого созданного отчёта и его статус
+--
+-- ЗАМЕТКИ:
+--   - initiator определяет кто создал отчёт (система или пользователь)
+--   - status отражает текущий этап обработки отчёта
+--   - remove_date автоматически рассчитывается на основе TTL
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS ksk_report_header (
+    -- Первичный ключ
+    id                  INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    
+    -- Связь с оркестратором
+    orchestrator_id     INTEGER NOT NULL REFERENCES ksk_report_orchestrator(id) ON DELETE CASCADE,
+    
+    -- Метаданные отчёта
+    name                VARCHAR(500) NOT NULL,
+    initiator           VARCHAR(100) NOT NULL CHECK (initiator IN ('system', 'user')),
+    user_login          VARCHAR(100),
+    
+    -- Временные метки
+    created_datetime    TIMESTAMP NOT NULL DEFAULT NOW(),
+    finished_datetime   TIMESTAMP,
+    
+    -- Статус и хранение
+    status              VARCHAR(20) NOT NULL DEFAULT 'created' 
+                        CHECK (status IN ('created', 'in_progress', 'done', 'error')),
+    ttl                 INTEGER NOT NULL,
+    remove_date         DATE NOT NULL,
+    
+    -- Параметры отчёта
+    start_date          DATE,
+    end_date            DATE,
+    parameters          JSONB,
+    
+    -- Ограничения
+    CONSTRAINT chk_user_login CHECK (
+        (initiator = 'user' AND user_login IS NOT NULL) OR
+        (initiator = 'system' AND user_login IS NULL)
+    )
+);
+
+-- Комментарии
+COMMENT ON TABLE ksk_report_header IS 
+    'Заголовки отчётов - экземпляры сгенерированных отчётов';
+
+COMMENT ON COLUMN ksk_report_header.orchestrator_id IS 
+    'Ссылка на тип отчёта в оркестраторе';
+
+COMMENT ON COLUMN ksk_report_header.name IS 
+    'Название конкретного экземпляра отчёта';
+
+COMMENT ON COLUMN ksk_report_header.initiator IS 
+    'Инициатор создания: system или user';
+
+COMMENT ON COLUMN ksk_report_header.user_login IS 
+    'Логин пользователя (если initiator=user)';
+
+COMMENT ON COLUMN ksk_report_header.status IS 
+    'Статус отчёта: created, in_progress, done, error';
+
+COMMENT ON COLUMN ksk_report_header.ttl IS 
+    'Время жизни отчёта в днях';
+
+COMMENT ON COLUMN ksk_report_header.remove_date IS 
+    'Дата удаления отчёта';
+
+COMMENT ON COLUMN ksk_report_header.start_date IS 
+    'Дата начала периода отчёта';
+
+COMMENT ON COLUMN ksk_report_header.end_date IS 
+    'Дата конца периода отчёта';
+
+COMMENT ON COLUMN ksk_report_header.parameters IS 
+    'Дополнительные параметры отчёта в формате JSON';
+
+-- Индексы
+CREATE INDEX IF NOT EXISTS idx_ksk_report_header_orchestrator 
+    ON ksk_report_header (orchestrator_id);
+
+CREATE INDEX IF NOT EXISTS idx_ksk_report_header_status 
+    ON ksk_report_header (status);
+
+CREATE INDEX IF NOT EXISTS idx_ksk_report_header_remove_date 
+    ON ksk_report_header (remove_date);
+
+CREATE INDEX IF NOT EXISTS idx_ksk_report_header_created 
+    ON ksk_report_header (created_datetime);
+
+-- ============================================================================
+-- ТАБЛИЦА 3: ksk_report_totals_data
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Данные отчёта по общей статистике
+--   Хранит агрегированные данные о всех транзакциях за период
+--
+-- ЗАМЕТКИ:
+--   - Одна запись на отчёт
+--   - Все счётчики рассчитываются на основе resolution и has_bypass
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS ksk_report_totals_data (
+    -- Первичный ключ
+    id                      INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    
+    -- Связь с заголовком
+    report_header_id        INTEGER NOT NULL REFERENCES ksk_report_header(id) ON DELETE CASCADE,
+    created_date_time       TIMESTAMP NOT NULL DEFAULT NOW(),
+    
+    -- Счётчики
+    total                   INTEGER NOT NULL,
+    total_without_result    INTEGER NOT NULL,
+    total_with_result       INTEGER NOT NULL,
+    total_allow             INTEGER NOT NULL,
+    total_review            INTEGER NOT NULL,
+    total_deny              INTEGER NOT NULL,
+    total_bypass            INTEGER NOT NULL
+);
+
+-- Комментарии
+COMMENT ON TABLE ksk_report_totals_data IS 
+    'Данные отчёта по общей статистике';
+
+COMMENT ON COLUMN ksk_report_totals_data.total IS 
+    'Всего сообщений обработано';
+
+COMMENT ON COLUMN ksk_report_totals_data.total_without_result IS 
+    'Всего сообщений без сработок';
+
+COMMENT ON COLUMN ksk_report_totals_data.total_with_result IS 
+    'Всего сообщений с результатом';
+
+COMMENT ON COLUMN ksk_report_totals_data.total_allow IS 
+    'Всего сообщений с результатом "allow"';
+
+COMMENT ON COLUMN ksk_report_totals_data.total_review IS 
+    'Всего сообщений с результатом "review"';
+
+COMMENT ON COLUMN ksk_report_totals_data.total_deny IS 
+    'Всего сообщений с результатом "deny"';
+
+COMMENT ON COLUMN ksk_report_totals_data.total_bypass IS 
+    'Всего сообщений с исключениями';
+
+-- Индексы
+CREATE INDEX IF NOT EXISTS idx_ksk_report_totals_data_header 
+    ON ksk_report_totals_data (report_header_id);
+
+CREATE INDEX IF NOT EXISTS idx_ksk_report_totals_data_created 
+    ON ksk_report_totals_data (created_date_time);
+
+-- ============================================================================
+-- ТАБЛИЦА 4: ksk_report_list_totals_data
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Данные отчёта по итогам по спискам
+--   Агрегация по кодам санкционных списков
+--
+-- ЗАМЕТКИ:
+--   - Одна запись на каждый list_code в периоде отчёта
+--   - list_code извлекается из массива list_codes в ksk_result
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS ksk_report_list_totals_data (
+    -- Первичный ключ
+    id                      INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    
+    -- Связь с заголовком
+    report_header_id        INTEGER NOT NULL REFERENCES ksk_report_header(id) ON DELETE CASCADE,
+    created_date_time       TIMESTAMP NOT NULL DEFAULT NOW(),
+    
+    -- Идентификация списка
+    list_code               VARCHAR(100) NOT NULL,
+    
+    -- Счётчики
+    total_with_list         INTEGER NOT NULL,
+    total_without_list      INTEGER NOT NULL,
+    total_allow             INTEGER NOT NULL,
+    total_review            INTEGER NOT NULL,
+    total_deny              INTEGER NOT NULL,
+    total_bypass            INTEGER NOT NULL
+);
+
+-- Комментарии
+COMMENT ON TABLE ksk_report_list_totals_data IS 
+    'Данные отчёта по итогам по спискам';
+
+COMMENT ON COLUMN ksk_report_list_totals_data.list_code IS 
+    'Код списка';
+
+COMMENT ON COLUMN ksk_report_list_totals_data.total_with_list IS 
+    'Всего сообщений со списком';
+
+COMMENT ON COLUMN ksk_report_list_totals_data.total_without_list IS 
+    'Всего сообщений без списка';
+
+-- Индексы
+CREATE INDEX IF NOT EXISTS idx_ksk_report_list_totals_data_header 
+    ON ksk_report_list_totals_data (report_header_id);
+
+CREATE INDEX IF NOT EXISTS idx_ksk_report_list_totals_data_created 
+    ON ksk_report_list_totals_data (created_date_time);
+
+CREATE INDEX IF NOT EXISTS idx_ksk_report_list_totals_data_list_code 
+    ON ksk_report_list_totals_data (list_code);
+
+-- ============================================================================
+-- ТАБЛИЦА 5: ksk_report_totals_by_payment_type_data
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Данные отчёта по статистике с разбивкой по типам платежей
+--   5 типов платежей: Входящий (I), Исходящий (O), Транзитный (T),
+--                     Межфилиальный (M), Внутрифилиальный (V)
+--
+-- ЗАМЕТКИ:
+--   - Префиксы: i_ (Входящий), o_ (Исходящий), t_ (Транзитный),
+--               m_ (Межфилиальный), v_ (Внутрифилиальный)
+--   - Одна запись на отчёт со всеми типами платежей
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS ksk_report_totals_by_payment_type_data (
+    -- Первичный ключ
+    id                      INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    
+    -- Связь с заголовком
+    report_header_id        INTEGER NOT NULL REFERENCES ksk_report_header(id) ON DELETE CASCADE,
+    created_date_time       TIMESTAMP NOT NULL DEFAULT NOW(),
+    
+    -- Общие счётчики
+    total                   INTEGER,
+    total_without_result    INTEGER,
+    total_with_result       INTEGER,
+    total_allow             INTEGER,
+    total_review            INTEGER,
+    total_deny              INTEGER,
+    total_bypass            INTEGER,
+    
+    -- Входящий (I)
+    i_total                 INTEGER,
+    i_total_without_result  INTEGER,
+    i_total_with_result     INTEGER,
+    i_total_allow           INTEGER,
+    i_total_review          INTEGER,
+    i_total_deny            INTEGER,
+    i_total_bypass          INTEGER,
+    
+    -- Исходящий (O)
+    o_total                 INTEGER,
+    o_total_without_result  INTEGER,
+    o_total_with_result     INTEGER,
+    o_total_allow           INTEGER,
+    o_total_review          INTEGER,
+    o_total_deny            INTEGER,
+    o_total_bypass          INTEGER,
+    
+    -- Транзитный (T)
+    t_total                 INTEGER,
+    t_total_without_result  INTEGER,
+    t_total_with_result     INTEGER,
+    t_total_allow           INTEGER,
+    t_total_review          INTEGER,
+    t_total_deny            INTEGER,
+    t_total_bypass          INTEGER,
+    
+    -- Межфилиальный (M)
+    m_total                 INTEGER,
+    m_total_without_result  INTEGER,
+    m_total_with_result     INTEGER,
+    m_total_allow           INTEGER,
+    m_total_review          INTEGER,
+    m_total_deny            INTEGER,
+    m_total_bypass          INTEGER,
+    
+    -- Внутрифилиальный (V)
+    v_total                 INTEGER,
+    v_total_without_result  INTEGER,
+    v_total_with_result     INTEGER,
+    v_total_allow           INTEGER,
+    v_total_review          INTEGER,
+    v_total_deny            INTEGER,
+    v_total_bypass          INTEGER
+);
+
+-- Комментарии
+COMMENT ON TABLE ksk_report_totals_by_payment_type_data IS 
+    'Данные отчёта по статистике с разбивкой по типам платежей';
+
+COMMENT ON COLUMN ksk_report_totals_by_payment_type_data.i_total IS 
+    'Входящий (I) - всего';
+
+COMMENT ON COLUMN ksk_report_totals_by_payment_type_data.o_total IS 
+    'Исходящий (O) - всего';
+
+COMMENT ON COLUMN ksk_report_totals_by_payment_type_data.t_total IS 
+    'Транзитный (T) - всего';
+
+COMMENT ON COLUMN ksk_report_totals_by_payment_type_data.m_total IS 
+    'Межфилиальный (M) - всего';
+
+COMMENT ON COLUMN ksk_report_totals_by_payment_type_data.v_total IS 
+    'Внутрифилиальный (V) - всего';
+
+-- Индексы
+CREATE INDEX IF NOT EXISTS idx_ksk_report_totals_by_payment_type_data_header 
+    ON ksk_report_totals_by_payment_type_data (report_header_id);
+
+-- ============================================================================
+-- ТАБЛИЦА 6: ksk_report_list_totals_by_payment_type_data
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Данные отчёта по итогам по спискам с разбивкой по типам платежей
+--   Комбинация list_code и payment_type
+--
+-- ЗАМЕТКИ:
+--   - Одна запись на каждый list_code в отчёте
+--   - Включает счётчики для всех 5 типов платежей
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS ksk_report_list_totals_by_payment_type_data (
+    -- Первичный ключ
+    id                      INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    
+    -- Связь с заголовком
+    report_header_id        INTEGER NOT NULL REFERENCES ksk_report_header(id) ON DELETE CASCADE,
+    created_date_time       TIMESTAMP NOT NULL DEFAULT NOW(),
+    
+    -- Идентификация списка
+    list_code               VARCHAR(100),
+    
+    -- Общие счётчики
+    total_with_list         INTEGER,
+    total_without_list      INTEGER,
+    total_allow             INTEGER,
+    total_review            INTEGER,
+    total_deny              INTEGER,
+    total_bypass            INTEGER,
+    
+    -- Входящий (I)
+    i_total_with_list       INTEGER,
+    i_total_without_list    INTEGER,
+    i_total_allow           INTEGER,
+    i_total_review          INTEGER,
+    i_total_deny            INTEGER,
+    i_total_bypass          INTEGER,
+    
+    -- Исходящий (O)
+    o_total_with_list       INTEGER,
+    o_total_without_list    INTEGER,
+    o_total_allow           INTEGER,
+    o_total_review          INTEGER,
+    o_total_deny            INTEGER,
+    o_total_bypass          INTEGER,
+    
+    -- Транзитный (T)
+    t_total_with_list       INTEGER,
+    t_total_without_list    INTEGER,
+    t_total_allow           INTEGER,
+    t_total_review          INTEGER,
+    t_total_deny            INTEGER,
+    t_total_bypass          INTEGER,
+    
+    -- Межфилиальный (M)
+    m_total_with_list       INTEGER,
+    m_total_without_list    INTEGER,
+    m_total_allow           INTEGER,
+    m_total_review          INTEGER,
+    m_total_deny            INTEGER,
+    m_total_bypass          INTEGER,
+    
+    -- Внутрифилиальный (V)
+    v_total_with_list       INTEGER,
+    v_total_without_list    INTEGER,
+    v_total_allow           INTEGER,
+    v_total_review          INTEGER,
+    v_total_deny            INTEGER,
+    v_total_bypass          INTEGER
+);
+
+-- Комментарии
+COMMENT ON TABLE ksk_report_list_totals_by_payment_type_data IS 
+    'Данные отчёта по итогам по спискам с разбивкой по типам платежей';
+
+-- Индексы
+CREATE INDEX IF NOT EXISTS idx_ksk_report_list_totals_by_payment_type_data_header 
+    ON ksk_report_list_totals_by_payment_type_data (report_header_id);
+
+CREATE INDEX IF NOT EXISTS idx_ksk_report_list_totals_by_payment_type_data_list_code 
+    ON ksk_report_list_totals_by_payment_type_data (list_code);
+
+-- ============================================================================
+-- ТАБЛИЦА 7: ksk_report_figurants_data
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Данные отчёта по фигурантам
+--   Детальная статистика по каждому фигуранту
+--
+-- ЗАМЕТКИ:
+--   - Одна запись на каждую уникальную комбинацию фигуранта
+--   - Данные извлекаются из JSON-полей ksk_figurant
+--   - Поддерживает фильтрацию по кодам списков через parameters
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS ksk_report_figurants_data (
+    -- Первичный ключ
+    id                  INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    
+    -- Связь с заголовком
+    report_header_id    INTEGER NOT NULL REFERENCES ksk_report_header(id) ON DELETE CASCADE,
+    created_date_time   TIMESTAMP NOT NULL DEFAULT NOW(),
+    
+    -- Данные фигуранта
+    list_code           VARCHAR(100),
+    name_figurant       VARCHAR(200),
+    president_group     VARCHAR(200),
+    auto_login          VARCHAR(100),
+    exclusion_phrase    TEXT,
+    
+    -- Счётчики
+    total               INTEGER,
+    total_allow         INTEGER,
+    total_review        INTEGER,
+    total_deny          INTEGER,
+    total_bypass        INTEGER
+);
+
+-- Комментарии
+COMMENT ON TABLE ksk_report_figurants_data IS 
+    'Данные отчёта по фигурантам';
+
+COMMENT ON COLUMN ksk_report_figurants_data.list_code IS 
+    'Код списка';
+
+COMMENT ON COLUMN ksk_report_figurants_data.name_figurant IS 
+    'Имя фигуранта';
+
+COMMENT ON COLUMN ksk_report_figurants_data.president_group IS 
+    'Группа президента';
+
+COMMENT ON COLUMN ksk_report_figurants_data.auto_login IS 
+    'Автологин';
+
+COMMENT ON COLUMN ksk_report_figurants_data.exclusion_phrase IS 
+    'Фразы исключения (разделены точкой с запятой)';
+
+-- Индексы
+CREATE INDEX IF NOT EXISTS idx_ksk_report_figurants_data_header 
+    ON ksk_report_figurants_data (report_header_id);
+
+-- ============================================================================
+-- ИНИЦИАЛИЗАЦИЯ ОРКЕСТРАТОРА ОТЧЁТОВ
+-- ============================================================================
+
+INSERT INTO ksk_report_orchestrator (report_code, report_table, report_function, name, system_ttl, user_ttl) 
+VALUES
+    ('totals', 'ksk_report_totals_data', 'ksk_report_totals', 'Общая статистика', 365, 14),
+    ('totals_by_payment_type', 'ksk_report_totals_by_payment_type_data', 'ksk_report_totals_by_payment_type', 'Статистика по типам платежей', 365, 14),
+    ('list_totals', 'ksk_report_list_totals_data', 'ksk_report_list_totals', 'Итоги по спискам', 365, 14),
+    ('list_totals_by_payment_type', 'ksk_report_list_totals_by_payment_type_data', 'ksk_report_list_totals_by_payment_type', 'Итоги по спискам и типам платежей', 365, 14),
+    ('figurants', 'ksk_report_figurants_data', 'ksk_report_figurants', 'Отчёт по фигурантам', 30, 7)
+ON CONFLICT (report_code) DO NOTHING;

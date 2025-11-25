@@ -1,0 +1,291 @@
+============================================================
+ PROJECT STRUCTURE: ksk_reports_db
+============================================================
+
+Generated: 21.11.2025  9:39:28,49
+Path: D:\Yandex.Drive\Disk\YandexDisk\╨Ф╨╛╨║╤Г╨╝╨╡╨╜╤В╤Л\╨Ъ╨б╨Ъ\upoa_ksk_reports\deepseek\ksk_reports_db
+
+Excluded directories: node_modules .git .venv __pycache__ .idea .vscode bin obj target build dist
+
+============================================================
+
+Folder PATH listing
+Volume serial number is FC25-66D4
+D:.
+|   analize_all.ps1
+|   context_AI.md
+|   create_migration.ps1
+|   export-sql.ps1
+|   export-structure-advanced.bat
+|   flattern_schema.bat
+|   flattern_schema.py
+|   ksk_reports_db-structure-temp.txt
+|   ksk_reports_db-structure.txt
+|   line_remove.py
+|   migration_20251118_150036.log
+|   migration_20251120_145509.log
+|   postgres-enable-debug.ps1
+|   run_migration_windows.sh
+|   todo.md
+|   vacuum_all.ps1
+|   Безымянный4.ps1
+|   
++---ai
+|       CODE_RULES_CONTEXT_v3.txt
+|       context_AI_20251027.md
+|       context_AI_20251028.md
+|       how-to-create-file.txt
+|       how-to-create-file_2.txt
+|       Init.txt
+|       KSK-Schema-CLEAN-v3_8.md
+|       KSK-Schema-Ref-v3_7.json
+|       KSK-Schema-Ref-v3_7.md
+|       KSK-Schema-Reference-v2.md
+|       KSK-Schema-v3_8_1-GODDBLESSAI.md
+|       VALIDATION_PROMPT_KSK.md
+|       VALIDATION_PROMPT_V2_2.md
+|       пример_сравнения_файлов.html
+|       ?? ОБНОВЛЕННЫЙ обзор изменений в KSK-Schema (ФИНАЛЬ.md
+|       ?? ОБНОВЛЕННЫЙ обзор изменений в KSK-Schema (ФИНАЛЬ.md
+|       
++---docs
+|   |   20252026_Контекст для новой беседы_ Система отчетов КСК.md
+|   |   ksk_meetup_plan.md
+|   |   README.md
+|   |   README_ Система отчетов КСК.docx
+|   |   README_ Система отчетов КСК.md
+|   |   README_ Система отчетов КСК.pdf
+|   |   REST API для системных отчетов КСК.md
+|   |   REST API для системных отчетов КСК.pdf
+|   |   REST API Ползовательские.md
+|   |   REST API Ползовательские.pdf
+|   |   to_do.md
+|   |   
+|   +---json
+|   |       input.json
+|   |       output.json
+|   |       output_2figurants.json
+|   |       output_empty.json
+|   |       output_exclusions.json
+|   |       output_withGroup.json
+|   |       topics_log_input_examples.txt
+|   |       
+|   +---maintaince
+|   |   \---cron
+|   |           Cron.docx
+|   |           Cron.md
+|   |           Cron.pdf
+|   |           cron.sql
+|   |           Регулярные задачи обслуживания системы КСК.docx
+|   |           Регулярные задачи обслуживания системы КСК.md
+|   |           Регулярные задачи обслуживания системы КСК.pdf
+|   |           
+|   +---metrics
+|   |   |   metrics.csv
+|   |   |   Метрики.md
+|   |   |   Требования.html
+|   |   |   
+|   |   +---kafka-consumer
+|   |   \---pg
+|   |           KSK_Consumer_Monitoring.md
+|   |           KSK_Consumer_Monitoring.pdf
+|   |           PostgreSQL Monitoring Specification для КСК.md
+|   |           PostgreSQL Monitoring Specification для КСК.pdf
+|   |           
+|   \---ui
+|       |   ksk_report_list_totals_by_payment_type_ui.html
+|       |   ksk_spa_final.html
+|       |   
+|       \---Java
+|           |   ReportController.java
+|           |   ReportDataRepository.java
+|           |   ReportService.java
+|           |   
+|           \---1
+|                   generate-reports-real.sql
+|                   generate-simple-do-block.sql
+|                   ksk-reports-api.yaml
+|                   ReportController_v2.java
+|                   ReportDataRepository_v2.java
+|                   ReportRepository_v2.java
+|                   ReportService_v2.java
+|                   
++---maintenance
+|       vacuum_analize_example.sql
+|       
++---migrations
+|       ksk_full_migration-20251028-006.sql
+|       ksk_full_migration-20251028-007.sql
+|       ksk_full_migration-20251028-008.sql
+|       ksk_full_migration-20251028-009.sql
+|       ksk_full_migration-20251028-010.sql
+|       ksk_full_migration-20251028-011.sql
+|       ksk_full_migration-20251028-012.sql
+|       ksk_full_migration-20251028-013.sql
+|       ksk_full_migration-20251028-014.sql
+|       ksk_full_migration-20251028-018.sql
+|       ksk_full_migration-20251029-001.sql
+|       ksk_full_migration-20251029-002.sql
+|       ksk_full_migration-20251029-003.sql
+|       ksk_full_migration-20251029-004.log
+|       ksk_full_migration-20251029-004.sql
+|       ksk_full_migration-20251029-005.log
+|       ksk_full_migration-20251030-001.sql
+|       ksk_full_migration-20251031-002.sql
+|       ksk_full_migration-20251031-003.sql
+|       ksk_full_migration-20251101-001.sql
+|       ksk_full_migration-20251108-002.sql
+|       ksk_full_migration-20251110-001.sql
+|       ksk_full_migration-20251110-002.sql
+|       ksk_full_migration-20251110-003.sql
+|       ksk_full_migration-20251113-001.sql
+|       ksk_full_migration-20251113-002.sql
+|       ksk_full_migration-20251117-001.sql
+|       ksk_full_migration-20251117-002.sql
+|       ksk_full_migration-20251118-001.sql
+|       ksk_full_migration-20251118-002.sql
+|       ksk_full_migration-20251118-003.sql
+|       ksk_full_migration-20251119-001.sql
+|       ksk_full_migration-20251119-001.txt
+|       ksk_full_migration-20251120-001.sql
+|       ksk_full_migration-20251120-001.txt
+|       
++---schema
+|   |   export-structure-advanced.bat
+|   |   schema-structure.txt
+|   |   
+|   +---000_core
+|   |       000_initial_script.sql
+|   |       050_add_column_if_not_exists.sql
+|   |       100_jsonb_object_length.sql
+|   |       
+|   +---001_tables
+|   |   +---core
+|   |   |       001_ksk_result.sql
+|   |   |       002_ksk_figurant.sql
+|   |   |       003_ksk_match.sql
+|   |   |       004_ksk_system_operation_log.sql
+|   |   |       005_ksk_result_error.sql
+|   |   |       README.md
+|   |   |       
+|   |   \---reports
+|   |           001_ksk_report_orchestrator.sql
+|   |           001_ksk_report_orchestrator.txt
+|   |           001_report_tables.bak
+|   |           002_ksk_report_header.sql
+|   |           002_ksk_report_header.txt
+|   |           003_ksk_report_totals_data.sql
+|   |           004_ksk_report_list_totals_data.sql
+|   |           005_ksk_report_totals_by_payment_type_data.sql
+|   |           006_ksk_report_list_totals_by_payment_type_data.sql
+|   |           007_ksk_report_figurants_data.sql
+|   |           readme.md
+|   |           
+|   +---002_functions
+|   |   +---cleanup
+|   |   |       001_ksk_cleanup_empty_records.sql
+|   |   |       002_ksk_cleanup_with_logging.sql
+|   |   |       003_ksk_cleanup_empty_partitions.sql
+|   |   |       004_ksk_cleanup_old_logs.sql
+|   |   |       005_ksk_monitor_table_bloat.sql
+|   |   |       readme.md
+|   |   |       
+|   |   +---core
+|   |   |       001_check_figurant_status_OPTIMIZED.sql
+|   |   |       002_check_transaction_status_OPTIMIZED.sql
+|   |   |       003_put_ksk_result.sql
+|   |   |       004_put_ksk_result_batch.sql
+|   |   |       
+|   |   +---log
+|   |   |       001_ksk_log_operation.sql
+|   |   |       
+|   |   +---partitions
+|   |   |       001_ksk_create_partitions.sql
+|   |   |       002_ksk_create_all_partitions.sql
+|   |   |       003_list_partitions.sql
+|   |   |       005_drop_partitions.sql
+|   |   |       100_drop_old.sql
+|   |   |       readme.md
+|   |   |       
+|   |   +---reports
+|   |   |       001_ksk_report_review.sql
+|   |   |       002_all_reports_functions.sql
+|   |   |       002_all_reports_functions.txt
+|   |   |       003_ksk_report_totals_by_payment_type.sql
+|   |   |       004_ksk_report_list_totals_by_payment_type.sql
+|   |   |       005_ksk_report_list_totals.sql
+|   |   |       006_ksk_report_register_header.sql
+|   |   |       007_ksk_report_create_report.sql
+|   |   |       008_ksk_report_create_all_reports.sql
+|   |   |       009_ksk_estimate_report_duration.sql
+|   |   |       010_ksk_regenerate_report.sql
+|   |   |       011_ksk_report_figurants.sql
+|   |   |       
+|   |   \---utils
+|   +---099_cron
+|   |       001_cron.sql
+|   |       
+|   \---100_complete_scripts
+|           010_create_partitions.sql
+|           
++---schema_flattern
++---tests
+|       001_ksk_test_generate_data_messages.sql
+|       001_ksk_test_put_ksk_result_speed_test.sql
+|       003_ksk_test_put_ksk_result_performance_test.sql
+|       004_ksk_test_put_ksk_result_batch_speed_test.sql
+|       005_ksk_test_put_ksk_result_batch_performance_test.sql
+|       reports_tests.sql
+|       
+\---utils
+    +---scripts
+    |       daily_maintenance.sql
+    |       init_schema.sql
+    |       some_scripts.sql
+    |       
+    \---views
+            001_ksk_report_review_a.sql
+            001_ksk_report_review_b.sql
+            
+ 
+============================================================ 
+ FILES BY EXTENSION 
+============================================================ 
+ 
+.sql files: 89 
+.md files: 28 
+.json files: 7 
+.txt files: 13 
+.yaml files: 1 
+.bat files: 3 
+.sh files: 1 
+.py files: 2 
+.java files: 7 
+ 
+============================================================ 
+ STATISTICS 
+============================================================ 
+ 
+Directories: 32 
+Files: 177 
+Total size: 18283771 bytes 
+Total size: 17 MB 
+ 
+============================================================ 
+ LARGEST FILES (TOP 10) 
+============================================================ 
+ 
+Volume Serial Number is FC25-66D4 
+20.11.2025  14:55            83┬а663 migration_20251120_145509.log 
+18.11.2025  15:00            83┬а322 migration_20251118_150036.log 
+25.10.2025  17:14            11┬а117 vacuum_all.ps1 
+21.11.2025  09:39             9┬а481 ksk_reports_db-structure.txt 
+30.10.2025  03:10             9┬а477 ╨С╨╡╨╖╤Л╨╝╤П╨╜╨╜╤Л╨╣4.ps1 
+25.10.2025  17:15             9┬а122 analize_all.ps1 
+18.11.2025  09:21             8┬а968 context_AI.md 
+21.11.2025  09:39             8┬а326 ksk_reports_db-structure-temp.txt 
+20.11.2025  14:54             7┬а631 run_migration_windows.sh 
+ 
+============================================================ 
+End of structure export 
+============================================================ 

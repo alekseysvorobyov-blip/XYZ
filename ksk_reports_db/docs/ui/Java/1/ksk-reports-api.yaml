@@ -1,0 +1,730 @@
+openapi: 3.0.0
+info:
+  title: КСК Reports API
+  version: 1.0.0
+  description: |
+    REST API для работы с системными и пользовательскими отчётами КСК
+    
+    **Версия:** 1.0.0  
+    **Дата:** 2025-11-13  
+    **Базовый путь:** `/ksk/api/v1/reports`
+  contact:
+    name: KSK Team
+    url: https://example.com
+
+servers:
+  - url: https://api.example.com/ksk/api/v1/reports
+    description: Production
+  - url: http://localhost:8080/ksk/api/v1/reports
+    description: Local development
+
+tags:
+  - name: Системные отчёты
+    description: Встроенные отчёты, генерируемые системой автоматически
+  - name: Пользовательские отчёты
+    description: Отчёты, создаваемые пользователями вручную
+
+paths:
+  # ===============================
+  # СИСТЕМНЫЕ ОТЧЁТЫ
+  # ===============================
+
+  /system/available-dates:
+    get:
+      summary: Получить доступные даты для системных отчётов
+      tags:
+        - Системные отчёты
+      operationId: getAvailableDates
+      responses:
+        '200':
+          description: Успешно. Возвращает диапазон доступных дат
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DateRange'
+              example:
+                min_date: "2024-10-26"
+                max_date: "2025-10-25"
+                default_date: "2025-10-25"
+        '500':
+          description: Ошибка сервера
+
+  /system/{reportCode}/data:
+    get:
+      summary: |
+        Получить данные системного отчёта
+        
+        **Типы отчётов:**
+        - `totals` — общая статистика по платежам
+        - `totals_by_payment_type` — статистика по типам платежей (I/O/T/M/V)
+        - `list_totals` — статистика по санкционным спискам
+        - `list_totals_by_payment_type` — комбинированная статистика (список × тип)
+        - `figurants` — детальный список фигурантов с совпадениями
+        - `review` — отчёт по совпадениям требующим внимания (resolution='review')
+      tags:
+        - Системные отчёты
+      operationId: getSystemReportData
+      parameters:
+        - name: reportCode
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [totals, totals_by_payment_type, list_totals, list_totals_by_payment_type, figurants, review]
+          example: totals
+          description: Код типа отчёта
+        - name: date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+          example: "2025-10-25"
+          description: Дата отчёта (YYYY-MM-DD)
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+            default: 100
+          example: 100
+          description: Максимум записей в ответе
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+          example: 0
+          description: Смещение для пагинации
+      responses:
+        '200':
+          description: Успешно. Возвращает данные отчёта
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportData'
+        '400':
+          description: Некорректные параметры (неверная дата или тип отчёта)
+        '404':
+          description: Отчёт не найден за указанную дату
+        '500':
+          description: Ошибка сервера
+
+  /system/{reportCode}/export/{format}:
+    get:
+      summary: Экспортировать системный отчёт в указанный формат
+      tags:
+        - Системные отчёты
+      operationId: exportSystemReport
+      parameters:
+        - name: reportCode
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [totals, totals_by_payment_type, list_totals, list_totals_by_payment_type, figurants, review]
+          example: totals
+          description: Код типа отчёта
+        - name: date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+          example: "2025-10-25"
+          description: Дата отчёта (YYYY-MM-DD)
+        - name: format
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [xlsx, csv, pdf]
+          example: xlsx
+          description: Формат экспорта
+      responses:
+        '200':
+          description: Успешно. Возвращает файл отчёта
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: string
+                format: binary
+            text/csv:
+              schema:
+                type: string
+                format: binary
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Некорректные параметры (неверный формат)
+        '404':
+          description: Отчёт не найден
+        '500':
+          description: Ошибка при создании экспорта
+
+  # ===============================
+  # ПОЛЬЗОВАТЕЛЬСКИЕ ОТЧЁТЫ
+  # ===============================
+
+  /user/types:
+    get:
+      summary: Получить список доступных типов отчётов
+      tags:
+        - Пользовательские отчёты
+      operationId: getReportTypes
+      responses:
+        '200':
+          description: Успешно. Возвращает список типов отчётов
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportTypes'
+        '500':
+          description: Ошибка сервера
+
+  /user:
+    get:
+      summary: Получить список пользовательских отчётов
+      tags:
+        - Пользовательские отчёты
+      operationId: getUserReports
+      security:
+        - bearer_auth: []
+      parameters:
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [all, created, in_progress, done, error]
+            default: all
+          example: done
+          description: Фильтр по статусу
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 50
+          example: 50
+          description: Максимум записей
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+          example: 0
+          description: Смещение для пагинации
+      responses:
+        '200':
+          description: Успешно. Возвращает список отчётов
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedReportList'
+        '401':
+          description: Не авторизирован
+        '500':
+          description: Ошибка сервера
+    post:
+      summary: Создать новый пользовательский отчёт
+      tags:
+        - Пользовательские отчёты
+      operationId: createUserReport
+      security:
+        - bearer_auth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateReportRequest'
+            example:
+              report_code: "figurants"
+              start_date: "2025-10-01"
+              end_date: "2025-10-25"
+              parameters:
+                list_codes: ["4200", "4204"]
+      responses:
+        '201':
+          description: Отчёт успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatedReport'
+        '400':
+          description: Некорректные параметры
+        '401':
+          description: Не авторизирован
+        '500':
+          description: Ошибка при создании отчёта
+
+  /user/{reportId}/status:
+    get:
+      summary: Получить статус пользовательского отчёта
+      tags:
+        - Пользовательские отчёты
+      operationId: getUserReportStatus
+      security:
+        - bearer_auth: []
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          example: 126
+          description: ID отчёта
+      responses:
+        '200':
+          description: Успешно. Возвращает статус отчёта
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportStatus'
+        '401':
+          description: Не авторизирован
+        '403':
+          description: Доступ запрещен (это не ваш отчёт)
+        '404':
+          description: Отчёт не найден
+        '500':
+          description: Ошибка сервера
+
+  /user/{reportId}/data:
+    get:
+      summary: Получить данные пользовательского отчёта
+      tags:
+        - Пользовательские отчёты
+      operationId: getUserReportData
+      security:
+        - bearer_auth: []
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          example: 126
+          description: ID отчёта
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+            default: 100
+          example: 100
+          description: Максимум записей
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+          example: 0
+          description: Смещение для пагинации
+      responses:
+        '200':
+          description: Успешно. Возвращает данные отчёта
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportData'
+        '401':
+          description: Не авторизирован
+        '403':
+          description: Доступ запрещен (это не ваш отчёт)
+        '404':
+          description: Отчёт не найден
+        '500':
+          description: Ошибка сервера
+
+  /user/{reportId}/export/{format}:
+    get:
+      summary: Экспортировать пользовательский отчёт
+      tags:
+        - Пользовательские отчёты
+      operationId: exportUserReport
+      security:
+        - bearer_auth: []
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          example: 126
+          description: ID отчёта
+        - name: format
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [xlsx, csv, pdf]
+          example: xlsx
+          description: Формат экспорта
+      responses:
+        '200':
+          description: Успешно. Возвращает файл отчёта
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: string
+                format: binary
+            text/csv:
+              schema:
+                type: string
+                format: binary
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Не авторизирован
+        '403':
+          description: Доступ запрещен
+        '404':
+          description: Отчёт не найден
+        '500':
+          description: Ошибка при создании экспорта
+
+  /user/{reportId}:
+    delete:
+      summary: Удалить пользовательский отчёт
+      tags:
+        - Пользовательские отчёты
+      operationId: deleteUserReport
+      security:
+        - bearer_auth: []
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          example: 126
+          description: ID отчёта
+      responses:
+        '200':
+          description: Отчёт успешно удален
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeletedReport'
+        '401':
+          description: Не авторизирован
+        '403':
+          description: Доступ запрещен (это не ваш отчёт)
+        '404':
+          description: Отчёт не найден
+        '500':
+          description: Ошибка при удалении отчёта
+
+components:
+  securitySchemes:
+    bearer_auth:
+      type: http
+      scheme: bearer
+      description: JWT токен в формате "Bearer {token}"
+
+  schemas:
+    # ==================== DATE RANGE ====================
+    DateRange:
+      type: object
+      required:
+        - min_date
+        - max_date
+        - default_date
+      properties:
+        min_date:
+          type: string
+          format: date
+          description: Минимальная доступная дата
+        max_date:
+          type: string
+          format: date
+          description: Максимальная доступная дата
+        default_date:
+          type: string
+          format: date
+          description: Рекомендуемая дата (самая свежая)
+
+    # ==================== REPORT DATA ====================
+    ReportData:
+      type: object
+      required:
+        - report_code
+        - data
+        - pagination
+      properties:
+        report_code:
+          type: string
+          description: Код типа отчёта
+          example: totals
+        date:
+          type: string
+          format: date
+          description: Дата отчёта
+          example: "2025-10-25"
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+          description: Данные отчёта (структура зависит от типа)
+          example:
+            - total: 1500
+              total_allow: 1200
+              total_review: 150
+              total_deny: 50
+              total_bypass: 20
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    # ==================== PAGINATION ====================
+    Pagination:
+      type: object
+      required:
+        - total_records
+        - limit
+        - offset
+        - has_more
+      properties:
+        total_records:
+          type: integer
+          description: Общее количество записей
+          example: 1500
+        limit:
+          type: integer
+          description: Лимит записей в запросе
+          example: 100
+        offset:
+          type: integer
+          description: Смещение в запросе
+          example: 0
+        has_more:
+          type: boolean
+          description: Есть ли ещё записи
+          example: true
+
+    # ==================== REPORT TYPES ====================
+    ReportTypes:
+      type: object
+      properties:
+        types:
+          type: array
+          items:
+            type: object
+            properties:
+              report_code:
+                type: string
+                example: totals
+              name:
+                type: string
+                example: "Общая статистика по платежам"
+              description:
+                type: string
+                example: "Итоговые метрики без разбивки"
+              user_ttl:
+                type: integer
+                description: TTL пользовательских версий (дни)
+                example: 14
+              system_ttl:
+                type: integer
+                description: TTL системных версий (дни)
+                example: 365
+
+    # ==================== PAGINATED REPORT LIST ====================
+    PaginatedReportList:
+      type: object
+      required:
+        - reports
+        - pagination
+      properties:
+        reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReportListItem'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    ReportListItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 126
+        report_code:
+          type: string
+          example: figurants
+        name:
+          type: string
+          example: "Отчёт фигурантов"
+        status:
+          type: string
+          enum: [created, in_progress, done, error]
+          example: done
+        created_datetime:
+          type: string
+          format: date-time
+          example: "2025-10-25T10:30:00Z"
+        finished_datetime:
+          type: string
+          format: date-time
+          nullable: true
+          example: "2025-10-25T10:35:00Z"
+        start_date:
+          type: string
+          format: date
+          example: "2025-10-01"
+        end_date:
+          type: string
+          format: date
+          example: "2025-10-25"
+        user_login:
+          type: string
+          example: "john.doe"
+
+    # ==================== CREATE REPORT REQUEST ====================
+    CreateReportRequest:
+      type: object
+      required:
+        - report_code
+        - start_date
+        - end_date
+      properties:
+        report_code:
+          type: string
+          enum: [totals, totals_by_payment_type, list_totals, list_totals_by_payment_type, figurants, review]
+          example: figurants
+          description: Тип отчёта
+        start_date:
+          type: string
+          format: date
+          example: "2025-10-01"
+          description: Начало периода (inclusive)
+        end_date:
+          type: string
+          format: date
+          example: "2025-10-25"
+          description: Конец периода (inclusive)
+        parameters:
+          type: object
+          nullable: true
+          additionalProperties: true
+          example:
+            list_codes: ["4200", "4204"]
+          description: Дополнительные параметры (зависят от типа отчёта)
+
+    # ==================== CREATED REPORT ====================
+    CreatedReport:
+      type: object
+      required:
+        - id
+        - status
+        - created_datetime
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 126
+          description: ID созданного отчёта
+        status:
+          type: string
+          enum: [created, in_progress]
+          example: created
+          description: Статус отчёта (сразу после создания = created)
+        created_datetime:
+          type: string
+          format: date-time
+          example: "2025-10-25T10:30:00Z"
+        report_code:
+          type: string
+          example: figurants
+        start_date:
+          type: string
+          format: date
+          example: "2025-10-01"
+        end_date:
+          type: string
+          format: date
+          example: "2025-10-25"
+
+    # ==================== REPORT STATUS ====================
+    ReportStatus:
+      type: object
+      required:
+        - id
+        - status
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 126
+        report_code:
+          type: string
+          example: figurants
+        status:
+          type: string
+          enum: [created, in_progress, done, error]
+          example: done
+          description: Текущий статус
+        created_datetime:
+          type: string
+          format: date-time
+          example: "2025-10-25T10:30:00Z"
+        finished_datetime:
+          type: string
+          format: date-time
+          nullable: true
+          example: "2025-10-25T10:35:00Z"
+        progress_percentage:
+          type: integer
+          minimum: 0
+          maximum: 100
+          nullable: true
+          example: 75
+          description: Процент выполнения (только для in_progress)
+        error_message:
+          type: string
+          nullable: true
+          example: "Insufficient disk space"
+          description: Сообщение об ошибке (только для error)
+        rows_count:
+          type: integer
+          nullable: true
+          example: 1500
+          description: Количество строк (только для done)
+
+    # ==================== DELETED REPORT ====================
+    DeletedReport:
+      type: object
+      required:
+        - message
+        - report_id
+      properties:
+        message:
+          type: string
+          example: "Отчет успешно удален"
+        report_id:
+          type: integer
+          format: int64
+          example: 126

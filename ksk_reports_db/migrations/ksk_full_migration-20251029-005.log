@@ -1,0 +1,7 @@
+﻿psql.exe : psql: ошибка: D:/Yandex.Drive/Disk/YandexDisk/Документы/КСК/upoa_ksk_reports/deepseek/ksk_reports_db/migrations/ksk_full_migration-20251029-005.sql: No such file or directory
+D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\migration.ps1:20 знак:1
++ & "C:\Program Files\PostgreSQL\16\bin\psql.exe" `
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (psql: ошибка: D...le or directory:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

@@ -1,0 +1,1668 @@
+SET
+SET
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:27: NOTICE:  Схема upoa_ksk_reports уже существует
+DO
+SET
+CREATE FUNCTION
+CREATE FUNCTION
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:367: NOTICE:  [ksk_result] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:375: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:376: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.corr_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:377: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.input_timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:378: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.output_timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:379: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.input_json уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:380: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.output_json уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:381: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payment_type уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:382: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.resolution уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:383: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.list_codes уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:384: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.has_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:385: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payment_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:386: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payment_purpose уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:387: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.account_debet уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:388: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.account_credit уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:389: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_inn уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:390: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:391: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_account_number уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:392: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_document_type уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:393: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_bank_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:394: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_bank_account_number уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:395: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_account_number уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:396: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:397: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_inn уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:398: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_bank_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:399: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_bank_account_number уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:400: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_document_type уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:401: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.amount уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:402: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.currency уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:403: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.currency_control уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:406: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.input_kafka_headers уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:407: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.output_kafka_headers уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:410: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.input_kafka_partition уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:411: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.input_kafka_offset уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:414: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.created_date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+COMMENT
+                                      ?column?                                       
+-------------------------------------------------------------------------------------
+ [ksk_result] ✅ Проверка и добавление колонок завершена (35 + 4 Kafka = 39 колонок)
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:444: NOTICE:  [ksk_result] ✅ STORAGE EXTERNAL установлен для input_kafka_headers
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:444: NOTICE:  [ksk_result] ✅ STORAGE EXTERNAL установлен для output_kafka_headers
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:457: NOTICE:  relation "idx_ksk_result_corr_id" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:469: NOTICE:  relation "idx_ksk_result_output_ts_brin" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:481: NOTICE:  relation "idx_ksk_result_aggregation" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:491: NOTICE:  relation "idx_ksk_result_list_codes_gin" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:501: NOTICE:  relation "idx_ksk_result_payment_type" already exists, skipping
+CREATE INDEX
+COMMENT
+                        ?column?                        
+--------------------------------------------------------
+ [ksk_result] ✅ Индексы созданы/проверены (5 индексов)
+(1 row)
+
+COMMIT
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:631: NOTICE:  [ksk_figurant] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:639: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.source_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:640: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:641: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:642: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.figurant уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:643: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.figurant_index уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:644: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.resolution уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:645: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.is_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:646: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.list_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:647: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.name_figurant уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:648: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.president_group уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:649: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.auto_login уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:650: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.has_exclusion уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:651: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.exclusion_phrase уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:652: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.exclusion_name_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:653: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.bypass_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+COMMENT
+                         ?column?                          
+-----------------------------------------------------------
+ [ksk_figurant] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:702: NOTICE:  [ksk_figurant] ℹ️  Ненужных индексов не найдено, пропуск удаления
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:717: NOTICE:  relation "idx_ksk_figurant_ts_brin" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:727: NOTICE:  relation "idx_ksk_figurant_list_code" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:736: NOTICE:  relation "idx_ksk_figurant_source_id" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:745: NOTICE:  relation "idx_ksk_figurant_resolution" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:755: NOTICE:  relation "idx_ksk_figurant_is_bypass_yes" already exists, skipping
+CREATE INDEX
+COMMENT
+                  ?column?                   
+---------------------------------------------
+ [ksk_figurant] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:867: NOTICE:  [ksk_figurant_match] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:875: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.figurant_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:876: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:877: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:878: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.match уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:879: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.match_index уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:880: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.algorithm уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:881: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.match_value уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:882: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.match_payment_field уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:883: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.match_payment_value уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                            ?column?                             
+-----------------------------------------------------------------
+ [ksk_figurant_match] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:926: NOTICE:  [ksk_figurant_match] ℹ️  Ненужных индексов не найдено, пропуск удаления
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:941: NOTICE:  relation "idx_ksk_match_ts_brin" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:950: NOTICE:  relation "idx_ksk_match_figurant_id" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:959: NOTICE:  relation "idx_ksk_match_algorithm" already exists, skipping
+CREATE INDEX
+COMMENT
+                     ?column?                      
+---------------------------------------------------
+ [ksk_figurant_match] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1057: NOTICE:  [ksk_system_operations_log] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1065: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.operation_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1066: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.operation_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1067: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.begin_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1068: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.end_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1069: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.duration уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1070: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.status уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1071: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.info уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1072: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.err_msg уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                ?column?                                
+------------------------------------------------------------------------
+ [ksk_system_operations_log] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1115: NOTICE:  [ksk_system_operations_log] ℹ️  Ненужных индексов не найдено, пропуск удаления
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1128: NOTICE:  relation "idx_ksk_system_operations_log_operation_code" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1137: NOTICE:  relation "idx_ksk_system_operations_log_begin_time" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1146: NOTICE:  relation "idx_ksk_system_operations_log_status" already exists, skipping
+CREATE INDEX
+COMMENT
+                         ?column?                         
+----------------------------------------------------------
+ [ksk_system_operations_log] ✅ Индексы созданы/проверены
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1161: NOTICE:  ✅ Миграция на TIMESTAMP(3) завершена
+DO
+COMMIT
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1314: NOTICE:  [ksk_result_error] ⚠ Таблица уже существует, пропускаем создание
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1321: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.error_timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1322: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.error_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1323: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.error_message уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1324: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.input_timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1325: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.output_timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1326: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.kafka_partition уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1327: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.kafka_offset уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1328: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.input_kafka_headers уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1329: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.output_kafka_headers уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1330: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.corr_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1331: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.input_json уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1332: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.output_json уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1333: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.function_context уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                            status                             
+---------------------------------------------------------------
+ [ksk_result_error] ✅ Проверка колонок завершена (13 колонок)
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1375: NOTICE:  [ksk_result_error] ✅ установлен STORAGE EXTERNAL для input_json
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1375: NOTICE:  [ksk_result_error] ✅ установлен STORAGE EXTERNAL для output_json
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1375: NOTICE:  [ksk_result_error] ✅ установлен STORAGE EXTERNAL для input_kafka_headers
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1375: NOTICE:  [ksk_result_error] ✅ установлен STORAGE EXTERNAL для output_kafka_headers
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1413: NOTICE:  [ksk_result_error] ℹ️  нет ненужных индексов для удаления
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1424: NOTICE:  relation "idx_ksk_result_error_timestamp" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1431: NOTICE:  relation "idx_ksk_result_error_error_code" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1438: NOTICE:  relation "idx_ksk_result_error_kafka_meta" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1446: NOTICE:  relation "idx_ksk_result_error_corr_id" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1455: NOTICE:  relation "idx_ksk_result_error_output_ts" already exists, skipping
+CREATE INDEX
+COMMENT
+                  status                  
+------------------------------------------
+ [ksk_result_error] ✅ создано 5 индексов
+(1 row)
+
+COMMIT
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1549: NOTICE:  [ksk_report_orchestrator] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1554: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.report_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1555: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.report_table уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1556: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.report_function уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1557: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1558: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.system_ttl уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1559: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.user_ttl уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1560: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.created_at уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1561: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.updated_at уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                status                                
+----------------------------------------------------------------------
+ [ksk_report_orchestrator] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1606: NOTICE:  [ksk_report_orchestrator] ℹ️  Дублирующих индексов не найдено
+DO
+INSERT 0 0
+                                   status                                   
+----------------------------------------------------------------------------
+ [ksk_report_orchestrator] ✅ Оркестратор инициализирован (5 типов отчётов)
+(1 row)
+
+COMMIT
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1719: NOTICE:  [ksk_report_header] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1725: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.orchestrator_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1726: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1727: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.initiator уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1728: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.user_login уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1729: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.created_datetime уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1730: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.finished_datetime уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1731: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.status уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1732: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.ttl уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1733: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.remove_date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1734: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.start_date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1735: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.end_date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1736: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.parameters уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                            ?column?                            
+----------------------------------------------------------------
+ [ksk_report_header] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1774: NOTICE:  [ksk_report_header] ℹ️  Ненужных индексов не найдено
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1785: NOTICE:  relation "idx_ksk_report_header_orchestrator" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1794: NOTICE:  relation "idx_ksk_report_header_status" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1803: NOTICE:  relation "idx_ksk_report_header_remove_date" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1812: NOTICE:  relation "idx_ksk_report_header_created" already exists, skipping
+CREATE INDEX
+COMMENT
+                     ?column?                     
+--------------------------------------------------
+ [ksk_report_header] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1895: NOTICE:  [ksk_report_totals_data] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1901: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.report_header_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1902: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.created_date_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1903: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1904: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1905: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1906: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1907: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1908: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1909: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                              ?column?                               
+---------------------------------------------------------------------
+ [ksk_report_totals_data] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1945: NOTICE:  [ksk_report_totals_data] ℹ️  Ненужных индексов не найдено
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1955: NOTICE:  relation "idx_ksk_report_totals_data_header" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:1963: NOTICE:  relation "idx_ksk_report_totals_data_created" already exists, skipping
+CREATE INDEX
+COMMENT
+                       ?column?                        
+-------------------------------------------------------
+ [ksk_report_totals_data] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2048: NOTICE:  [ksk_report_list_totals_data] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2054: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.report_header_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2055: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.created_date_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2056: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.list_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2057: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2058: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2059: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2060: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2061: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2062: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                 ?column?                                 
+--------------------------------------------------------------------------
+ [ksk_report_list_totals_data] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2099: NOTICE:  [ksk_report_list_totals_data] ℹ️  Ненужных индексов не найдено
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2109: NOTICE:  relation "idx_ksk_report_list_totals_data_header" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2117: NOTICE:  relation "idx_ksk_report_list_totals_data_created" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2125: NOTICE:  relation "idx_ksk_report_list_totals_data_list_code" already exists, skipping
+CREATE INDEX
+COMMENT
+                          ?column?                          
+------------------------------------------------------------
+ [ksk_report_list_totals_data] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2249: NOTICE:  [ksk_report_totals_by_payment_type_data] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2255: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.report_header_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2256: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.created_date_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2257: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2258: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2259: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2260: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2261: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2262: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2263: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2264: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2265: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2266: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2267: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2268: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2269: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2270: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2271: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2272: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2273: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2274: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2275: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2276: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2277: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2278: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2279: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2280: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2281: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2282: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2283: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2284: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2285: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2286: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2287: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2288: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2289: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2290: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2291: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2292: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2293: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2294: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2295: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2296: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2297: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2298: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                             ?column?                                              
+---------------------------------------------------------------------------------------------------
+ [ksk_report_totals_by_payment_type_data] ✅ Проверка и добавление колонок завершена (44 колонки!)
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2333: NOTICE:  [ksk_report_totals_by_payment_type_data] ℹ️  Ненужных индексов не найдено
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2343: NOTICE:  relation "idx_ksk_report_totals_by_payment_type_data_header" already exists, skipping
+CREATE INDEX
+COMMENT
+                               ?column?                                
+-----------------------------------------------------------------------
+ [ksk_report_totals_by_payment_type_data] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2456: NOTICE:  [ksk_report_list_totals_by_payment_type_data] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2462: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.report_header_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2463: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.created_date_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2464: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.list_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2465: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2466: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2467: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2468: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2469: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2470: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2471: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2472: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2473: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2474: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2475: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2476: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2477: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2478: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2479: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2480: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2481: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2482: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2483: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2484: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2485: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2486: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2487: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2488: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2489: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2490: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2491: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2492: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2493: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2494: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2495: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2496: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2497: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2498: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2499: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2500: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                                ?column?                                                
+--------------------------------------------------------------------------------------------------------
+ [ksk_report_list_totals_by_payment_type_data] ✅ Проверка и добавление колонок завершена (39 колонок!)
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2536: NOTICE:  [ksk_report_list_totals_by_payment_type_data] ℹ️  Ненужных индексов не найдено
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2546: NOTICE:  relation "idx_ksk_report_list_totals_by_payment_type_data_header" already exists, skipping
+CREATE INDEX
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2554: NOTICE:  relation "idx_ksk_report_list_totals_by_payment_type_data_list_code" already exists, skipping
+CREATE INDEX
+COMMENT
+                                  ?column?                                  
+----------------------------------------------------------------------------
+ [ksk_report_list_totals_by_payment_type_data] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2651: NOTICE:  [ksk_report_figurants_data] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2657: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.report_header_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2658: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.created_date_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2659: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.list_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2660: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.name_figurant уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2661: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.president_group уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2662: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.auto_login уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2663: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.exclusion_phrase уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2664: NOTICE:  [add_column_if_not_exists] ✅ Столбец upoa_ksk_reports.ksk_report_figurants_data.exclusion_name_list добавлен как TEXT
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2665: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2666: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2667: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2668: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2669: NOTICE:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                ?column?                                
+------------------------------------------------------------------------
+ [ksk_report_figurants_data] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2704: NOTICE:  [ksk_report_figurants_data] ℹ️  Ненужных индексов не найдено
+DO
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:2714: NOTICE:  relation "idx_ksk_report_figurants_data_header" already exists, skipping
+CREATE INDEX
+COMMENT
+                         ?column?                         
+----------------------------------------------------------
+ [ksk_report_figurants_data] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:5024: NOTICE:  function create_ksk_partitions(text,date,pg_catalog.int4) does not exist, skipping
+DROP FUNCTION
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:5025: NOTICE:  function create_ksk_partitions_for_all_tables(date,pg_catalog.int4) does not exist, skipping
+DROP FUNCTION
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:5026: NOTICE:  function list_all_ksk_partitions() does not exist, skipping
+DROP FUNCTION
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:5027: NOTICE:  function drop_old_ksk_partitions(pg_catalog.int4) does not exist, skipping
+DROP FUNCTION
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:5033: NOTICE:  ✓ Удалены устаревшие функции управления партициями
+DO
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:6536: ERROR:  relation "cron.job" does not exist
+LINE 1: SELECT jobid FROM cron.job WHERE jobname LIKE 'ksk_%'
+                          ^
+QUERY:  SELECT jobid FROM cron.job WHERE jobname LIKE 'ksk_%'
+CONTEXT:  PL/pgSQL function inline_code_block line 5 at FOR over SELECT rows
+psql:C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql:6536: STATEMENT:  DO $$
+DECLARE
+    rec RECORD;
+BEGIN
+    FOR rec IN SELECT jobid FROM cron.job WHERE jobname LIKE 'ksk_%'
+    LOOP
+        PERFORM cron.unschedule(rec.jobid);
+    END LOOP;
+END $$;

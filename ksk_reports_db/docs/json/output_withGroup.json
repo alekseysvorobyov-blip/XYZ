@@ -1,0 +1,108 @@
+{
+  "errors": [],
+  "headerInfo": {
+    "requestId": null,
+    "corrId": "Wli/2XOQYR7W7uX/8OQOP+XeBRzaWzXyaU0ebA==",
+    "requestMsgDateTime": "2025-10-29T09:41:22.799Z"
+  },
+  "searchCheckResultKCKH": [
+    {
+      "objectType": "2",
+      "nameFigurant": "Кредиты и займы_выдача",
+      "currency": "",
+      "thresholdAmount": "",
+      "idRecord": "1",
+      "recType": "",
+      "searchValuePhrase": "кредит; займ; заим; заем; предоставление кредита; представление кредита; предоставление займа; предоставление кредитной линии; предоставление по кредитному; представление займа; предоставление ссуды; представление ссуды; выдача кредита; выдача займа; выдача ссуды; выдача по кредитному; предоставления кредитной линии; открытия кредитной линии; открытие кредитной линии; предоставление по договору займа; выдача по договору займа; предоставление беспроцентного; представление беспроцентного; выдача беспроцентного; предоставление микрозайма; предоставление микрозаима; представление микрозайма; представление микрозаима; выдача микрозайма; выдача миркозаима; предоставление процентного; представление процентного; выдача процентного; фин помощь; финанс помощь; финансовая помощ; финансовой помощ; выплата по договору займа; выплата по договору заима; выплата по договору процентного; выплата по договору беспроцент; выплата по договору безпроцент; issuing of loan; issuing of the loan; issuing of a loan; issuance of loan; issuance of the loan; issuance of a loan; issuing of credit; issuing of the credit; issuing of a credit; issuance of credit; issuance of the credit; issuance of a credit; borrow; zaim; zaem; zajm; loan; lend; borrow; bank line; credit line; kredit line; kreditn lini; financial assistance; fin assistance; fin pomosh; finans pomosh; VO40031; VO40032; VO40031; VO40032; ВО40031; ВО40032; V040031; V040031; V040031; V040032",
+      "taxNumber": "",
+      "bic": "",
+      "account": "",
+      "altChannel": "да",
+      "birthYear": "",
+      "birthDate": "",
+      "citizenship": "",
+      "birthPlace": "",
+      "addrReg": "",
+      "regDate": "",
+      "location": "",
+      "docSerOkpo": "",
+      "docNumOgrn": "",
+      "docDetails": "",
+      "addInfo": "",
+      "dateIn": "",
+      "dateOut": "",
+      "swift": "",
+      "extraParam1": "",
+      "extraParam2": "",
+      "hashSum": "753dba7a1e2b2511de6aaefc613b7aeb",
+      "presidentGroup": "none",
+      "match": [
+        {
+          "algorithm": "SEARCH_WORDS_DOPB",
+          "paymentField": "receiverName",
+          "paymentValue": "АО КБ АГРОПРОМКРЕДИТ",
+          "value": "кредит"
+        }
+      ],
+      "autoLogin": true,
+      "listCode": "4200",
+      "searchCheckResultsExclusionList": {
+        "nameList": "Кредиты и займы_выдача",
+        "phrasesToExclude": [
+          "возврат"
+        ]
+      }
+    },
+    {
+      "objectType": "2",
+      "nameFigurant": "Платежи с подконтрольными лицами_Предоставление кредитов и займов",
+      "currency": "",
+      "thresholdAmount": "",
+      "idRecord": "1",
+      "recType": "",
+      "searchValuePhrase": "предоставление кредита; представление кредита; предоставление займа; представление займа; предоставление ссуды; представление ссуды; выдача ссуды; выдача займа; выдача кредита; предоставление по кредитному договору; выдача по кредитному договору; предоставление микрозайма; выдача микрозайма; займ; кредит; Loan; lending; VO40031; VO40032; VO40031; VO40032; ВО40031; ВО40032; V040031; V040031; V040031; V040032",
+      "taxNumber": "",
+      "bic": "",
+      "account": "",
+      "altChannel": "нет",
+      "birthYear": "",
+      "birthDate": "",
+      "citizenship": "",
+      "birthPlace": "",
+      "addrReg": "",
+      "regDate": "",
+      "location": "",
+      "docSerOkpo": "",
+      "docNumOgrn": "",
+      "docDetails": "",
+      "addInfo": "",
+      "dateIn": "",
+      "dateOut": "",
+      "swift": "",
+      "extraParam1": "",
+      "extraParam2": "",
+      "hashSum": "cd738e1809b4b8548086df18ff54eef7",
+      "presidentGroup": "part",
+      "match": [
+        {
+          "algorithm": "SEARCH_WORDS_DOPB",
+          "paymentField": "receiverName",
+          "paymentValue": "АО КБ АГРОПРОМКРЕДИТ",
+          "value": "кредит"
+        }
+      ],
+      "autoLogin": false,
+      "listCode": "4204"
+    }
+  ],
+  "presidentGroupsKCKH": [
+    {
+      "full": false,
+      "listCodes": [
+        "4204"
+      ],
+      "fullGroupId": null,
+      "fullGroupName": null
+    }
+  ]
+}

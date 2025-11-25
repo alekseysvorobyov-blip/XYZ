@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КСК Отчёты - Итоги по спискам и типам платежей</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .report-info {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.85em;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #495057;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tbody tr:hover {
+            background: #f8f9fa;
+            transition: background 0.3s;
+        }
+
+        .number {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-weight: 500;
+        }
+
+        .list-code {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .payment-type-header {
+            background: #e7eaff !important;
+            color: #495057 !important;
+            font-style: italic;
+        }
+
+        .subtotal-row {
+            background: #fff3cd;
+            font-weight: bold;
+        }
+
+        .total-row {
+            background: #d1ecf1;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .stat-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge-allow {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-review {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge-deny {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .badge-bypass {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Итоги по спискам и типам платежей</h1>
+            <p>Детальная статистика с разбивкой по типам платежей</p>
+        </div>
+
+        <div class="content">
+            <!-- Информация об отчёте -->
+            <div class="report-info">
+                <div class="info-item">
+                    <div class="info-label">Период отчёта</div>
+                    <div class="info-value">25.10.2025</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Дата создания</div>
+                    <div class="info-value">25.10.2025 16:30</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Всего списков</div>
+                    <div class="info-value">3</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Всего транзакций</div>
+                    <div class="info-value">1,350</div>
+                </div>
+            </div>
+
+            <!-- Основная таблица -->
+            <h2 class="section-title">Детальная статистика по спискам</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Код списка</th>
+                            <th>Тип платежа</th>
+                            <th class="number">Всего</th>
+                            <th class="number">✅ Allow</th>
+                            <th class="number">⚠️ Review</th>
+                            <th class="number">❌ Deny</th>
+                            <th class="number">🔄 Bypass</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Список 4200 -->
+                        <tr>
+                            <td rowspan="6" class="list-code">4200</td>
+                            <td>📤 Входящий (i_*)</td>
+                            <td class="number">250</td>
+                            <td class="number">200</td>
+                            <td class="number">40</td>
+                            <td class="number">10</td>
+                            <td class="number">5</td>
+                        </tr>
+                        <tr>
+                            <td>📥 Исходящий (o_*)</td>
+                            <td class="number">220</td>
+                            <td class="number">180</td>
+                            <td class="number">35</td>
+                            <td class="number">5</td>
+                            <td class="number">3</td>
+                        </tr>
+                        <tr>
+                            <td>🔄 Транзитный (t_*)</td>
+                            <td class="number">200</td>
+                            <td class="number">165</td>
+                            <td class="number">30</td>
+                            <td class="number">5</td>
+                            <td class="number">2</td>
+                        </tr>
+                        <tr>
+                            <td>🏢 Межфилиальный (m_*)</td>
+                            <td class="number">120</td>
+                            <td class="number">100</td>
+                            <td class="number">15</td>
+                            <td class="number">5</td>
+                            <td class="number">1</td>
+                        </tr>
+                        <tr>
+                            <td>🏦 Внутрифилиальный (v_*)</td>
+                            <td class="number">60</td>
+                            <td class="number">55</td>
+                            <td class="number">0</td>
+                            <td class="number">5</td>
+                            <td class="number">0</td>
+                        </tr>
+                        <tr class="subtotal-row">
+                            <td><strong>ИТОГО по списку 4200</strong></td>
+                            <td class="number"><strong>850</strong></td>
+                            <td class="number"><strong>700</strong></td>
+                            <td class="number"><strong>120</strong></td>
+                            <td class="number"><strong>30</strong></td>
+                            <td class="number"><strong>11</strong></td>
+                        </tr>
+
+                        <!-- Список 4201 -->
+                        <tr>
+                            <td rowspan="6" class="list-code">4201</td>
+                            <td>📤 Входящий (i_*)</td>
+                            <td class="number">150</td>
+                            <td class="number">130</td>
+                            <td class="number">18</td>
+                            <td class="number">2</td>
+                            <td class="number">1</td>
+                        </tr>
+                        <tr>
+                            <td>📥 Исходящий (o_*)</td>
+                            <td class="number">80</td>
+                            <td class="number">70</td>
+                            <td class="number">8</td>
+                            <td class="number">2</td>
+                            <td class="number">0</td>
+                        </tr>
+                        <tr>
+                            <td>🔄 Транзитный (t_*)</td>
+                            <td class="number">50</td>
+                            <td class="number">45</td>
+                            <td class="number">3</td>
+                            <td class="number">2</td>
+                            <td class="number">0</td>
+                        </tr>
+                        <tr>
+                            <td>🏢 Межфилиальный (m_*)</td>
+                            <td class="number">30</td>
+                            <td class="number">28</td>
+                            <td class="number">1</td>
+                            <td class="number">1</td>
+                            <td class="number">0</td>
+                        </tr>
+                        <tr>
+                            <td>🏦 Внутрифилиальный (v_*)</td>
+                            <td class="number">10</td>
+                            <td class="number">7</td>
+                            <td class="number">0</td>
+                            <td class="number">3</td>
+                            <td class="number">0</td>
+                        </tr>
+                        <tr class="subtotal-row">
+                            <td><strong>ИТОГО по списку 4201</strong></td>
+                            <td class="number"><strong>320</strong></td>
+                            <td class="number"><strong>280</strong></td>
+                            <td class="number"><strong>30</strong></td>
+                            <td class="number"><strong>10</strong></td>
+                            <td class="number"><strong>1</strong></td>
+                        </tr>
+
+                        <!-- Список 4202 -->
+                        <tr>
+                            <td rowspan="6" class="list-code">4202</td>
+                            <td>📤 Входящий (i_*)</td>
+                            <td class="number">80</td>
+                            <td class="number">72</td>
+                            <td class="number">6</td>
+                            <td class="number">2</td>
+                            <td class="number">0</td>
+                        </tr>
+                        <tr>
+                            <td>📥 Исходящий (o_*)</td>
+                            <td class="number">50</td>
+                            <td class="number">45</td>
+                            <td class="number">4</td>
+                            <td class="number">1</td>
+                            <td class="number">0</td>
+                        </tr>
+                        <tr>
+                            <td>🔄 Транзитный (t_*)</td>
+                            <td class="number">30</td>
+                            <td class="number">28</td>
+                            <td class="number">2</td>
+                            <td class="number">0</td>
+                            <td class="number">0</td>
+                        </tr>
+                        <tr>
+                            <td>🏢 Межфилиальный (m_*)</td>
+                            <td class="number">15</td>
+                            <td class="number">13</td>
+                            <td class="number">2</td>
+                            <td class="number">0</td>
+                            <td class="number">0</td>
+                        </tr>
+                        <tr>
+                            <td>🏦 Внутрифилиальный (v_*)</td>
+                            <td class="number">5</td>
+                            <td class="number">2</td>
+                            <td class="number">1</td>
+                            <td class="number">2</td>
+                            <td class="number">0</td>
+                        </tr>
+                        <tr class="subtotal-row">
+                            <td><strong>ИТОГО по списку 4202</strong></td>
+                            <td class="number"><strong>180</strong></td>
+                            <td class="number"><strong>160</strong></td>
+                            <td class="number"><strong>15</strong></td>
+                            <td class="number"><strong>5</strong></td>
+                            <td class="number"><strong>0</strong></td>
+                        </tr>
+
+                        <!-- ОБЩИЙ ИТОГ -->
+                        <tr class="total-row">
+                            <td colspan="2"><strong>🎯 ОБЩИЙ ИТОГ</strong></td>
+                            <td class="number"><strong>1,350</strong></td>
+                            <td class="number"><strong>1,140</strong></td>
+                            <td class="number"><strong>165</strong></td>
+                            <td class="number"><strong>45</strong></td>
+                            <td class="number"><strong>12</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Статистика по типам платежей -->
+            <h2 class="section-title">Итоги по типам платежей (все списки)</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Тип платежа</th>
+                            <th class="number">Всего</th>
+                            <th class="number">✅ Allow</th>
+                            <th class="number">⚠️ Review</th>
+                            <th class="number">❌ Deny</th>
+                            <th class="number">🔄 Bypass</th>
+                            <th class="number">% Allow</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>📤 Входящий (i_*)</td>
+                            <td class="number">480</td>
+                            <td class="number">402</td>
+                            <td class="number">64</td>
+                            <td class="number">14</td>
+                            <td class="number">6</td>
+                            <td class="number">83.8%</td>
+                        </tr>
+                        <tr>
+                            <td>📥 Исходящий (o_*)</td>
+                            <td class="number">350</td>
+                            <td class="number">295</td>
+                            <td class="number">47</td>
+                            <td class="number">8</td>
+                            <td class="number">3</td>
+                            <td class="number">84.3%</td>
+                        </tr>
+                        <tr>
+                            <td>🔄 Транзитный (t_*)</td>
+                            <td class="number">280</td>
+                            <td class="number">238</td>
+                            <td class="number">35</td>
+                            <td class="number">7</td>
+                            <td class="number">2</td>
+                            <td class="number">85.0%</td>
+                        </tr>
+                        <tr>
+                            <td>🏢 Межфилиальный (m_*)</td>
+                            <td class="number">165</td>
+                            <td class="number">141</td>
+                            <td class="number">18</td>
+                            <td class="number">6</td>
+                            <td class="number">1</td>
+                            <td class="number">85.5%</td>
+                        </tr>
+                        <tr>
+                            <td>🏦 Внутрифилиальный (v_*)</td>
+                            <td class="number">75</td>
+                            <td class="number">64</td>
+                            <td class="number">1</td>
+                            <td class="number">10</td>
+                            <td class="number">0</td>
+                            <td class="number">85.3%</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td><strong>🎯 ОБЩИЙ ИТОГ</strong></td>
+                            <td class="number"><strong>1,350</strong></td>
+                            <td class="number"><strong>1,140</strong></td>
+                            <td class="number"><strong>165</strong></td>
+                            <td class="number"><strong>45</strong></td>
+                            <td class="number"><strong>12</strong></td>
+                            <td class="number"><strong>84.4%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <a href="#" class="back-button">← Вернуться к списку отчётов</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+select upoa_ksk_reports.ksk_create_partitions_for_all_tables();

@@ -1,0 +1,52 @@
+{
+  "errors": [],
+  "headerInfo": {
+    "requestId": null,
+    "corrId": "c0669510-4d94-446d-82b8-29871ff3566c",
+    "requestMsgDateTime": "2025-10-27T11:27:16.349Z"
+  },
+  "searchCheckResultKCKH": [
+    {
+      "objectType": "6",
+      "nameFigurant": "Суда",
+      "currency": "",
+      "thresholdAmount": "",
+      "idRecord": "4",
+      "recType": "",
+      "searchValuePhrase": "авианос; аэробус; аэростат; балкер; барж; боинг; буевницы; буксир; вертолет; винтокрыл; газовоз; дебаркадер; дельтаплан; дирижабл; драгер; истребител; катер; контейнеровоз; корабль; крейсер; ледокол; летательный аппарат; линкор; лодк; лодок; миноносец; моноплан; мотозавозни; параплан; планер; самолет; судна; судно; судов; сухогруз; танкер; яхта; яхты; aerostat; airbus; aircraft; airframe; airplane; balloon; barge; battle ship; battle wagon; battleship; blimp; blimp; Blitz; boeing; boot; bulk carrier; bulk ship; bulker; canal boat; Cheetah; container carrier; container ship; container vessel; containership; cruiser; cruiser; cutter; Cyclone; destoyer; dirigible; dreadnought; dry cargo; Eagle; exterminator; extirpator; Falcon; Falke; fighter; flatboat; flattop; gas carrier; gas truck; Gepard; glider; gyrodyne; helicopter; ice breaker icebreaker; Jaguar; jet; jetty; landing stage; launch; Leopard; Lion; LNG carrier; monoplane; motorboat; obliterator; Panther; paragliding; planner; power kite; powerboat; rotorcraft; sailplane; scow; ship; Shrike; speedboat; SUKHOI; SUPERJET; Swallow; Taifun; tanker; Thunderbolt; Tiger; Tornado; torpedo boat; torpedoboat; tow; tug; Typhoon; vessel; warplane; warship; zeppelin; Zyklon",
+      "taxNumber": "",
+      "bic": "",
+      "account": "",
+      "altChannel": "да",
+      "birthYear": "",
+      "birthDate": "",
+      "citizenship": "",
+      "birthPlace": "",
+      "addrReg": "",
+      "regDate": "",
+      "location": "",
+      "docSerOkpo": "",
+      "docNumOgrn": "",
+      "docDetails": "",
+      "addInfo": "",
+      "dateIn": "",
+      "dateOut": "",
+      "swift": "",
+      "extraParam1": "",
+      "extraParam2": "",
+      "hashSum": "899f8a1e3c79738fa39712ca986c88e7",
+      "presidentGroup": "none",
+      "match": [
+        {
+          "algorithm": "SEARCH_WORDS_DOPB",
+          "paymentField": "paymentPurpose",
+          "paymentValue": "вертолет",
+          "value": "вертолет"
+        }
+      ],
+      "autoLogin": false,
+      "listCode": "4200"
+    }
+  ],
+  "presidentGroupsKCKH": []
+}
