@@ -53,7 +53,7 @@ BEGIN
         parameters
     ) VALUES (
         v_orchestrator_id,
-        v_name || ' (' || p_start_date || ' - ' || p_end_date || ')',
+        v_name || ' (' || p_start_date || ' - ' || p_end_date - interval '1 day' || ')',
         p_initiator,
         p_user_login,
         'in_progress',

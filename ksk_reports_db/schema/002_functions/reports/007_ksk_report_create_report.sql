@@ -6,8 +6,10 @@
 --   2025-11-26 - FIX: end_date исключающий, валидация end_date >= start_date
 -- ============================================================================
 
-CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_create_report(p_header_id INTEGER)
-RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_create_report(p_header_id integer)
+ RETURNS integer
+ LANGUAGE plpgsql
+AS $function$
 DECLARE
     v_orchestrator_id INTEGER;
     v_report_function VARCHAR;
@@ -88,6 +90,9 @@ BEGIN
     -- Установка end_date по умолчанию (исключающий интервал [start_date ... start_date+1day))
     IF rec.end_date IS NULL OR rec.end_date = rec.start_date THEN
         rec.end_date := (rec.start_date + INTERVAL '1 day')::DATE;
+        UPDATE upoa_ksk_reports.ksk_report_header
+        SET end_date = rec.end_date
+        WHERE id = rec.id;       
     END IF;
 
     -- Получение метаданных из оркестратора
@@ -215,7 +220,8 @@ BEGIN
         RETURN -1*v_log_id;
     END;
 END;
-$$ LANGUAGE plpgsql;
+$function$
+;
 
 COMMENT ON FUNCTION ksk_report_create_report(INTEGER) IS
     'Создаёт отчёт по header_id. Фильтр [start_date..end_date). При NULL/равных датах = start_date + 1 day';
