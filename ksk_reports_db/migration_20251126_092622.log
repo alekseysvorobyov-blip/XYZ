@@ -1,0 +1,1668 @@
+SET
+SET
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:27: ЗАМЕЧАНИЕ:  Схема upoa_ksk_reports уже существует
+DO
+SET
+CREATE FUNCTION
+CREATE FUNCTION
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:367: ЗАМЕЧАНИЕ:  [ksk_result] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:375: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:376: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.corr_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:377: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.input_timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:378: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.output_timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:379: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.input_json уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:380: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.output_json уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:381: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payment_type уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:382: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.resolution уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:383: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.list_codes уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:384: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.has_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:385: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payment_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:386: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payment_purpose уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:387: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.account_debet уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:388: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.account_credit уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:389: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_inn уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:390: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:391: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_account_number уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:392: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_document_type уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:393: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_bank_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:394: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.payer_bank_account_number уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:395: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_account_number уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:396: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:397: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_inn уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:398: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_bank_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:399: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_bank_account_number уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:400: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.receiver_document_type уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:401: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.amount уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:402: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.currency уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:403: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.currency_control уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:406: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.input_kafka_headers уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:407: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.output_kafka_headers уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:410: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.input_kafka_partition уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:411: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.input_kafka_offset уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:414: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result.created_date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+COMMENT
+                                      ?column?                                       
+-------------------------------------------------------------------------------------
+ [ksk_result] ✅ Проверка и добавление колонок завершена (35 + 4 Kafka = 39 колонок)
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:444: ЗАМЕЧАНИЕ:  [ksk_result] ✅ STORAGE EXTERNAL установлен для input_kafka_headers
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:444: ЗАМЕЧАНИЕ:  [ksk_result] ✅ STORAGE EXTERNAL установлен для output_kafka_headers
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:457: ЗАМЕЧАНИЕ:  отношение "idx_ksk_result_corr_id" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:469: ЗАМЕЧАНИЕ:  отношение "idx_ksk_result_output_ts_brin" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:481: ЗАМЕЧАНИЕ:  отношение "idx_ksk_result_aggregation" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:491: ЗАМЕЧАНИЕ:  отношение "idx_ksk_result_list_codes_gin" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:501: ЗАМЕЧАНИЕ:  отношение "idx_ksk_result_payment_type" уже существует, пропускается
+CREATE INDEX
+COMMENT
+                        ?column?                        
+--------------------------------------------------------
+ [ksk_result] ✅ Индексы созданы/проверены (5 индексов)
+(1 row)
+
+COMMIT
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:631: ЗАМЕЧАНИЕ:  [ksk_figurant] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:639: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.source_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:640: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:641: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:642: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.figurant уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:643: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.figurant_index уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:644: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.resolution уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:645: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.is_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:646: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.list_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:647: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.name_figurant уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:648: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.president_group уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:649: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.auto_login уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:650: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.has_exclusion уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:651: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.exclusion_phrase уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:652: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.exclusion_name_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:653: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant.bypass_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+COMMENT
+                         ?column?                          
+-----------------------------------------------------------
+ [ksk_figurant] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:702: ЗАМЕЧАНИЕ:  [ksk_figurant] ℹ️  Ненужных индексов не найдено, пропуск удаления
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:717: ЗАМЕЧАНИЕ:  отношение "idx_ksk_figurant_ts_brin" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:727: ЗАМЕЧАНИЕ:  отношение "idx_ksk_figurant_list_code" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:736: ЗАМЕЧАНИЕ:  отношение "idx_ksk_figurant_source_id" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:745: ЗАМЕЧАНИЕ:  отношение "idx_ksk_figurant_resolution" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:755: ЗАМЕЧАНИЕ:  отношение "idx_ksk_figurant_is_bypass_yes" уже существует, пропускается
+CREATE INDEX
+COMMENT
+                  ?column?                   
+---------------------------------------------
+ [ksk_figurant] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:867: ЗАМЕЧАНИЕ:  [ksk_figurant_match] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:875: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.figurant_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:876: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:877: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:878: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.match уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:879: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.match_index уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:880: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.algorithm уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:881: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.match_value уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:882: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.match_payment_field уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:883: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_figurant_match.match_payment_value уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                            ?column?                             
+-----------------------------------------------------------------
+ [ksk_figurant_match] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:926: ЗАМЕЧАНИЕ:  [ksk_figurant_match] ℹ️  Ненужных индексов не найдено, пропуск удаления
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:941: ЗАМЕЧАНИЕ:  отношение "idx_ksk_match_ts_brin" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:950: ЗАМЕЧАНИЕ:  отношение "idx_ksk_match_figurant_id" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:959: ЗАМЕЧАНИЕ:  отношение "idx_ksk_match_algorithm" уже существует, пропускается
+CREATE INDEX
+COMMENT
+                     ?column?                      
+---------------------------------------------------
+ [ksk_figurant_match] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1057: ЗАМЕЧАНИЕ:  [ksk_system_operations_log] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1065: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.operation_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1066: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.operation_name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1067: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.begin_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1068: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.end_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1069: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.duration уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1070: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.status уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1071: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.info уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1072: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_system_operations_log.err_msg уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                ?column?                                
+------------------------------------------------------------------------
+ [ksk_system_operations_log] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1115: ЗАМЕЧАНИЕ:  [ksk_system_operations_log] ℹ️  Ненужных индексов не найдено, пропуск удаления
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1128: ЗАМЕЧАНИЕ:  отношение "idx_ksk_system_operations_log_operation_code" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1137: ЗАМЕЧАНИЕ:  отношение "idx_ksk_system_operations_log_begin_time" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1146: ЗАМЕЧАНИЕ:  отношение "idx_ksk_system_operations_log_status" уже существует, пропускается
+CREATE INDEX
+COMMENT
+                         ?column?                         
+----------------------------------------------------------
+ [ksk_system_operations_log] ✅ Индексы созданы/проверены
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1161: ЗАМЕЧАНИЕ:  ✅ Миграция на TIMESTAMP(3) завершена
+DO
+COMMIT
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1314: ЗАМЕЧАНИЕ:  [ksk_result_error] ⚠ Таблица уже существует, пропускаем создание
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1321: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.error_timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1322: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.error_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1323: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.error_message уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1324: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.input_timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1325: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.output_timestamp уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1326: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.kafka_partition уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1327: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.kafka_offset уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1328: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.input_kafka_headers уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1329: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.output_kafka_headers уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1330: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.corr_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1331: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.input_json уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1332: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.output_json уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1333: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_result_error.function_context уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                            status                             
+---------------------------------------------------------------
+ [ksk_result_error] ✅ Проверка колонок завершена (13 колонок)
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1375: ЗАМЕЧАНИЕ:  [ksk_result_error] ✅ установлен STORAGE EXTERNAL для input_json
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1375: ЗАМЕЧАНИЕ:  [ksk_result_error] ✅ установлен STORAGE EXTERNAL для output_json
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1375: ЗАМЕЧАНИЕ:  [ksk_result_error] ✅ установлен STORAGE EXTERNAL для input_kafka_headers
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1375: ЗАМЕЧАНИЕ:  [ksk_result_error] ✅ установлен STORAGE EXTERNAL для output_kafka_headers
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1413: ЗАМЕЧАНИЕ:  [ksk_result_error] ℹ️  нет ненужных индексов для удаления
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1424: ЗАМЕЧАНИЕ:  отношение "idx_ksk_result_error_timestamp" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1431: ЗАМЕЧАНИЕ:  отношение "idx_ksk_result_error_error_code" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1438: ЗАМЕЧАНИЕ:  отношение "idx_ksk_result_error_kafka_meta" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1446: ЗАМЕЧАНИЕ:  отношение "idx_ksk_result_error_corr_id" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1455: ЗАМЕЧАНИЕ:  отношение "idx_ksk_result_error_output_ts" уже существует, пропускается
+CREATE INDEX
+COMMENT
+                  status                  
+------------------------------------------
+ [ksk_result_error] ✅ создано 5 индексов
+(1 row)
+
+COMMIT
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1549: ЗАМЕЧАНИЕ:  [ksk_report_orchestrator] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1554: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.report_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1555: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.report_table уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1556: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.report_function уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1557: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1558: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.system_ttl уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1559: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.user_ttl уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1560: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.created_at уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1561: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_orchestrator.updated_at уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                status                                
+----------------------------------------------------------------------
+ [ksk_report_orchestrator] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1606: ЗАМЕЧАНИЕ:  [ksk_report_orchestrator] ℹ️  Дублирующих индексов не найдено
+DO
+INSERT 0 0
+                                   status                                   
+----------------------------------------------------------------------------
+ [ksk_report_orchestrator] ✅ Оркестратор инициализирован (5 типов отчётов)
+(1 row)
+
+COMMIT
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1719: ЗАМЕЧАНИЕ:  [ksk_report_header] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1725: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.orchestrator_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1726: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.name уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1727: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.initiator уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1728: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.user_login уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1729: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.created_datetime уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1730: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.finished_datetime уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1731: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.status уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1732: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.ttl уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1733: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.remove_date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1734: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.start_date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1735: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.end_date уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1736: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_header.parameters уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                            ?column?                            
+----------------------------------------------------------------
+ [ksk_report_header] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1774: ЗАМЕЧАНИЕ:  [ksk_report_header] ℹ️  Ненужных индексов не найдено
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1785: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_header_orchestrator" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1794: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_header_status" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1803: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_header_remove_date" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1812: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_header_created" уже существует, пропускается
+CREATE INDEX
+COMMENT
+                     ?column?                     
+--------------------------------------------------
+ [ksk_report_header] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1895: ЗАМЕЧАНИЕ:  [ksk_report_totals_data] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1901: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.report_header_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1902: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.created_date_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1903: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1904: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1905: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1906: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1907: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1908: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1909: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_data.total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                              ?column?                               
+---------------------------------------------------------------------
+ [ksk_report_totals_data] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1945: ЗАМЕЧАНИЕ:  [ksk_report_totals_data] ℹ️  Ненужных индексов не найдено
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1955: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_totals_data_header" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:1963: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_totals_data_created" уже существует, пропускается
+CREATE INDEX
+COMMENT
+                       ?column?                        
+-------------------------------------------------------
+ [ksk_report_totals_data] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2048: ЗАМЕЧАНИЕ:  [ksk_report_list_totals_data] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2054: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.report_header_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2055: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.created_date_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2056: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.list_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2057: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2058: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2059: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2060: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2061: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2062: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_data.total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                 ?column?                                 
+--------------------------------------------------------------------------
+ [ksk_report_list_totals_data] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2099: ЗАМЕЧАНИЕ:  [ksk_report_list_totals_data] ℹ️  Ненужных индексов не найдено
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2109: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_list_totals_data_header" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2117: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_list_totals_data_created" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2125: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_list_totals_data_list_code" уже существует, пропускается
+CREATE INDEX
+COMMENT
+                          ?column?                          
+------------------------------------------------------------
+ [ksk_report_list_totals_data] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2249: ЗАМЕЧАНИЕ:  [ksk_report_totals_by_payment_type_data] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2255: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.report_header_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2256: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.created_date_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2257: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2258: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2259: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2260: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2261: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2262: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2263: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2264: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2265: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2266: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2267: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2268: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2269: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2270: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.i_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2271: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2272: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2273: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2274: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2275: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2276: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2277: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.o_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2278: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2279: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2280: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2281: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2282: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2283: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2284: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.t_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2285: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2286: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2287: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2288: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2289: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2290: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2291: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.m_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2292: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2293: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_without_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2294: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_with_result уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2295: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2296: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2297: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2298: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_totals_by_payment_type_data.v_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                             ?column?                                              
+---------------------------------------------------------------------------------------------------
+ [ksk_report_totals_by_payment_type_data] ✅ Проверка и добавление колонок завершена (44 колонки!)
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2333: ЗАМЕЧАНИЕ:  [ksk_report_totals_by_payment_type_data] ℹ️  Ненужных индексов не найдено
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2343: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_totals_by_payment_type_data_header" уже существует, пропускается
+CREATE INDEX
+COMMENT
+                               ?column?                                
+-----------------------------------------------------------------------
+ [ksk_report_totals_by_payment_type_data] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2456: ЗАМЕЧАНИЕ:  [ksk_report_list_totals_by_payment_type_data] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2462: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.report_header_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2463: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.created_date_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2464: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.list_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2465: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2466: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2467: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2468: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2469: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2470: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2471: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2472: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2473: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2474: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2475: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2476: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.i_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2477: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2478: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2479: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2480: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2481: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2482: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.o_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2483: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2484: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2485: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2486: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2487: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2488: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.t_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2489: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2490: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2491: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2492: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2493: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2494: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.m_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2495: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_with_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2496: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_without_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2497: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2498: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2499: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2500: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_list_totals_by_payment_type_data.v_total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                                ?column?                                                
+--------------------------------------------------------------------------------------------------------
+ [ksk_report_list_totals_by_payment_type_data] ✅ Проверка и добавление колонок завершена (39 колонок!)
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2536: ЗАМЕЧАНИЕ:  [ksk_report_list_totals_by_payment_type_data] ℹ️  Ненужных индексов не найдено
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2546: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_list_totals_by_payment_type_data_header" уже существует, пропускается
+CREATE INDEX
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2554: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_list_totals_by_payment_type_data_list_code" уже существует, пропускается
+CREATE INDEX
+COMMENT
+                                  ?column?                                  
+----------------------------------------------------------------------------
+ [ksk_report_list_totals_by_payment_type_data] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+BEGIN
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2651: ЗАМЕЧАНИЕ:  [ksk_report_figurants_data] ℹ️  Таблица уже существует, пропуск создания
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2657: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.report_header_id уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2658: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.created_date_time уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2659: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.list_code уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2660: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.name_figurant уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2661: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.president_group уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2662: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.auto_login уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2663: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.exclusion_phrase уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2664: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.exclusion_name_list уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2665: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.total уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2666: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.total_allow уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2667: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.total_review уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2668: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.total_deny уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2669: ЗАМЕЧАНИЕ:  [add_column_if_not_exists] ℹ️  Столбец upoa_ksk_reports.ksk_report_figurants_data.total_bypass уже существует
+ add_column_if_not_exists 
+--------------------------
+ 
+(1 row)
+
+                                ?column?                                
+------------------------------------------------------------------------
+ [ksk_report_figurants_data] ✅ Проверка и добавление колонок завершена
+(1 row)
+
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2704: ЗАМЕЧАНИЕ:  [ksk_report_figurants_data] ℹ️  Ненужных индексов не найдено
+DO
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:2714: ЗАМЕЧАНИЕ:  отношение "idx_ksk_report_figurants_data_header" уже существует, пропускается
+CREATE INDEX
+COMMENT
+                         ?column?                         
+----------------------------------------------------------
+ [ksk_report_figurants_data] ✅ Индексы созданы/проверены
+(1 row)
+
+COMMIT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:5005: ЗАМЕЧАНИЕ:  функция create_ksk_partitions(text,date,pg_catalog.int4) не существует, пропускается
+DROP FUNCTION
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:5006: ЗАМЕЧАНИЕ:  функция create_ksk_partitions_for_all_tables(date,pg_catalog.int4) не существует, пропускается
+DROP FUNCTION
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:5007: ЗАМЕЧАНИЕ:  функция list_all_ksk_partitions() не существует, пропускается
+DROP FUNCTION
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:5008: ЗАМЕЧАНИЕ:  функция drop_old_ksk_partitions(pg_catalog.int4) не существует, пропускается
+DROP FUNCTION
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:5014: ЗАМЕЧАНИЕ:  ✓ Удалены устаревшие функции управления партициями
+DO
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+CREATE FUNCTION
+COMMENT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:6590: ОШИБКА:  отношение "cron.job" не существует
+LINE 1: SELECT jobid FROM cron.job WHERE jobname LIKE 'ksk_%'
+                          ^
+QUERY:  SELECT jobid FROM cron.job WHERE jobname LIKE 'ksk_%'
+CONTEXT:  функция PL/pgSQL inline_code_block, строка 5, оператор FOR по результатам SELECT
+psql:D:/Yandex.Drive/Disk/YandexDisk/���������/���/upoa_ksk_reports/ksk_reports_db/XYZ/ksk_reports_db/migrations/ksk_full_migration-20251126-001.sql:6590: STATEMENT:  DO $$
+DECLARE
+    rec RECORD;
+BEGIN
+    FOR rec IN SELECT jobid FROM cron.job WHERE jobname LIKE 'ksk_%'
+    LOOP
+        PERFORM cron.unschedule(rec.jobid);
+    END LOOP;
+END $$;

@@ -43,11 +43,11 @@ echo ""
 echo "${YELLOW}[ШАГ 1/3]${NC} Установка переменных окружения..."
 
 # --- НАСТРОЙКИ БАЗЫ ДАННЫХ (ИЗМЕНИТЕ НА СВОИ) ---
-export PGHOST="stupoa-00pgp007.innodev.local"           # Хост БД
+export PGHOST="localhost"           # Хост БД
 export PGPORT="5432"                # Порт БД
-export PGDATABASE="upoa_ksk_reports"          # Имя базы данных
-export PGUSER="upoa_ksk_reports_admin"            # Пользователь БД
-export PGPASSWORD="Kd0LOsHt6xC1Qx24igSl6.OWuUFzFIwFDb1.44AUXKZHXZZpwprevw7m.gtra0bieJWFpgAO4dJ0AcxLHZipdFnlN.DGVxccl8GZ-IAf.G2"   # Пароль (или используйте .pgpass)
+export PGDATABASE="postgres"          # Имя базы данных
+export PGUSER="postgres"            # Пользователь БД
+export PGPASSWORD="sloart"   # Пароль (или используйте .pgpass)
 
 # --- ПУТЬ К PSQL (WINDOWS) ---
 # ВАРИАНТ 1: Стандартная установка PostgreSQL 15
@@ -64,7 +64,7 @@ PSQL_PATH="C:/Program Files/pgAdmin 4/runtime/psql.exe"
 # Git Bash понимает оба варианта, но / предпочтительнее
 
 # Пример с абсолютным путём:
-MIGRATION_FILE="C:/KSK/ksk_reports_db/migrations/ksk_full_migration-20251120-001.sql"
+MIGRATION_FILE="D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\migrations\ksk_full_migration-20251126-001.sql"
 
 # Пример с относительным путём (если скрипт в той же папке):
 # MIGRATION_FILE="./ksk_full_migration-20251027-001.sql"

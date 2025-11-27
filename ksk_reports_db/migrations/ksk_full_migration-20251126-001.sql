@@ -1,15 +1,15 @@
 -- ============================================================================
 -- ОБЪЕДИНЕННЫЙ SQL СКРИПТ
 -- ============================================================================
--- Дата создания: 2025-11-20 14:52:22
--- Исходный каталог: C:\KSK\ksk_reports_db\schema
--- Количество файлов: 43
+-- Дата создания: 2025-11-26 09:22:31
+-- Исходный каталог: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema
+-- Количество файлов: 45
 -- ============================================================================
 
 
 -- ============================================================================
 -- ФАЙЛ: 000_initial_script.sql
--- Путь: C:\KSK\ksk_reports_db\schema\000_core\000_initial_script.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\000_core\000_initial_script.sql
 -- Размер: 0.52 KB
 -- ============================================================================
 
@@ -31,7 +31,7 @@ SET search_path TO upoa_ksk_reports, public;
 
 -- ============================================================================
 -- ФАЙЛ: 050_add_column_if_not_exists.sql
--- Путь: C:\KSK\ksk_reports_db\schema\000_core\050_add_column_if_not_exists.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\000_core\050_add_column_if_not_exists.sql
 -- Размер: 4.82 KB
 -- ============================================================================
 
@@ -149,7 +149,7 @@ $function$;
 
 -- ============================================================================
 -- ФАЙЛ: 100_jsonb_object_length.sql
--- Путь: C:\KSK\ksk_reports_db\schema\000_core\100_jsonb_object_length.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\000_core\100_jsonb_object_length.sql
 -- Размер: 2.08 KB
 -- ============================================================================
 
@@ -204,7 +204,7 @@ $function$;
 
 -- ============================================================================
 -- ФАЙЛ: 001_ksk_result.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\core\001_ksk_result.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\core\001_ksk_result.sql
 -- Размер: 18.76 KB
 -- ============================================================================
 
@@ -522,7 +522,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 002_ksk_figurant.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\core\002_ksk_figurant.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\core\002_ksk_figurant.sql
 -- Размер: 13.44 KB
 -- ============================================================================
 
@@ -767,7 +767,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 003_ksk_match.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\core\003_ksk_match.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\core\003_ksk_match.sql
 -- Размер: 11.21 KB
 -- ============================================================================
 
@@ -971,7 +971,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 004_ksk_system_operation_log.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\core\004_ksk_system_operation_log.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\core\004_ksk_system_operation_log.sql
 -- Размер: 10.94 KB
 -- ============================================================================
 
@@ -1169,7 +1169,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 005_ksk_result_error.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\core\005_ksk_result_error.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\core\005_ksk_result_error.sql
 -- Размер: 17.07 KB
 -- ============================================================================
 
@@ -1479,7 +1479,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 001_ksk_report_orchestrator.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\reports\001_ksk_report_orchestrator.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\reports\001_ksk_report_orchestrator.sql
 -- Размер: 8.52 KB
 -- ============================================================================
 
@@ -1629,7 +1629,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 002_ksk_report_header.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\reports\002_ksk_report_header.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\reports\002_ksk_report_header.sql
 -- Размер: 9.85 KB
 -- ============================================================================
 
@@ -1824,7 +1824,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 003_ksk_report_totals_data.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\reports\003_ksk_report_totals_data.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\reports\003_ksk_report_totals_data.sql
 -- Размер: 7.46 KB
 -- ============================================================================
 
@@ -1975,7 +1975,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 004_ksk_report_list_totals_data.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\reports\004_ksk_report_list_totals_data.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\reports\004_ksk_report_list_totals_data.sql
 -- Размер: 8.12 KB
 -- ============================================================================
 
@@ -2137,7 +2137,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 005_ksk_report_totals_by_payment_type_data.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\reports\005_ksk_report_totals_by_payment_type_data.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\reports\005_ksk_report_totals_by_payment_type_data.sql
 -- Размер: 13.3 KB
 -- ============================================================================
 
@@ -2355,7 +2355,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 006_ksk_report_list_totals_by_payment_type_data.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\reports\006_ksk_report_list_totals_by_payment_type_data.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\reports\006_ksk_report_list_totals_by_payment_type_data.sql
 -- Размер: 12.78 KB
 -- ============================================================================
 
@@ -2566,7 +2566,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 007_ksk_report_figurants_data.sql
--- Путь: C:\KSK\ksk_reports_db\schema\001_tables\reports\007_ksk_report_figurants_data.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\001_tables\reports\007_ksk_report_figurants_data.sql
 -- Размер: 8.24 KB
 -- ============================================================================
 
@@ -2726,7 +2726,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 001_ksk_cleanup_empty_records.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\cleanup\001_ksk_cleanup_empty_records.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\cleanup\001_ksk_cleanup_empty_records.sql
 -- Размер: 6.11 KB
 -- ============================================================================
 
@@ -2850,7 +2850,7 @@ COMMENT ON FUNCTION ksk_cleanup_empty_records(INTEGER) IS
 
 -- ============================================================================
 -- ФАЙЛ: 002_ksk_cleanup_with_logging.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\cleanup\002_ksk_cleanup_with_logging.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\cleanup\002_ksk_cleanup_with_logging.sql
 -- Размер: 3.98 KB
 -- ============================================================================
 
@@ -2949,7 +2949,7 @@ COMMENT ON FUNCTION ksk_cleanup_with_logging(INTEGER) IS
 
 -- ============================================================================
 -- ФАЙЛ: 003_ksk_cleanup_empty_partitions.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\cleanup\003_ksk_cleanup_empty_partitions.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\cleanup\003_ksk_cleanup_empty_partitions.sql
 -- Размер: 6.95 KB
 -- ============================================================================
 
@@ -3107,7 +3107,7 @@ COMMENT ON FUNCTION ksk_cleanup_empty_partitions(TEXT, INTEGER) IS
 
 -- ============================================================================
 -- ФАЙЛ: 004_ksk_cleanup_old_logs.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\cleanup\004_ksk_cleanup_old_logs.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\cleanup\004_ksk_cleanup_old_logs.sql
 -- Размер: 2.26 KB
 -- ============================================================================
 
@@ -3174,7 +3174,7 @@ COMMENT ON FUNCTION upoa_ksk_reports.ksk_cleanup_old_logs(INTEGER) IS
 
 -- ============================================================================
 -- ФАЙЛ: 005_ksk_monitor_table_bloat.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\cleanup\005_ksk_monitor_table_bloat.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\cleanup\005_ksk_monitor_table_bloat.sql
 -- Размер: 5.48 KB
 -- ============================================================================
 
@@ -3319,7 +3319,7 @@ COMMENT ON FUNCTION upoa_ksk_reports.ksk_monitor_table_bloat() IS
 
 -- ============================================================================
 -- ФАЙЛ: 001_check_figurant_status_OPTIMIZED.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\core\001_check_figurant_status_OPTIMIZED.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\core\001_check_figurant_status_OPTIMIZED.sql
 -- Размер: 7.86 KB
 -- ============================================================================
 
@@ -3490,68 +3490,82 @@ SELECT check_figurant_status('{"presidentGroup":"invalid","autoLogin":false}'::j
 
 -- ============================================================================
 -- ФАЙЛ: 002_check_transaction_status_OPTIMIZED.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\core\002_check_transaction_status_OPTIMIZED.sql
--- Размер: 8.03 KB
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\core\002_check_transaction_status_OPTIMIZED.sql
+-- Размер: 7.13 KB
 -- ============================================================================
 
 -- ============================================================================
 -- ФУНКЦИЯ: check_transaction_status
 -- ============================================================================
 -- ОПИСАНИЕ:
---   Определяет итоговое решение по транзакции на основе всех фигурантов.
---   
---   Логика агрегации:
---   ┌─────────────────────────────┬─────────────┐
---   │ Условие                     │ Решение     │
---   ├─────────────────────────────┼─────────────┤
---   │ Хотя бы один DENY           │ deny        │
---   │ Нет DENY, есть хотя бы REVIEW│ review      │
---   │ Все ALLOW                   │ allow       │
---   │ Нет фигурантов              │ empty       │
---   └─────────────────────────────┴─────────────┘
+-- Определяет итоговое решение по транзакции на основе всех фигурантов.
+--
+-- Логика агрегации (приоритет сверху вниз):
+-- ┌─────────────────────────────────┬─────────────┐
+-- │ Условие                         │ Решение     │
+-- ├─────────────────────────────────┼─────────────┤
+-- │ Нет фигурантов                  │ empty       │
+-- │ ВСЕ фигуранты bypass            │ bypass      │  ← NEW
+-- │ Хотя бы один DENY (не bypass)   │ deny        │
+-- │ Нет DENY, есть REVIEW           │ review      │
+-- │ Все ALLOW                       │ allow       │
+-- └─────────────────────────────────┴─────────────┘
 --
 -- ПАРАМЕТРЫ:
---   input_data (JSONB) - JSON транзакции с массивом фигурантов:
---     - searchCheckResultKCKH (JSONB[]): массив фигурантов
+-- input_data (JSONB) - JSON транзакции с массивом фигурантов:
+--   - searchCheckResultKCKH (JSONB[]): массив фигурантов
 --
 -- ВОЗВРАЩАЕТ:
---   TEXT - Итоговый статус: 'deny', 'review', 'allow', 'empty'
+-- TEXT - Итоговый статус: 'deny', 'review', 'allow', 'bypass', 'empty'
 --
 -- ПРОИЗВОДИТЕЛЬНОСТЬ:
---   Текущая:  ~1-5ms (зависит от кол-ва фигурантов)
---   Оптимизированная: ~0.5-2ms
+-- ~0.5-2ms (early exit оптимизация)
 --
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
---   2025-10-27 - Оптимизация через early exit и кэширование
+-- 2025-10-27 - Оптимизация через early exit и кэширование
+-- 2025-11-25 - Добавлена обработка bypass: исключенные фигуранты приравниваются к allow
+-- 2025-11-26 - NEW: bypass как отдельный статус транзакции (все фигуранты bypass)
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.check_transaction_status(input_data JSONB)
 RETURNS TEXT
 LANGUAGE plpgsql
-IMMUTABLE  -- Детерминированная функция → кэширование
+IMMUTABLE
 AS $function$
 DECLARE
-    v_figurant        JSONB;
-    v_figurant_status TEXT;
-    v_has_review      BOOLEAN := FALSE;
-    v_has_allow       BOOLEAN := FALSE;
+    v_figurant          JSONB;
+    v_figurant_status   TEXT;
+    v_has_review        BOOLEAN := FALSE;
+    v_has_allow         BOOLEAN := FALSE;
+    v_all_bypass        BOOLEAN := TRUE;   -- NEW: флаг "все bypass"
+    v_has_figurants     BOOLEAN := FALSE;  -- NEW: есть ли фигуранты вообще
 BEGIN
     -- =========================================================================
     -- Проверка наличия массива фигурантов
     -- =========================================================================
-    IF NOT (input_data ? 'searchCheckResultKCKH') 
+    IF NOT (input_data ? 'searchCheckResultKCKH')
        OR jsonb_typeof(input_data->'searchCheckResultKCKH') != 'array' THEN
         RETURN 'empty';
     END IF;
 
     -- =========================================================================
-    -- ОПТИМИЗАЦИЯ 1: Early exit для DENY (критичный путь)
+    -- Основной цикл с early exit для DENY
     -- =========================================================================
-    -- Если нашли deny → сразу возвращаем, не проверяем остальных фигурантов
-
-    FOR v_figurant IN 
+    FOR v_figurant IN
         SELECT * FROM jsonb_array_elements(input_data->'searchCheckResultKCKH')
     LOOP
+        v_has_figurants := TRUE;
+        
+        -- Проверка bypass: bypassName не пустой
+        IF (v_figurant->>'bypassName') IS NOT NULL 
+           AND (v_figurant->>'bypassName') != '' THEN
+            -- Этот фигурант bypass, продолжаем проверять остальных
+            CONTINUE;
+        END IF;
+        
+        -- Если дошли сюда - фигурант НЕ bypass
+        v_all_bypass := FALSE;
+        
         v_figurant_status := check_figurant_status(v_figurant);
 
         -- Early exit: deny имеет наивысший приоритет
@@ -3565,120 +3579,87 @@ BEGIN
         ELSIF v_figurant_status = 'allow' THEN
             v_has_allow := TRUE;
         END IF;
-
-        -- ОПТИМИЗАЦИЯ 2: Early exit для review (если deny уже исключен)
-        -- Если нашли review, можно прекратить поиск (review > allow)
-        -- НО: Надо проверить все фигуранты на deny
-        -- Поэтому оставляем без раннего выхода для review
     END LOOP;
 
     -- =========================================================================
     -- Агрегация результата
     -- =========================================================================
+    
+    -- Нет фигурантов → empty
+    IF NOT v_has_figurants THEN
+        RETURN 'empty';
+    END IF;
+    
+    -- NEW: ВСЕ фигуранты bypass → bypass
+    IF v_all_bypass THEN
+        RETURN 'bypass';
+    END IF;
+    
+    -- Стандартная логика приоритетов
     IF v_has_review THEN
         RETURN 'review';
     ELSIF v_has_allow THEN
         RETURN 'allow';
     ELSE
-        -- Все фигуранты вернули 'unknown' или массив пустой
         RETURN 'empty';
     END IF;
 END;
 $function$;
 
 -- ============================================================================
--- КОММЕНТАРИИ К ОПТИМИЗАЦИЯМ
+-- ТЕСТЫ
 -- ============================================================================
-
-/*
-ОПТИМИЗАЦИЯ 1: Early exit для deny
------------------------------------
-БЫЛО:
-  - Проверка всех фигурантов, даже если первый = deny
-  - Лишняя работа в 90% случаев (deny редок)
-
-СТАЛО:
-  - При первом deny → сразу RETURN
-  - Экономия: ~50% в случае deny на первом фигуранте
-
-ОПТИМИЗАЦИЯ 2: Упрощена логика флагов
---------------------------------------
-БЫЛО:
-  - hasReview флаг обновляется через if not hasReview then...
-  - Лишняя проверка на каждой итерации
-
-СТАЛО:
-  - hasReview := TRUE (безусловно, один раз)
-  - Добавлен hasAllow для явности
-  - Экономия: ~10% на логике
-
-ОПТИМИЗАЦИЯ 3: IMMUTABLE маркер
---------------------------------
-ДОБАВЛЕНО:
-  - IMMUTABLE → кэширование результата
-  - Критично при вызове из put_ksk_result
-
-ВОЗМОЖНАЯ ДАЛЬНЕЙШАЯ ОПТИМИЗАЦИЯ (если deny редок):
-----------------------------------------------------
-Если статистика показывает, что deny очень редок (<0.1%):
-  - Можно убрать early exit для deny
-  - Добавить early exit для review (второй по приоритету)
-  - Это ускорит большинство случаев (allow/review)
-
-Пример:
-  FOR v_figurant IN ... LOOP
-    v_figurant_status := check_figurant_status(v_figurant);
-
-    IF v_figurant_status = 'review' THEN
-      v_has_review := TRUE;
-      -- Early exit если deny точно нет (требует анализа данных)
-      -- CONTINUE; или EXIT;
-    END IF;
-  END LOOP;
-
-НО: Требует анализа реальной статистики решений
-*/
-
--- ============================================================================
--- ТЕСТЫ (запустить после создания функции)
--- ============================================================================
-
 /*
 -- Тест 1: Нет фигурантов → empty
-SELECT check_transaction_status('{}'::jsonb); -- empty
-SELECT check_transaction_status('{"searchCheckResultKCKH":[]}'::jsonb); -- empty
+SELECT check_transaction_status('{}'::jsonb);                                    -- empty
+SELECT check_transaction_status('{"searchCheckResultKCKH":[]}'::jsonb);          -- empty
 
 -- Тест 2: Один фигурант allow → allow
 SELECT check_transaction_status('{
   "searchCheckResultKCKH": [
     {"presidentGroup":"part","autoLogin":false}
   ]
-}'::jsonb); -- allow
+}'::jsonb);  -- allow
 
--- Тест 3: Один фигурант review → review
+-- Тест 3: Один фигурант review → review  
 SELECT check_transaction_status('{
   "searchCheckResultKCKH": [
     {"presidentGroup":"full","autoLogin":false}
   ]
-}'::jsonb); -- review
+}'::jsonb);  -- review
 
--- Тест 4: Несколько allow + один review → review
-SELECT check_transaction_status('{
-  "searchCheckResultKCKH": [
-    {"presidentGroup":"part","autoLogin":false},
-    {"presidentGroup":"full","autoLogin":false}
-  ]
-}'::jsonb); -- review
-
--- Тест 5: Любой deny → deny (даже если есть allow/review)
+-- Тест 4: deny всегда побеждает
 SELECT check_transaction_status('{
   "searchCheckResultKCKH": [
     {"presidentGroup":"part","autoLogin":false},
     {"presidentGroup":"unknown","autoLogin":false}
   ]
-}'::jsonb); -- deny (если unknown возвращает deny)
-*/
+}'::jsonb);  -- deny
 
+-- Тест 5: NEW - ВСЕ bypass → bypass
+SELECT check_transaction_status('{
+  "searchCheckResultKCKH": [
+    {"bypassName":"Тестовый bypass"},
+    {"bypassName":"Ещё один bypass"}
+  ]
+}'::jsonb);  -- bypass
+
+-- Тест 6: NEW - Смешанный (bypass + обычный) → обычная логика
+SELECT check_transaction_status('{
+  "searchCheckResultKCKH": [
+    {"bypassName":"Bypass фигурант"},
+    {"presidentGroup":"full","autoLogin":false}
+  ]
+}'::jsonb);  -- review (bypass игнорируется, full+!autoLogin = review)
+
+-- Тест 7: NEW - Bypass + allow → allow (bypass не участвует в агрегации)
+SELECT check_transaction_status('{
+  "searchCheckResultKCKH": [
+    {"bypassName":"Bypass"},
+    {"presidentGroup":"part","autoLogin":false}
+  ]
+}'::jsonb);  -- allow
+*/
 -- ============================================================================
 -- КОНЕЦ ФАЙЛА
 -- ============================================================================
@@ -3686,7 +3667,7 @@ SELECT check_transaction_status('{
 
 -- ============================================================================
 -- ФАЙЛ: 003_put_ksk_result.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\core\003_put_ksk_result.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\core\003_put_ksk_result.sql
 -- Размер: 16.37 KB
 -- ============================================================================
 
@@ -4168,7 +4149,7 @@ COMMENT ON FUNCTION upoa_ksk_reports.put_ksk_result(
 
 -- ============================================================================
 -- ФАЙЛ: 004_put_ksk_result_batch.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\core\004_put_ksk_result_batch.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\core\004_put_ksk_result_batch.sql
 -- Размер: 11.64 KB
 -- ============================================================================
 
@@ -4438,7 +4419,7 @@ $function$
 
 -- ============================================================================
 -- ФАЙЛ: 001_ksk_log_operation.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\log\001_ksk_log_operation.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\log\001_ksk_log_operation.sql
 -- Размер: 3.18 KB
 -- ============================================================================
 
@@ -4539,7 +4520,7 @@ COMMENT ON FUNCTION ksk_log_operation(VARCHAR, VARCHAR, TIMESTAMP, VARCHAR, TEXT
 
 -- ============================================================================
 -- ФАЙЛ: 001_ksk_create_partitions.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\partitions\001_ksk_create_partitions.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\partitions\001_ksk_create_partitions.sql
 -- Размер: 4.51 KB
 -- ============================================================================
 
@@ -4646,7 +4627,7 @@ COMMENT ON FUNCTION ksk_create_partitions(TEXT, DATE, INTEGER) IS
 
 -- ============================================================================
 -- ФАЙЛ: 002_ksk_create_all_partitions.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\partitions\002_ksk_create_all_partitions.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\partitions\002_ksk_create_all_partitions.sql
 -- Размер: 4.65 KB
 -- ============================================================================
 
@@ -4762,7 +4743,7 @@ COMMENT ON FUNCTION ksk_create_partitions_for_all_tables(DATE, INTEGER) IS
 
 -- ============================================================================
 -- ФАЙЛ: 003_list_partitions.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\partitions\003_list_partitions.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\partitions\003_list_partitions.sql
 -- Размер: 2.81 KB
 -- ============================================================================
 
@@ -4828,7 +4809,7 @@ COMMENT ON FUNCTION upoa_ksk_reports.ksk_list_partitions(TEXT) IS
 
 -- ============================================================================
 -- ФАЙЛ: 005_drop_partitions.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\partitions\005_drop_partitions.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\partitions\005_drop_partitions.sql
 -- Размер: 7.81 KB
 -- ============================================================================
 
@@ -5005,7 +4986,7 @@ COMMENT ON FUNCTION ksk_drop_old_partitions(INTEGER) IS
 
 -- ============================================================================
 -- ФАЙЛ: 100_drop_old.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\partitions\100_drop_old.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\partitions\100_drop_old.sql
 -- Размер: 1.21 KB
 -- ============================================================================
 
@@ -5035,7 +5016,7 @@ END $$;
 
 -- ============================================================================
 -- ФАЙЛ: 001_ksk_report_review.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\reports\001_ksk_report_review.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\001_ksk_report_review.sql
 -- Размер: 8.45 KB
 -- ============================================================================
 
@@ -5246,13 +5227,9 @@ COMMENT ON FUNCTION ksk_report_review(DATE) IS
 
 
 -- ============================================================================
--- ФАЙЛ: 002_all_reports_functions.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\reports\002_all_reports_functions.sql
--- Размер: 10.64 KB
--- ============================================================================
-
--- ============================================================================
--- ФУНКЦИИ ГЕНЕРАЦИИ ОТЧЁТОВ
+-- ФАЙЛ: 001_ksk_run_report.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\001_ksk_run_report.sql
+-- Размер: 6.52 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -5263,23 +5240,28 @@ COMMENT ON FUNCTION ksk_report_review(DATE) IS
 --   Создаёт заголовок отчёта, вызывает функцию генерации и обновляет статус
 --
 -- ПАРАМЕТРЫ:
---   @p_report_code   - Код отчёта из оркестратора
---   @p_initiator     - Инициатор ('system' или 'user')
---   @p_user_login    - Логин пользователя (NULL для system)
---   @p_start_date    - Начальная дата периода
---   @p_end_date      - Конечная дата периода (NULL = p_start_date)
---   @p_parameters    - Дополнительные параметры в формате JSON
+--   @p_report_code - Код отчёта из оркестратора
+--   @p_initiator   - Инициатор ('system' или 'user')
+--   @p_user_login  - Логин пользователя (NULL для system)
+--   @p_start_date  - Начальная дата периода (включительно)
+--   @p_end_date    - Конечная дата периода (ИСКЛЮЧАЯ, NULL = p_start_date + 1 day)
+--   @p_parameters  - Дополнительные параметры в формате JSON
 --
 -- ВОЗВРАЩАЕТ:
 --   INTEGER - ID созданного заголовка отчёта
 --
+-- ФИЛЬТРАЦИЯ ПО ДАТЕ:
+--   Интервал [p_start_date ... p_end_date) - исключающий конец
+--   При NULL end_date: отчёт за 1 день [start_date ... start_date+1day)
+--
 -- ПРИМЕР ИСПОЛЬЗОВАНИЯ:
---   -- Системный отчёт за день
+--   -- Системный отчёт за день (22 октября)
 --   SELECT ksk_run_report('totals', 'system', NULL, '2025-10-22', NULL, NULL);
---   
+--   -- Результат: p_end_date = '2025-10-23', интервал [2025-10-22 ... 2025-10-23)
+--
 --   -- Пользовательский отчёт с фильтром по спискам
---   SELECT ksk_run_report('figurants', 'user', 'ivanov', '2025-10-20', '2025-10-22', 
---       '{"list_codes": ["4200", "4204"]}'::JSONB);
+--   SELECT ksk_run_report('figurants', 'user', 'ivanov', '2025-10-20', '2025-10-23',
+--                         '{"list_codes": ["4200", "4204"]}'::JSONB);
 --
 -- ЗАВИСИМОСТИ:
 --   - ksk_report_orchestrator
@@ -5289,39 +5271,45 @@ COMMENT ON FUNCTION ksk_report_review(DATE) IS
 --
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-10-25 - Добавлено логирование через ksk_log_operation
+--   2025-11-26 - FIX: p_end_date исключающий, NULL = start_date + 1 day
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_run_report(
-    p_report_code   VARCHAR,
-    p_initiator     VARCHAR,
-    p_user_login    VARCHAR DEFAULT NULL,
-    p_start_date    DATE DEFAULT CURRENT_DATE,
-    p_end_date      DATE DEFAULT NULL,
-    p_parameters    JSONB DEFAULT NULL
+    p_report_code VARCHAR,
+    p_initiator   VARCHAR,
+    p_user_login  VARCHAR DEFAULT NULL,
+    p_start_date  DATE DEFAULT CURRENT_DATE,
+    p_end_date    DATE DEFAULT NULL,
+    p_parameters  JSONB DEFAULT NULL
 )
 RETURNS INTEGER AS $$
 DECLARE
-    v_orchestrator_id   INTEGER;
-    v_report_function   VARCHAR;
-    v_report_name       VARCHAR;
-    v_ttl               INTEGER;
-    v_header_id         INTEGER;
-    v_start_time        TIMESTAMP := CLOCK_TIMESTAMP();
-    v_status            VARCHAR := 'success';
-    v_error_msg         TEXT := NULL;
-    v_info              TEXT;
+    v_orchestrator_id INTEGER;
+    v_report_function VARCHAR;
+    v_report_name VARCHAR;
+    v_ttl INTEGER;
+    v_header_id INTEGER;
+    v_start_time TIMESTAMP := CLOCK_TIMESTAMP();
+    v_status VARCHAR := 'success';
+    v_error_msg TEXT := NULL;
+    v_info TEXT;
 BEGIN
-    -- Установка end_date по умолчанию
+    -- Валидация: end_date не может быть меньше start_date
+    IF p_end_date IS NOT NULL AND p_end_date < p_start_date THEN
+        RAISE EXCEPTION 'end_date (%) не может быть меньше start_date (%)', p_end_date, p_start_date;
+    END IF;
+
+    -- Установка end_date по умолчанию (исключающий интервал [start_date ... start_date+1day))
     IF p_end_date IS NULL THEN
-        p_end_date := p_start_date;
+        p_end_date := (p_start_date + INTERVAL '1 day')::DATE;
     END IF;
 
     -- Получение метаданных из оркестратора
-    SELECT 
+    SELECT
         id,
         report_function,
         name,
-        CASE 
+        CASE
             WHEN p_initiator = 'system' THEN system_ttl
             WHEN p_initiator = 'user' THEN user_ttl
         END
@@ -5407,68 +5395,19 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-COMMENT ON FUNCTION ksk_run_report(VARCHAR, VARCHAR, VARCHAR, DATE, DATE, JSONB) IS 
-    'Универсальная функция для запуска генерации отчёта с логированием';
+COMMENT ON FUNCTION ksk_run_report(VARCHAR, VARCHAR, VARCHAR, DATE, DATE, JSONB) IS
+    'Универсальная функция для запуска генерации отчёта. Фильтр [start_date..end_date). При NULL end_date = start_date + 1 day';
+
 
 -- ============================================================================
--- ФУНКЦИЯ 2: ksk_report_totals
--- ============================================================================
--- ОПИСАНИЕ:
---   Генерирует отчёт по общей статистике за период
---   Подсчитывает количество транзакций по резолюциям
---
--- ПАРАМЕТРЫ:
---   @p_header_id   - ID заголовка отчёта
---   @p_start_date  - Начальная дата периода
---   @p_end_date    - Конечная дата периода
---   @p_parameters  - Дополнительные параметры (не используются)
---
--- ВОЗВРАЩАЕТ:
---   VOID
---
--- ЗАМЕТКИ:
---   - Вызывается через ksk_run_report()
---   - Создаёт одну запись в ksk_report_totals_data
---
--- ИСТОРИЯ ИЗМЕНЕНИЙ:
---   2025-10-25 - Форматирование и документация
+-- ФАЙЛ: 002_all_reports_functions.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\002_all_reports_functions.sql
+-- Размер: 2.55 KB
 -- ============================================================================
 
-CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_totals(
-    p_header_id   INTEGER,
-    p_start_date  DATE,
-    p_end_date    DATE,
-    p_parameters  JSONB DEFAULT NULL
-)
-RETURNS VOID AS $$
-BEGIN
-    INSERT INTO upoa_ksk_reports.ksk_report_totals_data (
-        report_header_id,
-        total,
-        total_without_result,
-        total_with_result,
-        total_allow,
-        total_review,
-        total_deny,
-        total_bypass
-    )
-    SELECT
-        p_header_id,
-        COUNT(*) AS total,
-        COUNT(*) FILTER (WHERE resolution = 'empty') AS total_without_result,
-        COUNT(*) - COUNT(*) FILTER (WHERE resolution = 'empty') AS total_with_result,
-        COUNT(*) FILTER (WHERE resolution = 'allow') AS total_allow,
-        COUNT(*) FILTER (WHERE resolution = 'review') AS total_review,
-        COUNT(*) FILTER (WHERE resolution = 'deny') AS total_deny,
-        COUNT(*) FILTER (WHERE has_bypass = 'yes') AS total_bypass
-    FROM upoa_ksk_reports.ksk_result
-    WHERE output_timestamp >= p_start_date 
-      AND output_timestamp < (p_end_date + INTERVAL '1 day');
-END;
-$$ LANGUAGE plpgsql;
-
-COMMENT ON FUNCTION ksk_report_totals(INTEGER, DATE, DATE, JSONB) IS 
-    'Генерирует отчёт по общей статистике за период';
+-- ============================================================================
+-- ФУНКЦИИ ГЕНЕРАЦИИ ОТЧЁТОВ
+-- ============================================================================
 
 -- ============================================================================
 -- СЛУЖЕБНАЯ ФУНКЦИЯ: ksk_cleanup_old_reports
@@ -5539,38 +5478,111 @@ COMMENT ON FUNCTION ksk_cleanup_old_reports() IS
 
 
 -- ============================================================================
+-- ФАЙЛ: 003_ksk_report_totals.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\003_ksk_report_totals.sql
+-- Размер: 2.83 KB
+-- ============================================================================
+
+-- ============================================================================
+-- ФУНКЦИЯ: ksk_report_totals
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Генерирует отчёт по общей статистике за период
+--   Подсчитывает количество транзакций по резолюциям
+--
+-- ПАРАМЕТРЫ:
+--   @p_header_id   - ID заголовка отчёта
+--   @p_start_date  - Начальная дата периода (включительно)
+--   @p_end_date    - Конечная дата периода (ИСКЛЮЧАЯ)
+--   @p_parameters  - Дополнительные параметры (не используются)
+--
+-- ВОЗВРАЩАЕТ:
+--   VOID
+--
+-- ФИЛЬТРАЦИЯ ПО ДАТЕ:
+--   Интервал [p_start_date ... p_end_date) - исключающий конец
+--
+-- ЗАМЕТКИ:
+--   - Вызывается через ksk_run_report()
+--   - Создаёт одну запись в ksk_report_totals_data
+--
+-- ИСТОРИЯ ИЗМЕНЕНИЙ:
+--   2025-10-25 - Форматирование и документация
+--   2025-11-26 - FIX: total_bypass теперь по resolution='bypass', не has_bypass
+--   2025-11-26 - FIX: p_end_date исключающий, убран +INTERVAL '1 day'
+-- ============================================================================
+
+CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_totals(
+    p_header_id   INTEGER,
+    p_start_date  DATE,
+    p_end_date    DATE,
+    p_parameters  JSONB DEFAULT NULL
+)
+RETURNS VOID AS $$
+BEGIN
+    INSERT INTO upoa_ksk_reports.ksk_report_totals_data (
+        report_header_id,
+        total,
+        total_without_result,
+        total_with_result,
+        total_allow,
+        total_review,
+        total_deny,
+        total_bypass
+    )
+    SELECT
+        p_header_id,
+        COUNT(*) AS total,
+        COUNT(*) FILTER (WHERE resolution = 'empty') AS total_without_result,
+        COUNT(*) FILTER (WHERE resolution != 'empty') AS total_with_result,
+        COUNT(*) FILTER (WHERE resolution = 'allow') AS total_allow,
+        COUNT(*) FILTER (WHERE resolution = 'review') AS total_review,
+        COUNT(*) FILTER (WHERE resolution = 'deny') AS total_deny,
+        COUNT(*) FILTER (WHERE resolution = 'bypass') AS total_bypass
+    FROM upoa_ksk_reports.ksk_result
+    WHERE output_timestamp >= p_start_date::TIMESTAMP(3)
+      AND output_timestamp < p_end_date::TIMESTAMP(3);
+END;
+$$ LANGUAGE plpgsql;
+
+COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_totals(INTEGER, DATE, DATE, JSONB) IS
+    'Генерирует отчёт по общей статистике за период. v2: bypass как отдельный resolution. Фильтр [start_date..end_date)';
+
+
+-- ============================================================================
 -- ФАЙЛ: 003_ksk_report_totals_by_payment_type.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\reports\003_ksk_report_totals_by_payment_type.sql
--- Размер: 6.93 KB
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\003_ksk_report_totals_by_payment_type.sql
+-- Размер: 7.04 KB
 -- ============================================================================
 
 -- ============================================================================
 -- ФУНКЦИЯ: ksk_report_totals_by_payment_type
 -- ============================================================================
 -- ОПИСАНИЕ:
---   Генерирует отчёт по статистике с разбивкой по типам платежей
---   Создаёт агрегации для каждого из 5 типов платежей (русские названия)
+-- Генерирует отчёт по статистике с разбивкой по типам платежей
+-- Создаёт агрегации для каждого из 5 типов платежей (русские названия)
 --
 -- ПАРАМЕТРЫ:
---   @p_header_id   - ID заголовка отчёта
---   @p_start_date  - Начальная дата периода
---   @p_end_date    - Конечная дата периода
---   @p_parameters  - Дополнительные параметры (не используются)
+-- @p_header_id   - ID заголовка отчёта
+-- @p_start_date  - Начальная дата периода
+-- @p_end_date    - Конечная дата периода
+-- @p_parameters  - Дополнительные параметры (не используются)
 --
 -- ВОЗВРАЩАЕТ:
---   VOID
+-- VOID
 --
 -- ЗАМЕТКИ:
---   - Создаёт одну запись со всеми типами платежей
---   - Типы платежей (русские названия):
---     • i_ - Входящий
---     • o_ - Исходящий
---     • t_ - Транзитный
---     • m_ - Межфилиальный
---     • v_ - Внутрифилиальный
+-- - Создаёт одну запись со всеми типами платежей
+-- - Типы платежей (русские названия):
+--   • i_ - Входящий
+--   • o_ - Исходящий
+--   • t_ - Транзитный
+--   • m_ - Межфилиальный
+--   • v_ - Внутрифилиальный
 --
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
---   2025-10-25 - Исправлено использование русских названий типов платежей
+-- 2025-10-25 - Исправлено использование русских названий типов платежей
+-- 2025-11-26 - FIX: total_bypass теперь по resolution='bypass', не has_bypass
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_totals_by_payment_type(
@@ -5583,36 +5595,29 @@ RETURNS VOID AS $$
 BEGIN
     INSERT INTO upoa_ksk_reports.ksk_report_totals_by_payment_type_data (
         report_header_id,
-        total, total_without_result, total_with_result, 
+        total, total_without_result, total_with_result,
         total_allow, total_review, total_deny, total_bypass,
-        
         i_total, i_total_without_result, i_total_with_result,
         i_total_allow, i_total_review, i_total_deny, i_total_bypass,
-        
         o_total, o_total_without_result, o_total_with_result,
         o_total_allow, o_total_review, o_total_deny, o_total_bypass,
-        
         t_total, t_total_without_result, t_total_with_result,
         t_total_allow, t_total_review, t_total_deny, t_total_bypass,
-        
         m_total, m_total_without_result, m_total_with_result,
         m_total_allow, m_total_review, m_total_deny, m_total_bypass,
-        
         v_total, v_total_without_result, v_total_with_result,
         v_total_allow, v_total_review, v_total_deny, v_total_bypass
     )
     SELECT
         p_header_id,
-        
         -- Общие счётчики
         COUNT(*),
         COUNT(*) FILTER (WHERE resolution = 'empty'),
-        COUNT(*) - COUNT(*) FILTER (WHERE resolution = 'empty'),
+        COUNT(*) FILTER (WHERE resolution != 'empty'),                          -- FIX: != вместо вычитания
         COUNT(*) FILTER (WHERE resolution = 'allow'),
         COUNT(*) FILTER (WHERE resolution = 'review'),
         COUNT(*) FILTER (WHERE resolution = 'deny'),
-        COUNT(*) FILTER (WHERE has_bypass = 'yes'),
-        
+        COUNT(*) FILTER (WHERE resolution = 'bypass'),                          -- FIX!
         -- Входящий
         COUNT(*) FILTER (WHERE payment_type = 'Входящий'),
         COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND resolution = 'empty'),
@@ -5620,8 +5625,7 @@ BEGIN
         COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND resolution = 'allow'),
         COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND resolution = 'review'),
         COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND resolution = 'deny'),
-        COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND has_bypass = 'yes'),
-        
+        COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND resolution = 'bypass'),  -- FIX!
         -- Исходящий
         COUNT(*) FILTER (WHERE payment_type = 'Исходящий'),
         COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND resolution = 'empty'),
@@ -5629,8 +5633,7 @@ BEGIN
         COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND resolution = 'allow'),
         COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND resolution = 'review'),
         COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND resolution = 'deny'),
-        COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND has_bypass = 'yes'),
-        
+        COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND resolution = 'bypass'),  -- FIX!
         -- Транзитный
         COUNT(*) FILTER (WHERE payment_type = 'Транзитный'),
         COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND resolution = 'empty'),
@@ -5638,8 +5641,7 @@ BEGIN
         COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND resolution = 'allow'),
         COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND resolution = 'review'),
         COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND resolution = 'deny'),
-        COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND has_bypass = 'yes'),
-        
+        COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND resolution = 'bypass'),  -- FIX!
         -- Межфилиальный
         COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный'),
         COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND resolution = 'empty'),
@@ -5647,8 +5649,7 @@ BEGIN
         COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND resolution = 'allow'),
         COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND resolution = 'review'),
         COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND resolution = 'deny'),
-        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND has_bypass = 'yes'),
-        
+        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND resolution = 'bypass'),  -- FIX!
         -- Внутрифилиальный
         COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный'),
         COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'empty'),
@@ -5656,22 +5657,21 @@ BEGIN
         COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'allow'),
         COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'review'),
         COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'deny'),
-        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND has_bypass = 'yes')
-        
+        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'bypass')  -- FIX!
     FROM upoa_ksk_reports.ksk_result
-    WHERE output_timestamp >= p_start_date 
-      AND output_timestamp < (p_end_date + INTERVAL '1 day');
+    WHERE output_timestamp >= p_start_date::TIMESTAMP(3)
+      AND output_timestamp < p_end_date::TIMESTAMP(3);
 END;
 $$ LANGUAGE plpgsql;
 
-COMMENT ON FUNCTION ksk_report_totals_by_payment_type(INTEGER, DATE, DATE, JSONB) IS 
-    'Генерирует отчёт по статистике с разбивкой по типам платежей (русские названия)';
+COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_totals_by_payment_type(INTEGER, DATE, DATE, JSONB) IS
+'Генерирует отчёт по статистике с разбивкой по типам платежей. v2: bypass как resolution';
 
 
 -- ============================================================================
 -- ФАЙЛ: 004_ksk_report_list_totals_by_payment_type.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\reports\004_ksk_report_list_totals_by_payment_type.sql
--- Размер: 7.42 KB
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\004_ksk_report_list_totals_by_payment_type.sql
+-- Размер: 9.82 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -5683,12 +5683,15 @@ COMMENT ON FUNCTION ksk_report_totals_by_payment_type(INTEGER, DATE, DATE, JSONB
 --
 -- ПАРАМЕТРЫ:
 --   @p_report_header_id - ID заголовка отчёта
---   @p_start_date       - Начальная дата периода
---   @p_end_date         - Конечная дата периода
+--   @p_start_date       - Начальная дата периода (включительно)
+--   @p_end_date         - Конечная дата периода (ИСКЛЮЧАЯ)
 --   @p_parameters       - Дополнительные параметры (не используются)
 --
 -- ВОЗВРАЩАЕТ:
 --   VOID
+--
+-- ФИЛЬТРАЦИЯ ПО ДАТЕ:
+--   Интервал [p_start_date ... p_end_date) - исключающий конец
 --
 -- ОПТИМИЗАЦИИ:
 --   ✅ UNNEST(list_codes) вместо LOOP по массиву → 5-10x быстрее
@@ -5696,7 +5699,7 @@ COMMENT ON FUNCTION ksk_report_totals_by_payment_type(INTEGER, DATE, DATE, JSONB
 --   ✅ COUNT(*) FILTER для условной агрегации
 --
 -- ПРОИЗВОДИТЕЛЬНОСТЬ:
---   ДО:  110 сек (с LOOP)
+--   ДО: 110 сек (с LOOP)
 --   ПОСЛЕ: 10-20 сек (с UNNEST)
 --   УСКОРЕНИЕ: 5-10x
 --
@@ -5711,13 +5714,14 @@ COMMENT ON FUNCTION ksk_report_totals_by_payment_type(INTEGER, DATE, DATE, JSONB
 --   2025-10-26 - ИСПРАВЛЕНО: Привел в соответствие префиксы и типы платежей
 --   2025-10-25 - Убран STRING_TO_ARRAY (list_codes уже массив TEXT[])
 --   2025-10-25 - Добавлен UNNEST для оптимизации (v2)
+--   2025-11-26 - FIX: p_end_date исключающий, убран +INTERVAL '1 day', TIMESTAMP(3)
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_list_totals_by_payment_type(
     p_report_header_id INTEGER,
-    p_start_date DATE,
-    p_end_date DATE,
-    p_parameters JSONB DEFAULT NULL
+    p_start_date       DATE,
+    p_end_date         DATE,
+    p_parameters       JSONB DEFAULT NULL
 )
 RETURNS VOID AS $$
 BEGIN
@@ -5730,98 +5734,95 @@ BEGIN
         total_review,
         total_deny,
         total_bypass,
-        i_total_with_list,
-        i_total_without_list,
-        i_total_allow,
-        i_total_review,
-        i_total_deny,
-        i_total_bypass,
-        o_total_with_list,
-        o_total_without_list,
-        o_total_allow,
-        o_total_review,
-        o_total_deny,
-        o_total_bypass,
-        t_total_with_list,
-        t_total_without_list,
-        t_total_allow,
-        t_total_review,
-        t_total_deny,
-        t_total_bypass,
-        m_total_with_list,
-        m_total_without_list,
-        m_total_allow,
-        m_total_review,
-        m_total_deny,
-        m_total_bypass,
-        v_total_with_list,
-        v_total_without_list,
-        v_total_allow,
-        v_total_review,
-        v_total_deny,
-        v_total_bypass
+        i_total_with_list, i_total_without_list, i_total_allow, i_total_review, i_total_deny, i_total_bypass,
+        o_total_with_list, o_total_without_list, o_total_allow, o_total_review, o_total_deny, o_total_bypass,
+        t_total_with_list, t_total_without_list, t_total_allow, t_total_review, t_total_deny, t_total_bypass,
+        m_total_with_list, m_total_without_list, m_total_allow, m_total_review, m_total_deny, m_total_bypass,
+        v_total_with_list, v_total_without_list, v_total_allow, v_total_review, v_total_deny, v_total_bypass
     )
-    SELECT 
+    SELECT
         p_report_header_id,
-        list_code,
-        COUNT(*) AS total_with_list,
+        f.list_code,
+        -- ========================================================================
+        -- ОБЩИЕ СЧЕТЧИКИ: по ТРАНЗАКЦИЯМ (не по фигурантам)
+        -- ========================================================================
+        COUNT(DISTINCT r.id) AS total_with_list,
         0 AS total_without_list,
-        COUNT(*) FILTER (WHERE resolution = 'allow') AS total_allow,
-        COUNT(*) FILTER (WHERE resolution = 'review') AS total_review,
-        COUNT(*) FILTER (WHERE resolution = 'deny') AS total_deny,
-        COUNT(*) FILTER (WHERE has_bypass = 'yes') AS total_bypass,
-        -- i_* - Входящий
-        COUNT(*) FILTER (WHERE payment_type = 'Входящий') AS i_total_with_list,
+        -- ========================================================================
+        -- СЧЕТЧИКИ РЕШЕНИЙ: по ФИГУРАНТАМ БЕЗ bypass
+        -- ========================================================================
+        COUNT(*) FILTER (WHERE f.resolution = 'allow' AND f.is_bypass != 'yes') AS total_allow,
+        COUNT(*) FILTER (WHERE f.resolution = 'review' AND f.is_bypass != 'yes') AS total_review,
+        COUNT(*) FILTER (WHERE f.resolution = 'deny' AND f.is_bypass != 'yes') AS total_deny,
+        -- ========================================================================
+        -- СЧЕТЧИК BYPASS: по ФИГУРАНТАМ с is_bypass='yes'
+        -- ========================================================================
+        COUNT(*) FILTER (WHERE f.is_bypass = 'yes') AS total_bypass,
+        -- ========================================================================
+        -- i_* - Входящий: ТРАНЗАКЦИИ для total_with_list, ФИГУРАНТЫ для решений
+        -- ========================================================================
+        COUNT(DISTINCT r.id) FILTER (WHERE r.payment_type = 'Входящий') AS i_total_with_list,
         0 AS i_total_without_list,
-        COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND resolution = 'allow') AS i_total_allow,
-        COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND resolution = 'review') AS i_total_review,
-        COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND resolution = 'deny') AS i_total_deny,
-        COUNT(*) FILTER (WHERE payment_type = 'Входящий' AND has_bypass = 'yes') AS i_total_bypass,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Входящий' AND f.resolution = 'allow' AND f.is_bypass != 'yes') AS i_total_allow,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Входящий' AND f.resolution = 'review' AND f.is_bypass != 'yes') AS i_total_review,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Входящий' AND f.resolution = 'deny' AND f.is_bypass != 'yes') AS i_total_deny,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Входящий' AND f.is_bypass = 'yes') AS i_total_bypass,
+        -- ========================================================================
         -- o_* - Исходящий
-        COUNT(*) FILTER (WHERE payment_type = 'Исходящий') AS o_total_with_list,
+        -- ========================================================================
+        COUNT(DISTINCT r.id) FILTER (WHERE r.payment_type = 'Исходящий') AS o_total_with_list,
         0 AS o_total_without_list,
-        COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND resolution = 'allow') AS o_total_allow,
-        COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND resolution = 'review') AS o_total_review,
-        COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND resolution = 'deny') AS o_total_deny,
-        COUNT(*) FILTER (WHERE payment_type = 'Исходящий' AND has_bypass = 'yes') AS o_total_bypass,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Исходящий' AND f.resolution = 'allow' AND f.is_bypass != 'yes') AS o_total_allow,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Исходящий' AND f.resolution = 'review' AND f.is_bypass != 'yes') AS o_total_review,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Исходящий' AND f.resolution = 'deny' AND f.is_bypass != 'yes') AS o_total_deny,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Исходящий' AND f.is_bypass = 'yes') AS o_total_bypass,
+        -- ========================================================================
         -- t_* - Транзитный
-        COUNT(*) FILTER (WHERE payment_type = 'Транзитный') AS t_total_with_list,
+        -- ========================================================================
+        COUNT(DISTINCT r.id) FILTER (WHERE r.payment_type = 'Транзитный') AS t_total_with_list,
         0 AS t_total_without_list,
-        COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND resolution = 'allow') AS t_total_allow,
-        COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND resolution = 'review') AS t_total_review,
-        COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND resolution = 'deny') AS t_total_deny,
-        COUNT(*) FILTER (WHERE payment_type = 'Транзитный' AND has_bypass = 'yes') AS t_total_bypass,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Транзитный' AND f.resolution = 'allow' AND f.is_bypass != 'yes') AS t_total_allow,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Транзитный' AND f.resolution = 'review' AND f.is_bypass != 'yes') AS t_total_review,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Транзитный' AND f.resolution = 'deny' AND f.is_bypass != 'yes') AS t_total_deny,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Транзитный' AND f.is_bypass = 'yes') AS t_total_bypass,
+        -- ========================================================================
         -- m_* - Межфилиальный
-        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный') AS m_total_with_list,
+        -- ========================================================================
+        COUNT(DISTINCT r.id) FILTER (WHERE r.payment_type = 'Межфилиальный') AS m_total_with_list,
         0 AS m_total_without_list,
-        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND resolution = 'allow') AS m_total_allow,
-        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND resolution = 'review') AS m_total_review,
-        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND resolution = 'deny') AS m_total_deny,
-        COUNT(*) FILTER (WHERE payment_type = 'Межфилиальный' AND has_bypass = 'yes') AS m_total_bypass,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Межфилиальный' AND f.resolution = 'allow' AND f.is_bypass != 'yes') AS m_total_allow,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Межфилиальный' AND f.resolution = 'review' AND f.is_bypass != 'yes') AS m_total_review,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Межфилиальный' AND f.resolution = 'deny' AND f.is_bypass != 'yes') AS m_total_deny,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Межфилиальный' AND f.is_bypass = 'yes') AS m_total_bypass,
+        -- ========================================================================
         -- v_* - Внутрифилиальный
-        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный') AS v_total_with_list,
+        -- ========================================================================
+        COUNT(DISTINCT r.id) FILTER (WHERE r.payment_type = 'Внутрифилиальный') AS v_total_with_list,
         0 AS v_total_without_list,
-        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'allow') AS v_total_allow,
-        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'review') AS v_total_review,
-        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND resolution = 'deny') AS v_total_deny,
-        COUNT(*) FILTER (WHERE payment_type = 'Внутрифилиальный' AND has_bypass = 'yes') AS v_total_bypass
-    FROM upoa_ksk_reports.ksk_result,
-         UNNEST(list_codes) AS list_code  -- ✅ КЛЮЧЕВАЯ ОПТИМИЗАЦИЯ: UNNEST вместо LOOP!
-    WHERE output_timestamp >= p_start_date::TIMESTAMP
-      AND output_timestamp < (p_end_date + INTERVAL '1 day')::TIMESTAMP
-    GROUP BY list_code
-    ORDER BY list_code;
+        COUNT(*) FILTER (WHERE r.payment_type = 'Внутрифилиальный' AND f.resolution = 'allow' AND f.is_bypass != 'yes') AS v_total_allow,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Внутрифилиальный' AND f.resolution = 'review' AND f.is_bypass != 'yes') AS v_total_review,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Внутрифилиальный' AND f.resolution = 'deny' AND f.is_bypass != 'yes') AS v_total_deny,
+        COUNT(*) FILTER (WHERE r.payment_type = 'Внутрифилиальный' AND f.is_bypass = 'yes') AS v_total_bypass
+    FROM upoa_ksk_reports.ksk_figurant f
+    INNER JOIN upoa_ksk_reports.ksk_result r
+        ON f.source_id = r.id
+        AND f.timestamp = r.output_timestamp
+    WHERE f.timestamp >= p_start_date::TIMESTAMP(3)
+      AND f.timestamp < p_end_date::TIMESTAMP(3)
+      AND f.list_code IS NOT NULL
+    GROUP BY f.list_code
+    ORDER BY f.list_code;
 END;
 $$ LANGUAGE plpgsql;
 
-COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_list_totals_by_payment_type(INTEGER, DATE, DATE, JSONB) IS 
-    'Генерирует отчёт по итогам по спискам с разбивкой по типам платежей. i=Входящий, o=Исходящий, t=Транзитный, m=Межфилиальный, v=Внутрифилиальный';
+COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_list_totals_by_payment_type(INTEGER, DATE, DATE, JSONB) IS
+    'Генерирует отчёт по итогам по спискам с разбивкой по типам платежей. Фильтр [start_date..end_date). i=Входящий, o=Исходящий, t=Транзитный, m=Межфилиальный, v=Внутрифилиальный';
 
 
 -- ============================================================================
 -- ФАЙЛ: 005_ksk_report_list_totals.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\reports\005_ksk_report_list_totals.sql
--- Размер: 2.65 KB
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\005_ksk_report_list_totals.sql
+-- Размер: 4.38 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -5829,31 +5830,53 @@ COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_list_totals_by_payment_type(INTE
 -- ============================================================================
 -- ОПИСАНИЕ:
 --   Генерирует отчёт по итогам по спискам за период
---   Разворачивает массив list_codes и агрегирует по каждому коду
+--   Агрегирует данные фигурантов по кодам списков
 --
 -- ПАРАМЕТРЫ:
---   @p_header_id   - ID заголовка отчёта
---   @p_start_date  - Начальная дата периода
---   @p_end_date    - Конечная дата периода
---   @p_parameters  - Дополнительные параметры (не используются)
+--   @p_report_header_id - ID заголовка отчёта
+--   @p_start_date       - Начальная дата периода (DATE, включительно)
+--   @p_end_date         - Конечная дата периода (DATE, ИСКЛЮЧАЯ)
+--   @p_parameters       - Дополнительные параметры (не используются)
 --
 -- ВОЗВРАЩАЕТ:
 --   VOID
 --
+-- ИСТОЧНИК ДАННЫХ:
+--   ksk_figurant - денормализованная таблица фигурантов
+--   Поля: list_code, resolution, is_bypass, source_id, timestamp
+--
+-- ЛОГИКА:
+--   1. Агрегирует по list_code (TEXT)
+--   2. total_with_list = COUNT(DISTINCT source_id) - уникальные транзакции
+--   3. allow/review/deny - исключены фигуранты с is_bypass='yes'
+--   4. bypass - фигуранты с is_bypass='yes'
+--
+-- ФИЛЬТРАЦИЯ ПО ДАТЕ:
+--   Интервал [p_start_date ... p_end_date) - исключающий конец
+--
 -- ЗАМЕТКИ:
---   - Использует UNNEST для развёртывания массива list_codes
---   - Создаёт одну запись на каждый уникальный list_code
+--   - Источник данных: таблица ksk_figurant (денормализованные поля)
+--   - Агрегирует решения фигурантов (resolution, is_bypass)
+--   - Фигуранты с is_bypass='yes' не учитываются в allow/review/deny
+--   - Все поля в snake_case согласно правилам пространства КСК
+--   - Фильтрация по timestamp (партиционирование и BRIN индекс)
 --
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-10-25 - Форматирование и документация
---   Убран STRING_TO_ARRAY - list_codes уже массив TEXT[]
+--                Убран STRING_TO_ARRAY - list_codes уже массив TEXT[]
+--   2025-11-25 - Переделана логика: JOIN на ksk_figurant вместо ksk_result
+--   2025-11-25 - Исправлена фильтрация даты и исключение bypass из счетчиков
+--   2025-11-25 - Переведено на денормализованные поля ksk_figurant
+--   2025-11-25 - Исправлено имя поля: source_id (snake_case)
+--   2025-11-25 - Переведена фильтрация на timestamp (вместо date) для оптимизации
+--   2025-11-26 - FIX: p_end_date исключающий, упрощено приведение типов
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_list_totals(
     p_report_header_id INTEGER,
-    p_start_date DATE,
-    p_end_date DATE,
-    p_parameters JSONB DEFAULT NULL
+    p_start_date       DATE,
+    p_end_date         DATE,
+    p_parameters       JSONB DEFAULT NULL
 )
 RETURNS VOID AS $$
 BEGIN
@@ -5867,41 +5890,40 @@ BEGIN
         total_deny,
         total_bypass
     )
-    SELECT 
+    SELECT
         p_report_header_id,
-        list_code,
-        COUNT(*) AS total_with_list,
+        fig.list_code,
+        COUNT(DISTINCT fig.source_id) AS total_with_list,
         0 AS total_without_list,
-        COUNT(*) FILTER (WHERE resolution = 'allow') AS total_allow,
-        COUNT(*) FILTER (WHERE resolution = 'review') AS total_review,
-        COUNT(*) FILTER (WHERE resolution = 'deny') AS total_deny,
-        COUNT(*) FILTER (WHERE has_bypass = 'yes') AS total_bypass
-    FROM upoa_ksk_reports.ksk_result,
-         UNNEST(list_codes) AS list_code  -- БЕЗ STRING_TO_ARRAY!
-    WHERE output_timestamp >= p_start_date::TIMESTAMP
-      AND output_timestamp < (p_end_date + INTERVAL '1 day')::TIMESTAMP
-    GROUP BY list_code
-    ORDER BY list_code;
+        COUNT(*) FILTER (WHERE fig.resolution = 'allow' AND fig.is_bypass != 'yes') AS total_allow,
+        COUNT(*) FILTER (WHERE fig.resolution = 'review' AND fig.is_bypass != 'yes') AS total_review,
+        COUNT(*) FILTER (WHERE fig.resolution = 'deny' AND fig.is_bypass != 'yes') AS total_deny,
+        COUNT(*) FILTER (WHERE fig.is_bypass = 'yes') AS total_bypass
+    FROM upoa_ksk_reports.ksk_figurant fig
+    WHERE fig.timestamp >= p_start_date::TIMESTAMP(3)
+      AND fig.timestamp < p_end_date::TIMESTAMP(3)
+    GROUP BY fig.list_code
+    ORDER BY fig.list_code;
 END;
 $$ LANGUAGE plpgsql;
 
-COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_list_totals(INTEGER, DATE, DATE, JSONB) IS 
-    'Генерирует отчёт по итогам по спискам с разворачиванием массива list_codes';
+COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_list_totals(INTEGER, DATE, DATE, JSONB) IS
+    'Генерирует отчёт по итогам по спискам с агрегацией данных фигурантов. Фильтр [start_date..end_date)';
 
 
 -- ============================================================================
 -- ФАЙЛ: 006_ksk_report_register_header.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\reports\006_ksk_report_register_header.sql
--- Размер: 2.02 KB
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\006_ksk_report_register_header.sql
+-- Размер: 2.47 KB
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_register_header(
     p_report_code VARCHAR,
-    p_initiator VARCHAR,
-    p_user_login VARCHAR DEFAULT NULL,
-    p_start_date DATE DEFAULT CURRENT_DATE,
-    p_end_date DATE DEFAULT CURRENT_DATE,
-    p_parameters JSONB DEFAULT NULL
+    p_initiator   VARCHAR,
+    p_user_login  VARCHAR DEFAULT NULL,
+    p_start_date  DATE DEFAULT CURRENT_DATE,
+    p_end_date    DATE DEFAULT CURRENT_DATE,
+    p_parameters  JSONB DEFAULT NULL
 )
 RETURNS INTEGER AS $$
 DECLARE
@@ -5910,16 +5932,21 @@ DECLARE
     v_ttl INTEGER;
     v_header_id INTEGER;
 BEGIN
-    -- Установка end_date по умолчанию
-    IF p_end_date IS NULL THEN
-        p_end_date := p_start_date;
+ -- Валидация: end_date не может быть меньше start_date
+    IF p_end_date IS NOT NULL AND p_end_date < p_start_date THEN
+        RAISE EXCEPTION 'end_date (%) не может быть меньше start_date (%)', p_end_date, p_start_date;
+    END IF;
+    -- Установка end_date: исключающий интервал [start_date ... end_date)
+    -- Если NULL или равны start_date → отчёт за 1 день
+    IF p_end_date IS NULL OR p_end_date = p_start_date THEN
+        p_end_date := (p_start_date + INTERVAL '1 day')::DATE;
     END IF;
 
     -- Получение метаданных из оркестратора
-    SELECT 
+    SELECT
         id,
         name,
-        CASE 
+        CASE
             WHEN p_initiator = 'system' THEN system_ttl
             WHEN p_initiator = 'user' THEN user_ttl
         END
@@ -5961,13 +5988,21 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-COMMENT ON FUNCTION ksk_report_register_header(VARCHAR, VARCHAR, VARCHAR, DATE, DATE, JSONB) IS 
-    'Функция для регистрации заголовка отчета в таблице ksk_report_header на основе типа отчета';
+COMMENT ON FUNCTION ksk_report_register_header(VARCHAR, VARCHAR, VARCHAR, DATE, DATE, JSONB) IS
+    'Регистрирует заголовок отчёта. Фильтр [start_date..end_date). При равных датах = start_date + 1 day';
 
 -- ============================================================================
 -- ФАЙЛ: 007_ksk_report_create_report.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\reports\007_ksk_report_create_report.sql
--- Размер: 6.94 KB
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\007_ksk_report_create_report.sql
+-- Размер: 7.71 KB
+-- ============================================================================
+
+-- ============================================================================
+-- ФУНКЦИЯ: ksk_report_create_report
+-- ============================================================================
+-- ИСТОРИЯ ИЗМЕНЕНИЙ:
+--   2025-10-25 - Создание функции
+--   2025-11-26 - FIX: end_date исключающий, валидация end_date >= start_date
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_create_report(p_header_id INTEGER)
@@ -5996,7 +6031,6 @@ BEGIN
         v_info := FORMAT('Запись с ID %s не найдена в ksk_report_header', p_header_id);
         v_error_msg := 'Запись не найдена';
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -6015,7 +6049,6 @@ BEGIN
         v_info := FORMAT('Статус записи с ID %s не соответствует "created" или "in_progress". Текущий статус: %s', p_header_id, rec.status);
         v_error_msg := 'Недопустимый статус';
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -6028,17 +6061,40 @@ BEGIN
         RETURN -1*v_log_id;
     END IF;
 
-    -- Установка end_date по умолчанию
-    IF rec.end_date IS NULL THEN
-        rec.end_date := rec.start_date;
+    -- Валидация: end_date не может быть меньше start_date
+    IF rec.end_date IS NOT NULL AND rec.end_date < rec.start_date THEN
+        RAISE WARNING 'end_date (%) не может быть меньше start_date (%) для header_id %', rec.end_date, rec.start_date, p_header_id;
+        v_info := FORMAT('end_date (%s) не может быть меньше start_date (%s). Header ID: %s', rec.end_date, rec.start_date, p_header_id);
+        v_error_msg := 'Некорректный период: end_date < start_date';
+
+        UPDATE upoa_ksk_reports.ksk_report_header
+        SET status = 'error',
+            finished_datetime = NOW()
+        WHERE id = rec.id;
+
+        v_log_id := upoa_ksk_reports.ksk_log_operation(
+            'create_report',
+            v_info,
+            CURRENT_TIMESTAMP,
+            'error',
+            v_info,
+            v_error_msg
+        );
+
+        RETURN -1*v_log_id;
+    END IF;
+
+    -- Установка end_date по умолчанию (исключающий интервал [start_date ... start_date+1day))
+    IF rec.end_date IS NULL OR rec.end_date = rec.start_date THEN
+        rec.end_date := (rec.start_date + INTERVAL '1 day')::DATE;
     END IF;
 
     -- Получение метаданных из оркестратора
-    SELECT 
+    SELECT
         id,
         report_function,
         name,
-        CASE 
+        CASE
             WHEN rec.initiator = 'system' THEN system_ttl
             WHEN rec.initiator = 'user' THEN user_ttl
             ELSE NULL
@@ -6052,13 +6108,11 @@ BEGIN
         v_info := FORMAT('Отчет с orchestrator_id %s не найден. Header ID: %s', rec.orchestrator_id, rec.id);
         v_error_msg := 'Отчет не найден в оркестраторе';
 
-        -- Обновление статуса на 'error'
         UPDATE upoa_ksk_reports.ksk_report_header
         SET status = 'error',
             finished_datetime = NOW()
         WHERE id = rec.id;
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -6079,13 +6133,11 @@ BEGIN
         v_info := FORMAT('Не задан TTL для отчета с orchestrator_id %s. Header ID: %s', rec.orchestrator_id, rec.id);
         v_error_msg := 'Не задан TTL';
 
-        -- Обновление статуса на 'error'
         UPDATE upoa_ksk_reports.ksk_report_header
         SET status = 'error',
             finished_datetime = NOW()
         WHERE id = rec.id;
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -6112,7 +6164,6 @@ BEGIN
         EXECUTE FORMAT('SELECT %I($1, $2, $3, $4)', v_report_function)
         USING rec.id, rec.start_date, rec.end_date, rec.parameters;
 
-        -- Обновление статуса на 'done'
         UPDATE upoa_ksk_reports.ksk_report_header
         SET status = 'done',
             finished_datetime = NOW()
@@ -6123,7 +6174,6 @@ BEGIN
             v_report_name, rec.id, rec.start_date, rec.end_date
         );
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -6140,7 +6190,6 @@ BEGIN
         v_error_msg := SQLERRM;
         GET STACKED DIAGNOSTICS v_stack_trace = pg_exception_context;
 
-        -- Обновление статуса на 'error'
         UPDATE upoa_ksk_reports.ksk_report_header
         SET status = 'error',
             finished_datetime = NOW()
@@ -6151,7 +6200,6 @@ BEGIN
             v_report_name, rec.id, rec.start_date, rec.end_date
         );
 
-        -- Логирование в системный лог
         v_log_id := upoa_ksk_reports.ksk_log_operation(
             'create_report',
             v_info,
@@ -6168,12 +6216,13 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-COMMENT ON FUNCTION ksk_report_create_report(INTEGER) IS 
-    'Функция для создания отчета по указанному header_id';
+COMMENT ON FUNCTION ksk_report_create_report(INTEGER) IS
+    'Создаёт отчёт по header_id. Фильтр [start_date..end_date). При NULL/равных датах = start_date + 1 day';
+
 
 -- ============================================================================
 -- ФАЙЛ: 008_ksk_report_create_all_reports.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\reports\008_ksk_report_create_all_reports.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\008_ksk_report_create_all_reports.sql
 -- Размер: 1.34 KB
 -- ============================================================================
 
@@ -6213,7 +6262,7 @@ COMMENT ON FUNCTION ksk_report_create_all_reports() IS
 
 -- ============================================================================
 -- ФАЙЛ: 009_ksk_estimate_report_duration.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\reports\009_ksk_estimate_report_duration.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\009_ksk_estimate_report_duration.sql
 -- Размер: 3.83 KB
 -- ============================================================================
 
@@ -6304,7 +6353,7 @@ COMMENT ON FUNCTION ksk_estimate_report_duration_by_id(INTEGER) IS
 
 -- ============================================================================
 -- ФАЙЛ: 010_ksk_regenerate_report.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\reports\010_ksk_regenerate_report.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\010_ksk_regenerate_report.sql
 -- Размер: 3.16 KB
 -- ============================================================================
 
@@ -6397,8 +6446,8 @@ END $$;
 
 -- ============================================================================
 -- ФАЙЛ: 011_ksk_report_figurants.sql
--- Путь: C:\KSK\ksk_reports_db\schema\002_functions\reports\011_ksk_report_figurants.sql
--- Размер: 4.47 KB
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\002_functions\reports\011_ksk_report_figurants.sql
+-- Размер: 4.9 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -6411,12 +6460,15 @@ END $$;
 --
 -- ПАРАМЕТРЫ:
 --   @p_header_id   - ID заголовка отчёта
---   @p_start_date  - Начальная дата периода
---   @p_end_date    - Конечная дата периода
+--   @p_start_date  - Начальная дата периода (включительно)
+--   @p_end_date    - Конечная дата периода (ИСКЛЮЧАЯ)
 --   @p_parameters  - JSON с опциональным полем "list_codes": ["4200", "4204"]
 --
 -- ВОЗВРАЩАЕТ:
 --   VOID
+--
+-- ФИЛЬТРАЦИЯ ПО ДАТЕ:
+--   Интервал [p_start_date ... p_end_date) - исключающий конец
 --
 -- СТРУКТУРИРОВАННЫЕ ПОЛЯ ksk_figurant:
 --   - list_code           TEXT
@@ -6430,9 +6482,8 @@ END $$;
 --   - resolution          VARCHAR(20)
 --
 -- ЗАМЕТКИ:
---   - В 5-10 раз быстрее версии с извлечением из JSON
---   - Использует прямой доступ к структурированным колонкам
---   - Если list_codes не указан, выбирает все списки
+--   - Bypass-фигуранты исключены из расчёта total_allow, total_review, total_deny
+--   - total = total_allow + total_review + total_deny + total_bypass
 --
 -- ПРИМЕР ПАРАМЕТРОВ:
 --   NULL                                    -- Все списки
@@ -6440,8 +6491,9 @@ END $$;
 --
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-10-25 - Оптимизация: переход на структурированные поля
--- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-11-20 - Добавлено поле exclusion_name_list - список исключений
+--   2025-11-26 - Bypass-фигуранты исключены из расчёта разрешений
+--   2025-11-26 - FIX: p_end_date исключающий, явное приведение к TIMESTAMP(3)
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_figurants(
@@ -6476,23 +6528,24 @@ BEGIN
         total_bypass
     )
     SELECT
-        p_header_id,        
+        p_header_id,
         -- Структурированные поля (прямой доступ без извлечения из JSON)
         list_code,
         name_figurant,
         president_group,
         auto_login::TEXT AS auto_login,
         exclusion_phrase,
-        exclusion_name_list,        
+        exclusion_name_list,
         -- Агрегированные счётчики
         COUNT(*) AS total,
-        COUNT(*) FILTER (WHERE resolution = 'allow') AS total_allow,
-        COUNT(*) FILTER (WHERE resolution = 'review') AS total_review,
-        COUNT(*) FILTER (WHERE resolution = 'deny') AS total_deny,
-        COUNT(*) FILTER (WHERE is_bypass = 'yes') AS total_bypass        
+        -- Bypass-фигуранты исключены из расчёта разрешений
+        COUNT(*) FILTER (WHERE resolution = 'allow' AND is_bypass != 'yes') AS total_allow,
+        COUNT(*) FILTER (WHERE resolution = 'review' AND is_bypass != 'yes') AS total_review,
+        COUNT(*) FILTER (WHERE resolution = 'deny' AND is_bypass != 'yes') AS total_deny,
+        COUNT(*) FILTER (WHERE is_bypass = 'yes') AS total_bypass
     FROM upoa_ksk_reports.ksk_figurant
-    WHERE "timestamp" >= p_start_date 
-      AND "timestamp" < (p_end_date + INTERVAL '1 day')
+    WHERE "timestamp" >= p_start_date::TIMESTAMP(3)
+      AND "timestamp" < p_end_date::TIMESTAMP(3)
       -- Фильтр по list_codes (если указан)
       AND (v_list_codes IS NULL OR list_code = ANY(v_list_codes))
     GROUP BY
@@ -6506,12 +6559,13 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-COMMENT ON FUNCTION ksk_report_figurants(INTEGER, DATE, DATE, JSONB) IS 
-    'Генерирует отчёт по фигурантам с опциональной фильтрацией. Использует структурированные поля для максимальной производительности';
+COMMENT ON FUNCTION ksk_report_figurants(INTEGER, DATE, DATE, JSONB) IS
+    'Генерирует отчёт по фигурантам с опциональной фильтрацией. Фильтр [start_date..end_date). Использует структурированные поля для максимальной производительности';
+
 
 -- ============================================================================
 -- ФАЙЛ: 001_cron.sql
--- Путь: C:\KSK\ksk_reports_db\schema\099_cron\001_cron.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\099_cron\001_cron.sql
 -- Размер: 8.49 KB
 -- ============================================================================
 
@@ -6766,7 +6820,7 @@ ORDER BY schedule;
 
 -- ============================================================================
 -- ФАЙЛ: 010_create_partitions.sql
--- Путь: C:\KSK\ksk_reports_db\schema\100_complete_scripts\010_create_partitions.sql
+-- Путь: D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema\100_complete_scripts\010_create_partitions.sql
 -- Размер: 0.06 KB
 -- ============================================================================
 
@@ -6776,6 +6830,6 @@ select upoa_ksk_reports.ksk_create_partitions_for_all_tables();
 -- ============================================================================
 -- КОНЕЦ ОБЪЕДИНЕННОГО СКРИПТА
 -- ============================================================================
--- Всего файлов обработано: 43
--- Дата завершения: 2025-11-20 14:52:22
+-- Всего файлов обработано: 45
+-- Дата завершения: 2025-11-26 09:22:32
 -- ============================================================================
