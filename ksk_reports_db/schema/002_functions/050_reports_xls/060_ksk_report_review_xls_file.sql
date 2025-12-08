@@ -29,33 +29,35 @@
 -- ============================================================================
 
 -- Вспомогательная функция для экранирования XML
--- Удаляет недопустимые XML символы (control characters) и экранирует спецсимволы
+-- Удаляет недопустимые XML символы и экранирует спецсимволы
+-- XML 1.0 допускает только: #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD]
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.escape_xml(p_text TEXT)
 RETURNS TEXT AS $$
 DECLARE
     v_text TEXT;
 BEGIN
-    IF p_text IS NULL THEN
+    IF p_text IS NULL OR p_text = '' THEN
         RETURN '';
     END IF;
 
-    -- Удаляем недопустимые XML символы (control characters 0x00-0x1F кроме tab, lf, cr)
-    v_text := regexp_replace(p_text, E'[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F]', '', 'g');
-
-    -- Экранируем XML спецсимволы
-    RETURN replace(
-        replace(
-            replace(
-                replace(
-                    replace(v_text, '&', '&amp;'),
-                    '<', '&lt;'
-                ),
-                '>', '&gt;'
-            ),
-            '"', '&quot;'
-        ),
-        '''', '&apos;'
+    -- Шаг 1: Удаляем ВСЕ control characters кроме tab, lf, cr
+    -- Используем translate для удаления байтов 0-8, 11, 12, 14-31
+    v_text := translate(p_text,
+        E'\x00\x01\x02\x03\x04\x05\x06\x07\x08\x0B\x0C\x0E\x0F\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1A\x1B\x1C\x1D\x1E\x1F',
+        ''
     );
+
+    -- Шаг 2: Заменяем tab, lf, cr на пробелы (чтобы не ломать XML структуру строки)
+    v_text := translate(v_text, E'\t\n\r', '   ');
+
+    -- Шаг 3: Экранируем XML спецсимволы (порядок важен - & первым!)
+    v_text := replace(v_text, '&', '&amp;');
+    v_text := replace(v_text, '<', '&lt;');
+    v_text := replace(v_text, '>', '&gt;');
+    v_text := replace(v_text, '"', '&quot;');
+    v_text := replace(v_text, '''', '&apos;');
+
+    RETURN v_text;
 END;
 $$ LANGUAGE plpgsql IMMUTABLE PARALLEL SAFE;
 
