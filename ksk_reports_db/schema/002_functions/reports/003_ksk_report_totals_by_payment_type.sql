@@ -26,6 +26,7 @@
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 -- 2025-10-25 - Исправлено использование русских названий типов платежей
 -- 2025-11-26 - FIX: total_bypass теперь по resolution='bypass', не has_bypass
+-- 2025-12-08 - Добавлен вызов генерации Excel-файла
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_totals_by_payment_type(
@@ -104,6 +105,9 @@ BEGIN
     FROM upoa_ksk_reports.ksk_result
     WHERE output_timestamp >= p_start_date::TIMESTAMP(3)
       AND output_timestamp < p_end_date::TIMESTAMP(3);
+
+    -- Генерация Excel-файла
+    PERFORM upoa_ksk_reports.ksk_report_totals_by_payment_type_xls_file(p_header_id);
 END;
 $$ LANGUAGE plpgsql;
 

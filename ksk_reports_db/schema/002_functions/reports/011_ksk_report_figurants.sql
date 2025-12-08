@@ -42,6 +42,7 @@
 --   2025-11-20 - Добавлено поле exclusion_name_list - список исключений
 --   2025-11-26 - Bypass-фигуранты исключены из расчёта разрешений
 --   2025-11-26 - FIX: p_end_date исключающий, явное приведение к TIMESTAMP(3)
+--   2025-12-08 - Добавлен вызов генерации Excel-файла
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_figurants(
@@ -104,6 +105,9 @@ BEGIN
         exclusion_phrase,
         exclusion_name_list
     ORDER BY total DESC;
+
+    -- Генерация Excel-файла
+    PERFORM upoa_ksk_reports.ksk_report_figurants_xls_file(p_header_id);
 END;
 $$ LANGUAGE plpgsql;
 

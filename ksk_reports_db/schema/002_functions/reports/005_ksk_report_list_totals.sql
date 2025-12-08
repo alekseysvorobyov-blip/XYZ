@@ -43,6 +43,7 @@
 --   2025-11-25 - Исправлено имя поля: source_id (snake_case)
 --   2025-11-25 - Переведена фильтрация на timestamp (вместо date) для оптимизации
 --   2025-11-26 - FIX: p_end_date исключающий, упрощено приведение типов
+--   2025-12-08 - Добавлен вызов генерации Excel-файла
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_list_totals(
@@ -77,6 +78,9 @@ BEGIN
       AND fig.timestamp < p_end_date::TIMESTAMP(3)
     GROUP BY fig.list_code
     ORDER BY fig.list_code;
+
+    -- Генерация Excel-файла
+    PERFORM upoa_ksk_reports.ksk_report_list_totals_xls_file(p_report_header_id);
 END;
 $$ LANGUAGE plpgsql;
 

@@ -39,6 +39,7 @@
 --   2025-10-25 - Убран STRING_TO_ARRAY (list_codes уже массив TEXT[])
 --   2025-10-25 - Добавлен UNNEST для оптимизации (v2)
 --   2025-11-26 - FIX: p_end_date исключающий, убран +INTERVAL '1 day', TIMESTAMP(3)
+--   2025-12-08 - Добавлен вызов генерации Excel-файла
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_list_totals_by_payment_type(
@@ -136,6 +137,9 @@ BEGIN
       AND f.list_code IS NOT NULL
     GROUP BY f.list_code
     ORDER BY f.list_code;
+
+    -- Генерация Excel-файла
+    PERFORM upoa_ksk_reports.ksk_report_list_totals_by_payment_type_xls_file(p_report_header_id);
 END;
 $$ LANGUAGE plpgsql;
 
