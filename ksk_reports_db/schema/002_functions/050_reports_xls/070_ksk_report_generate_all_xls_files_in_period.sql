@@ -31,6 +31,7 @@
 --
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-12-08 - Создание функции
+--   2025-12-08 - FIX: Исправлена неоднозначность report_date (rf.report_date)
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_generate_all_xls_files_in_period(
@@ -132,9 +133,10 @@ BEGIN
 
     WHILE v_current_date <= p_date_to LOOP
         -- Проверяем, есть ли уже файл для этой даты
+        -- FIX: используем rf.report_date для избежания неоднозначности
         SELECT EXISTS(
-            SELECT 1 FROM upoa_ksk_reports.ksk_report_review_files
-            WHERE report_date = v_current_date
+            SELECT 1 FROM upoa_ksk_reports.ksk_report_review_files rf
+            WHERE rf.report_date = v_current_date
         ) INTO v_has_file;
 
         IF v_has_file THEN
