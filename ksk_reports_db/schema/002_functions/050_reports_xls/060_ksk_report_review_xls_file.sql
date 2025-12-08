@@ -25,20 +25,29 @@
 --
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-12-08 - Создание функции с оптимизацией для больших объёмов
+--   2025-12-08 - FIX: escape_xml теперь удаляет недопустимые XML control characters
 -- ============================================================================
 
 -- Вспомогательная функция для экранирования XML
+-- Удаляет недопустимые XML символы (control characters) и экранирует спецсимволы
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.escape_xml(p_text TEXT)
 RETURNS TEXT AS $$
+DECLARE
+    v_text TEXT;
 BEGIN
     IF p_text IS NULL THEN
         RETURN '';
     END IF;
+
+    -- Удаляем недопустимые XML символы (control characters 0x00-0x1F кроме tab, lf, cr)
+    v_text := regexp_replace(p_text, E'[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F]', '', 'g');
+
+    -- Экранируем XML спецсимволы
     RETURN replace(
         replace(
             replace(
                 replace(
-                    replace(p_text, '&', '&amp;'),
+                    replace(v_text, '&', '&amp;'),
                     '<', '&lt;'
                 ),
                 '>', '&gt;'
