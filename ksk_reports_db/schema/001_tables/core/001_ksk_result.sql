@@ -98,13 +98,21 @@ BEGIN
             PRIMARY KEY (id, output_timestamp)
         ) PARTITION BY RANGE (output_timestamp);
         
-        -- Оптимизация: JSON хранится во внешнем хранилище (EXTERNAL)
-        -- Критично для HDD при 3TB данных - экономит место в буфере
+
+        -- Убедитесь, что стратегия хранения EXTENDED (должна быть по умолчанию)
+        -- Если нет, сначала выполните это (скорее всего, НЕ НАДО):
         ALTER TABLE upoa_ksk_reports.ksk_result
-            ALTER COLUMN input_json SET STORAGE EXTERNAL,
-            ALTER COLUMN output_json SET STORAGE EXTERNAL,
-            ALTER COLUMN input_kafka_headers SET STORAGE EXTERNAL,
-            ALTER COLUMN output_kafka_headers SET STORAGE EXTERNAL;
+           ALTER COLUMN input_json SET STORAGE EXTENDED,
+           ALTER COLUMN output_json SET STORAGE EXTENDED,
+           ALTER COLUMN input_kafka_headers SET STORAGE EXTENDED,
+           ALTER COLUMN output_kafka_headers SET STORAGE EXTENDED;
+
+        -- Включите сжатие LZ4 для колонок
+        ALTER TABLE upoa_ksk_reports.ksk_result 
+            ALTER COLUMN input_json SET COMPRESSION lz4,
+            ALTER COLUMN output_json SET COMPRESSION lz4,
+            ALTER COLUMN input_kafka_headers SET COMPRESSION lz4,
+            ALTER COLUMN output_kafka_headers SET COMPRESSION lz4;
         
         -- Партиция по умолчанию для новых данных
         CREATE TABLE upoa_ksk_reports.part_ksk_result_default

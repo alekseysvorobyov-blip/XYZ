@@ -57,10 +57,14 @@ BEGIN
         ON DELETE CASCADE
     ) PARTITION BY RANGE (timestamp);
     
-    -- Оптимизация: JSON хранится во внешнем хранилище (EXTERNAL)
-    -- Критично для HDD при большом объёме данных - экономит место в буфере
+    -- Если нет, сначала выполните это (скорее всего, НЕ НАДО):
     ALTER TABLE upoa_ksk_reports.ksk_figurant_match
-      ALTER COLUMN match SET STORAGE EXTERNAL;
+       ALTER COLUMN match SET STORAGE EXTENDED;
+
+    -- Включите сжатие LZ4 для колонок
+    ALTER TABLE upoa_ksk_reports.ksk_figurant_match 
+        ALTER COLUMN match SET COMPRESSION lz4;
+
     
     -- Партиция по умолчанию для новых данных
     -- КРИТИЧНО: Все строки, которые не попадают в явные партиции, попадают сюда

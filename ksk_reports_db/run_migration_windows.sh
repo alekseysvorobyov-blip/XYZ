@@ -64,7 +64,7 @@ PSQL_PATH="C:/Program Files/pgAdmin 4/runtime/psql.exe"
 # Git Bash понимает оба варианта, но / предпочтительнее
 
 # Пример с абсолютным путём:
-MIGRATION_FILE="D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\migrations\ksk_full_migration-20251126-001.sql"
+MIGRATION_FILE="D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\migrations\ksk_full_migration-20251127-003.sql"
 
 # Пример с относительным путём (если скрипт в той же папке):
 # MIGRATION_FILE="./ksk_full_migration-20251027-001.sql"
