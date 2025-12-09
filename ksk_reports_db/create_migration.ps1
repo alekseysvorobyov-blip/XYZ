@@ -17,8 +17,8 @@
 # ============================================================================
 
 
-$SourcePath = "D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\deepseek\ksk_reports_db\schema"
-$OutputFile = "D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\deepseek\ksk_reports_db\migrations\ksk_full_migration-20251117-002.sql"
+$SourcePath = "D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\schema"
+$OutputFile = "D:\Yandex.Drive\Disk\YandexDisk\Документы\КСК\upoa_ksk_reports\ksk_reports_db\XYZ\ksk_reports_db\migrations\ksk_full_migration-20251208-001.sql"
 $Recursive = $true
 
 

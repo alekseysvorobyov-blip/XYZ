@@ -43,10 +43,9 @@ BEGIN
       sheet_count INTEGER DEFAULT 1,
       row_count INTEGER,
 
-      -- Constraint: либо XML, либо TEXT содержимое
+      -- Constraint: должно быть либо XML, либо TEXT содержимое
       CONSTRAINT chk_review_file_content CHECK (
-        (file_format = 'excel_xml' AND file_content IS NOT NULL) OR
-        (file_format != 'excel_xml' AND file_content_text IS NOT NULL)
+        file_content IS NOT NULL OR file_content_text IS NOT NULL
       )
     );
 
@@ -163,6 +162,16 @@ COMMENT ON INDEX upoa_ksk_reports.idx_ksk_report_review_files_created
 SELECT '[ksk_report_review_files] ✅ Индексы созданы/проверены';
 
 COMMIT;
+
+-- Изменяем constraint
+ALTER TABLE upoa_ksk_reports.ksk_report_review_files 
+DROP CONSTRAINT IF EXISTS chk_review_file_content;
+
+ALTER TABLE upoa_ksk_reports.ksk_report_review_files 
+ADD CONSTRAINT chk_review_file_content CHECK (
+    file_content IS NOT NULL OR file_content_text IS NOT NULL
+);
+
 
 -- ============================================================================
 -- КОНЕЦ СКРИПТА

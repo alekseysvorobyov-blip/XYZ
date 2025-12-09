@@ -26,6 +26,8 @@
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-12-08 - Создание функции с оптимизацией для больших объёмов
 --   2025-12-08 - FIX: escape_xml теперь удаляет недопустимые XML control characters
+--   2025-12-08 - FIX: Сохранение в file_content_text (TEXT) вместо file_content (XML)
+--                для избежания ошибок валидации XML на больших файлах
 -- ============================================================================
 
 -- Вспомогательная функция для экранирования XML
@@ -217,12 +219,13 @@ BEGIN
     -- Вычисляем размер файла
     v_file_size := LENGTH(v_xml_text);
 
-    -- Сохраняем файл в таблицу (INSERT ON CONFLICT для атомарной замены)
+    -- Сохраняем файл в таблицу как TEXT (без валидации XML - для больших файлов)
+    -- INSERT ON CONFLICT для атомарной замены
     INSERT INTO upoa_ksk_reports.ksk_report_review_files (
         report_date,
         file_name,
         file_format,
-        file_content,
+        file_content_text,  -- TEXT вместо XML для больших файлов
         file_size_bytes,
         sheet_count,
         row_count
@@ -231,7 +234,7 @@ BEGIN
         p_report_date,
         v_file_name,
         'excel_xml',
-        v_xml_text::XML,
+        v_xml_text,  -- Сохраняем как TEXT без ::XML конвертации
         v_file_size,
         1,
         v_row_count
@@ -239,7 +242,8 @@ BEGIN
     ON CONFLICT (report_date) DO UPDATE SET
         file_name = EXCLUDED.file_name,
         file_format = EXCLUDED.file_format,
-        file_content = EXCLUDED.file_content,
+        file_content_text = EXCLUDED.file_content_text,
+        file_content = NULL,  -- Очищаем XML поле если было
         file_size_bytes = EXCLUDED.file_size_bytes,
         sheet_count = EXCLUDED.sheet_count,
         row_count = EXCLUDED.row_count,
