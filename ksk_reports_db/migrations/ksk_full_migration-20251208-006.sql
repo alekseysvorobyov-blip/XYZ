@@ -9088,6 +9088,7 @@ SELECT cron.schedule(
         rec RECORD;
         v_report_id INTEGER;
     BEGIN
+        DELETE FROM upoa_ksk_reports.ksk_report_review_files WHERE report_date >= (CURRENT_DATE - 1)::date;
         FOR rec IN 
             SELECT report_code 
             FROM upoa_ksk_reports.ksk_report_orchestrator
