@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Explorer 6-8K.md",
+                "file": "Postgres.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Explorer 6-8K"
+              "title": "Postgres"
             }
           }
         ],
@@ -200,10 +200,11 @@
   },
   "active": "d464dabcbab82e2a",
   "lastOpenFiles": [
-    "Управление рисками в Agile.md",
-    "Explorer 6-8K.md",
-    "INDEX PY.md",
+    "smart-basket MVP.md",
     "Postgres.md",
+    "Explorer 6-8K.md",
+    "Управление рисками в Agile.md",
+    "INDEX PY.md",
     "Панели.md",
     "Инициализация.md"
   ]

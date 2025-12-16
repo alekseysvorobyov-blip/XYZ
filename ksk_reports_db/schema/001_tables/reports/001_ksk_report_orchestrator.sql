@@ -130,7 +130,8 @@ VALUES
     ('totals_by_payment_type', 'ksk_report_totals_by_payment_type_data', 'ksk_report_totals_by_payment_type', 'Статистика по типам платежей', 365, 14),
     ('list_totals', 'ksk_report_list_totals_data', 'ksk_report_list_totals', 'Итоги по спискам', 365, 14),
     ('list_totals_by_payment_type', 'ksk_report_list_totals_by_payment_type_data', 'ksk_report_list_totals_by_payment_type', 'Итоги по спискам и типам платежей', 365, 14),
-    ('figurants', 'ksk_report_figurants_data', 'ksk_report_figurants', 'Отчёт по фигурантам', 30, 7)
+    ('figurants', 'ksk_report_figurants_data', 'ksk_report_figurants', 'Отчёт по фигурантам', 30, 7),
+    ('report_review', 'ksk_report_review_data', 'ksk_report_review_xls_file', 'Проверки', 7, 7)
 ON CONFLICT (report_code) DO NOTHING;
 
 SELECT '[ksk_report_orchestrator] ✅ Оркестратор инициализирован (5 типов отчётов)' AS status;
