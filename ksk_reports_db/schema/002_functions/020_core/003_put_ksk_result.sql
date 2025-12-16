@@ -272,20 +272,20 @@ SELECT
   COALESCE(v_payment_info->>'currencyControl', ''),
   
   -- Плательщик
-  COALESCE(v_payer_info->>'inn', ''),
-  COALESCE(v_payer_info->>'name', ''),
-  COALESCE(v_payer_info->>'accountNumber', ''),
-  COALESCE(v_payer_info->>'documentType', ''),
-  COALESCE(v_payer_bank_info->>'bankName', ''),
-  COALESCE(v_payer_bank_info->>'accountNumber', ''),
-  
+  COALESCE(v_payer_info->>'payerInn', ''),
+  COALESCE(v_payer_info->>'payerName', ''),
+  COALESCE(v_payer_info->'payerAccountInfo'->>'payerAccountNumber', ''),
+  COALESCE(v_payer_info->>'payerDocumentType', ''),
+  COALESCE(v_payer_bank_info->>'payerBankName', ''),
+  COALESCE(v_payer_bank_info->>'payerBankAccountNumber', ''),
+
   -- Получатель
-  COALESCE(v_receiver_info->>'accountNumber', ''),
-  COALESCE(v_receiver_info->>'name', ''),
-  COALESCE(v_receiver_info->>'inn', ''),
-  COALESCE(v_receiver_bank_info->>'bankName', ''),
-  COALESCE(v_receiver_bank_info->>'accountNumber', ''),
-  COALESCE(v_receiver_info->>'documentType', ''),
+  COALESCE(v_receiver_info->'receiverAccountInfo'->>'receiverAccountNumber', ''),
+  COALESCE(v_receiver_info->>'receiverName', ''),
+  COALESCE(v_receiver_info->>'receiverInn', ''),
+  COALESCE(v_receiver_bank_info->>'receiverBankName', ''),
+  COALESCE(v_receiver_bank_info->>'receiverBankAccountNumber', ''),
+  COALESCE(v_receiver_info->>'receiverDocumentType', ''),
   
   -- Kafka метаданные
   p_input_kafka_partition,
