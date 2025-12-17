@@ -10,14 +10,15 @@
 --   @p_report_header_id - ID заголовка отчёта (обязательный)
 --   @p_start_date       - Дата отчёта (включительно)
 --   @p_end_date         - Конечная дата (должна быть p_start_date + 1 day)
---   @p_parameters       - JSON с опциональным полем "resolution": "allow"|"review"|"deny"|"empty"
+--   @p_parameters       - JSON с опциональным полем "resolution": "all"|"allow"|"review"|"deny"|"empty"
 --
 -- ВОЗВРАЩАЕТ:
 --   INTEGER - ID созданного файла в ksk_report_files
 --
 -- ОГРАНИЧЕНИЯ:
 --   - Отчёт генерируется строго за 1 день (p_end_date = p_start_date + 1 day)
---   - Параметр resolution должен быть одним из: allow, review, deny, empty
+--   - Параметр resolution должен быть одним из: all, allow, review, deny, empty
+--   - При resolution = 'all' выбираются все транзакции без фильтрации
 --
 -- ФИЛЬТРАЦИЯ ПО ДАТЕ:
 --   Интервал [p_start_date ... p_end_date) - исключающий конец
@@ -78,8 +79,8 @@ BEGIN
     END IF;
 
     -- Проверка допустимых значений resolution
-    IF v_resolution NOT IN ('allow', 'review', 'deny', 'empty') THEN
-        RAISE EXCEPTION 'Недопустимое значение resolution: %. Допустимые значения: allow, review, deny, empty', v_resolution;
+    IF v_resolution NOT IN ('all', 'allow', 'review', 'deny', 'empty') THEN
+        RAISE EXCEPTION 'Недопустимое значение resolution: %. Допустимые значения: all, allow, review, deny, empty', v_resolution;
     END IF;
 
     -- =========================================================================
@@ -135,7 +136,7 @@ BEGIN
     INTO v_data_rows, v_row_count
     FROM upoa_ksk_reports.ksk_report_review(p_start_date)
     WHERE rn = 1  -- Убираем дубликаты
-      AND transaction_resolution = v_resolution;  -- Фильтр по резолюции
+      AND (v_resolution = 'all' OR transaction_resolution = v_resolution);  -- Фильтр по резолюции (all = без фильтра)
 
     -- Если нет данных, создаём пустой отчёт
     IF v_row_count = 0 THEN
@@ -283,4 +284,4 @@ END;
 $$ LANGUAGE plpgsql;
 
 COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_review_create_report(INTEGER, DATE, DATE, JSONB) IS
-    'Генерирует Excel XML файл для отчёта Review. Фильтр по резолюции (allow/review/deny/empty). Отчёт строго за 1 день. Сохраняет в ksk_report_files и ksk_report_review_data.';
+    'Генерирует Excel XML файл для отчёта Review. Фильтр по резолюции (all/allow/review/deny/empty). all = все транзакции. Отчёт строго за 1 день. Сохраняет в ksk_report_files и ksk_report_review_data.';

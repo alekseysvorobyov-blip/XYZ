@@ -1,7 +1,7 @@
 -- ============================================================================
 -- ОБЪЕДИНЕННЫЙ SQL СКРИПТ
 -- ============================================================================
--- Дата создания: 2025-12-16 09:25:01
+-- Дата создания: 2025-12-17 10:05:55
 -- ============================================================================
 
 
@@ -1477,7 +1477,7 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 001_ksk_report_orchestrator.sql
--- Размер: 8.52 KB
+-- Размер: 8.63 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -1612,10 +1612,11 @@ VALUES
     ('totals_by_payment_type', 'ksk_report_totals_by_payment_type_data', 'ksk_report_totals_by_payment_type', 'Статистика по типам платежей', 365, 14),
     ('list_totals', 'ksk_report_list_totals_data', 'ksk_report_list_totals', 'Итоги по спискам', 365, 14),
     ('list_totals_by_payment_type', 'ksk_report_list_totals_by_payment_type_data', 'ksk_report_list_totals_by_payment_type', 'Итоги по спискам и типам платежей', 365, 14),
-    ('figurants', 'ksk_report_figurants_data', 'ksk_report_figurants', 'Отчёт по фигурантам', 30, 7)
+    ('figurants', 'ksk_report_figurants_data', 'ksk_report_figurants', 'Отчёт по фигурантам', 30, 7),
+    ('report_review', 'ksk_report_review_data', 'ksk_report_review_create_report', 'Проверки', 7, 7)
 ON CONFLICT (report_code) DO NOTHING;
 
-SELECT '[ksk_report_orchestrator] ✅ Оркестратор инициализирован (5 типов отчётов)' AS status;
+SELECT '[ksk_report_orchestrator] ✅ Оркестратор инициализирован (6 типов отчётов)' AS status;
 
 COMMIT;
 
@@ -2717,13 +2718,14 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 008_ksk_report_files.sql
--- Размер: 8.36 KB
+-- Размер: 9.82 KB
 -- ============================================================================
 
 -- ============================================================================
 -- ТАБЛИЦА: ksk_report_files (ИДЕМПОТЕНТНАЯ ВЕРСИЯ)
--- ОПИСАНИЕ: Файлы отчётов в формате Excel XML (SpreadsheetML)
--- Дата: 2025-12-08
+-- ОПИСАНИЕ: Файлы отчётов в формате Excel XML (SpreadsheetML) и других форматах
+--           Универсальное хранилище для всех типов отчётов
+-- Дата: 2025-12-16
 -- ============================================================================
 
 BEGIN;
@@ -2755,35 +2757,26 @@ BEGIN
       -- Временные метки
       created_datetime TIMESTAMP NOT NULL DEFAULT NOW(),
 
-      -- Содержимое файла
-      file_content XML,
-      file_content_text TEXT,
+      -- Содержимое файла (унифицировано в TEXT)
+      file_content_text TEXT NOT NULL,
 
       -- Метаданные файла
       file_size_bytes INTEGER,
       sheet_count INTEGER DEFAULT 1,
-      row_count INTEGER,
-
-      -- Constraint: либо XML, либо TEXT содержимое
-      CONSTRAINT chk_file_content CHECK (
-        (file_format = 'excel_xml' AND file_content IS NOT NULL) OR
-        (file_format != 'excel_xml' AND file_content_text IS NOT NULL)
-      )
+      row_count INTEGER
     );
 
     -- Комментарии для документации
     COMMENT ON TABLE upoa_ksk_reports.ksk_report_files
-      IS 'Файлы отчётов в формате Excel XML (SpreadsheetML) и других форматах';
+      IS 'Универсальное хранилище файлов отчётов всех типов (Excel XML, CSV, JSON)';
     COMMENT ON COLUMN upoa_ksk_reports.ksk_report_files.report_header_id
-      IS 'Ссылка на заголовок отчёта в ksk_report_header';
+      IS 'Ссылка на заголовок отчёта в ksk_report_header (CASCADE DELETE)';
     COMMENT ON COLUMN upoa_ksk_reports.ksk_report_files.file_name
       IS 'Имя файла отчёта (например: report_2025-01.xls)';
     COMMENT ON COLUMN upoa_ksk_reports.ksk_report_files.file_format
       IS 'Формат файла: excel_xml, csv, json, xml';
-    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_files.file_content
-      IS 'Содержимое файла в формате XML (SpreadsheetML для Excel)';
     COMMENT ON COLUMN upoa_ksk_reports.ksk_report_files.file_content_text
-      IS 'Содержимое файла в текстовом формате (для CSV, JSON)';
+      IS 'Содержимое файла в текстовом формате (XML хранится как TEXT для производительности)';
     COMMENT ON COLUMN upoa_ksk_reports.ksk_report_files.file_size_bytes
       IS 'Размер файла в байтах';
     COMMENT ON COLUMN upoa_ksk_reports.ksk_report_files.sheet_count
@@ -2799,14 +2792,43 @@ BEGIN
 END $$;
 
 -- ============================================================================
--- 2. ДОБАВЛЕНИЕ НЕДОСТАЮЩИХ КОЛОНОК (для существующих таблиц)
+-- 2. МИГРАЦИЯ: Перенос данных из file_content в file_content_text
+-- ============================================================================
+
+DO $$
+BEGIN
+  -- Проверяем, существует ли старая колонка file_content (XML)
+  IF EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_schema = 'upoa_ksk_reports'
+    AND table_name = 'ksk_report_files'
+    AND column_name = 'file_content'
+  ) THEN
+    -- Переносим данные из file_content в file_content_text (если file_content_text пустой)
+    UPDATE upoa_ksk_reports.ksk_report_files
+    SET file_content_text = file_content::TEXT
+    WHERE file_content IS NOT NULL
+      AND (file_content_text IS NULL OR file_content_text = '');
+
+    RAISE NOTICE '[ksk_report_files] ✅ Данные перенесены из file_content в file_content_text';
+
+    -- Удаляем старую колонку file_content
+    ALTER TABLE upoa_ksk_reports.ksk_report_files DROP COLUMN file_content;
+
+    RAISE NOTICE '[ksk_report_files] ✅ Колонка file_content (XML) удалена';
+  ELSE
+    RAISE NOTICE '[ksk_report_files] ℹ️  Колонка file_content уже удалена';
+  END IF;
+END $$;
+
+-- ============================================================================
+-- 3. ДОБАВЛЕНИЕ НЕДОСТАЮЩИХ КОЛОНОК (для существующих таблиц)
 -- ============================================================================
 
 SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_files', 'report_header_id', 'INTEGER');
 SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_files', 'file_name', 'VARCHAR(500)');
 SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_files', 'file_format', 'VARCHAR(50)', '''excel_xml''');
 SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_files', 'created_datetime', 'TIMESTAMP', 'now()');
-SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_files', 'file_content', 'XML');
 SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_files', 'file_content_text', 'TEXT');
 SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_files', 'file_size_bytes', 'INTEGER');
 SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_files', 'sheet_count', 'INTEGER', '1');
@@ -2815,7 +2837,25 @@ SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_fi
 SELECT '[ksk_report_files] ✅ Проверка и добавление колонок завершена';
 
 -- ============================================================================
--- 3. УДАЛЕНИЕ СТАРЫХ/НЕЭФФЕКТИВНЫХ ИНДЕКСОВ (ДИНАМИЧЕСКОЕ)
+-- 4. УДАЛЕНИЕ СТАРЫХ CONSTRAINT-ов
+-- ============================================================================
+
+DO $$
+BEGIN
+  -- Удаляем старый constraint если есть
+  IF EXISTS (
+    SELECT 1 FROM information_schema.table_constraints
+    WHERE table_schema = 'upoa_ksk_reports'
+    AND table_name = 'ksk_report_files'
+    AND constraint_name = 'chk_file_content'
+  ) THEN
+    ALTER TABLE upoa_ksk_reports.ksk_report_files DROP CONSTRAINT chk_file_content;
+    RAISE NOTICE '[ksk_report_files] ✅ Удалён старый constraint chk_file_content';
+  END IF;
+END $$;
+
+-- ============================================================================
+-- 5. УДАЛЕНИЕ СТАРЫХ/НЕЭФФЕКТИВНЫХ ИНДЕКСОВ (ДИНАМИЧЕСКОЕ)
 -- ============================================================================
 
 DO $$
@@ -2850,30 +2890,27 @@ BEGIN
 END $$;
 
 -- ============================================================================
--- 4. СОЗДАНИЕ ОПТИМИЗИРОВАННЫХ ИНДЕКСОВ (идемпотентно)
+-- 6. СОЗДАНИЕ ОПТИМИЗИРОВАННЫХ ИНДЕКСОВ (идемпотентно)
 -- ============================================================================
 
--- 4.1. B-tree индекс на report_header_id (FK)
--- Применение: JOIN с ksk_report_header
--- Используется для поиска всех файлов конкретного отчёта
+-- 6.1. B-tree индекс на report_header_id (FK)
+-- Применение: JOIN с ksk_report_header, CASCADE DELETE
 --
 CREATE INDEX IF NOT EXISTS idx_ksk_report_files_header
   ON upoa_ksk_reports.ksk_report_files (report_header_id);
 COMMENT ON INDEX upoa_ksk_reports.idx_ksk_report_files_header
   IS 'B-tree: FK для JOIN с ksk_report_header. Поиск файлов по отчёту.';
 
--- 4.2. B-tree индекс на file_format
+-- 6.2. B-tree индекс на file_format
 -- Применение: фильтрация по формату (WHERE file_format = 'excel_xml')
--- Используется для выборки файлов определённого формата
 --
 CREATE INDEX IF NOT EXISTS idx_ksk_report_files_format
   ON upoa_ksk_reports.ksk_report_files (file_format);
 COMMENT ON INDEX upoa_ksk_reports.idx_ksk_report_files_format
   IS 'B-tree: Фильтрация по формату файла.';
 
--- 4.3. B-tree индекс на created_datetime
+-- 6.3. B-tree индекс на created_datetime
 -- Применение: временная фильтрация (ORDER BY created_datetime DESC)
--- Используется для отображения последних файлов
 --
 CREATE INDEX IF NOT EXISTS idx_ksk_report_files_created
   ON upoa_ksk_reports.ksk_report_files (created_datetime);
@@ -2891,14 +2928,62 @@ COMMIT;
 
 -- ============================================================================
 -- ФАЙЛ: 009_ksk_report_review_files.sql
--- Размер: 9.2 KB
+-- Размер: 1.88 KB
 -- ============================================================================
 
 -- ============================================================================
--- ТАБЛИЦА: ksk_report_review_files (ИДЕМПОТЕНТНАЯ ВЕРСИЯ)
--- ОПИСАНИЕ: Файлы отчётов Review в формате Excel XML (SpreadsheetML)
---           Один файл на одну дату (уникальность по report_date)
--- Дата: 2025-12-08
+-- ТАБЛИЦА: ksk_report_review_files (DEPRECATED - УДАЛЕНИЕ)
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Таблица устарела. Файлы отчётов Review теперь хранятся в общей таблице
+--   ksk_report_files для унификации архитектуры.
+--
+-- ДЕЙСТВИЕ:
+--   Скрипт удаляет таблицу ksk_report_review_files если она существует
+--
+-- ИСТОРИЯ ИЗМЕНЕНИЙ:
+--   2025-12-08 - Создание таблицы
+--   2025-12-16 - DEPRECATED: Миграция на ksk_report_files, удаление таблицы
+-- ============================================================================
+
+BEGIN;
+
+-- ============================================================================
+-- УДАЛЕНИЕ ТАБЛИЦЫ ksk_report_review_files
+-- ============================================================================
+
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM information_schema.tables
+    WHERE table_schema = 'upoa_ksk_reports'
+    AND table_name = 'ksk_report_review_files'
+  ) THEN
+    -- Удаляем таблицу (данные не переносятся - они были временными)
+    DROP TABLE upoa_ksk_reports.ksk_report_review_files;
+    RAISE NOTICE '[ksk_report_review_files] ✅ Таблица удалена (deprecated, данные в ksk_report_files)';
+  ELSE
+    RAISE NOTICE '[ksk_report_review_files] ℹ️  Таблица уже удалена';
+  END IF;
+END $$;
+
+COMMIT;
+
+-- ============================================================================
+-- КОНЕЦ СКРИПТА
+-- ============================================================================
+
+
+-- ============================================================================
+-- ФАЙЛ: 010_ksk_report_review_data.sql
+-- Размер: 7.66 KB
+-- ============================================================================
+
+-- ============================================================================
+-- ТАБЛИЦА: ksk_report_review_data (ИДЕМПОТЕНТНАЯ ВЕРСИЯ)
+-- ОПИСАНИЕ: Метаданные отчёта Review для совместимости с системой отчётов
+--           Содержит ссылку на заголовок отчёта и статистику файла
+-- Дата: 2025-12-16
 -- ============================================================================
 
 BEGIN;
@@ -2912,63 +2997,42 @@ BEGIN
   IF NOT EXISTS (
     SELECT 1 FROM information_schema.tables
     WHERE table_schema = 'upoa_ksk_reports'
-    AND table_name = 'ksk_report_review_files'
+    AND table_name = 'ksk_report_review_data'
   ) THEN
 
-    -- Создание таблицы файлов отчётов Review
-    CREATE TABLE upoa_ksk_reports.ksk_report_review_files (
+    -- Создание таблицы метаданных отчёта Review
+    CREATE TABLE upoa_ksk_reports.ksk_report_review_data (
       -- Первичный ключ
       id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 
-      -- Дата отчёта (уникальная - один отчёт на дату)
-      report_date DATE NOT NULL UNIQUE,
-
-      -- Идентификация файла
-      file_name VARCHAR(500) NOT NULL,
-      file_format VARCHAR(50) NOT NULL DEFAULT 'excel_xml' CHECK (file_format IN ('excel_xml', 'csv', 'json', 'xml')),
-
-      -- Временные метки
-      created_datetime TIMESTAMP NOT NULL DEFAULT NOW(),
-
-      -- Содержимое файла
-      file_content XML,
-      file_content_text TEXT,
+      -- Связь с заголовком отчёта (уникальная - один отчёт на заголовок)
+      report_header_id INTEGER NOT NULL UNIQUE REFERENCES upoa_ksk_reports.ksk_report_header(id) ON DELETE CASCADE,
+      created_date_time TIMESTAMP NOT NULL DEFAULT NOW(),
 
       -- Метаданные файла
       file_size_bytes INTEGER,
-      sheet_count INTEGER DEFAULT 1,
       row_count INTEGER,
-
-      -- Constraint: должно быть либо XML, либо TEXT содержимое
-      CONSTRAINT chk_review_file_content CHECK (
-        file_content IS NOT NULL OR file_content_text IS NOT NULL
-      )
+      transaction_resolution TEXT
     );
 
     -- Комментарии для документации
-    COMMENT ON TABLE upoa_ksk_reports.ksk_report_review_files
-      IS 'Файлы отчётов Review в формате Excel XML. Один файл на одну дату (уникальность по report_date).';
-    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_files.report_date
-      IS 'Дата отчёта (уникальная - только один отчёт на дату)';
-    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_files.file_name
-      IS 'Имя файла отчёта (например: review_2025-01-15.xls)';
-    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_files.file_format
-      IS 'Формат файла: excel_xml, csv, json, xml';
-    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_files.file_content
-      IS 'Содержимое файла в формате XML (SpreadsheetML для Excel)';
-    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_files.file_content_text
-      IS 'Содержимое файла в текстовом формате (для CSV, JSON)';
-    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_files.file_size_bytes
-      IS 'Размер файла в байтах';
-    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_files.sheet_count
-      IS 'Количество листов в Excel-файле';
-    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_files.row_count
-      IS 'Общее количество строк данных';
+    COMMENT ON TABLE upoa_ksk_reports.ksk_report_review_data
+      IS 'Метаданные отчёта Review для совместимости с системой отчётов. Содержит ссылку на заголовок и статистику файла.';
+    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_data.report_header_id
+      IS 'Ссылка на заголовок отчёта';
+    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_data.created_date_time
+      IS 'Дата и время создания записи';
+    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_data.file_size_bytes
+      IS 'Размер сгенерированного файла в байтах';
+    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_data.row_count
+      IS 'Количество строк данных в отчёте';
+    COMMENT ON COLUMN upoa_ksk_reports.ksk_report_review_data.transaction_resolution
+      IS 'Тип резолюции транзакций в отчёте (allow, review, deny, empty)';
 
-    RAISE NOTICE '[ksk_report_review_files] ✅ Таблица создана';
+    RAISE NOTICE '[ksk_report_review_data] ✅ Таблица создана';
 
   ELSE
-    RAISE NOTICE '[ksk_report_review_files] ℹ️  Таблица уже существует, пропуск создания';
+    RAISE NOTICE '[ksk_report_review_data] ℹ️  Таблица уже существует, пропуск создания';
   END IF;
 END $$;
 
@@ -2976,17 +3040,33 @@ END $$;
 -- 2. ДОБАВЛЕНИЕ НЕДОСТАЮЩИХ КОЛОНОК (для существующих таблиц)
 -- ============================================================================
 
-SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_files', 'report_date', 'DATE');
-SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_files', 'file_name', 'VARCHAR(500)');
-SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_files', 'file_format', 'VARCHAR(50)', '''excel_xml''');
-SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_files', 'created_datetime', 'TIMESTAMP', 'now()');
-SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_files', 'file_content', 'XML');
-SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_files', 'file_content_text', 'TEXT');
-SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_files', 'file_size_bytes', 'INTEGER');
-SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_files', 'sheet_count', 'INTEGER', '1');
-SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_files', 'row_count', 'INTEGER');
+SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_data', 'report_header_id', 'INTEGER');
+SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_data', 'created_date_time', 'TIMESTAMP', 'now()');
+SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_data', 'file_size_bytes', 'INTEGER');
+SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_data', 'row_count', 'INTEGER');
+SELECT upoa_ksk_reports.add_column_if_not_exists('upoa_ksk_reports.ksk_report_review_data', 'transaction_resolution', 'TEXT');
 
-SELECT '[ksk_report_review_files] ✅ Проверка и добавление колонок завершена';
+SELECT '[ksk_report_review_data] ✅ Проверка и добавление колонок завершена';
+
+-- ============================================================================
+-- 2.1. ДОБАВЛЕНИЕ UNIQUE CONSTRAINT НА report_header_id (для ON CONFLICT)
+-- ============================================================================
+
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM information_schema.table_constraints
+    WHERE table_schema = 'upoa_ksk_reports'
+    AND table_name = 'ksk_report_review_data'
+    AND constraint_name = 'ksk_report_review_data_report_header_id_key'
+  ) THEN
+    ALTER TABLE upoa_ksk_reports.ksk_report_review_data
+      ADD CONSTRAINT ksk_report_review_data_report_header_id_key UNIQUE (report_header_id);
+    RAISE NOTICE '[ksk_report_review_data] ✅ Добавлен UNIQUE constraint на report_header_id';
+  ELSE
+    RAISE NOTICE '[ksk_report_review_data] ℹ️  UNIQUE constraint на report_header_id уже существует';
+  END IF;
+END $$;
 
 -- ============================================================================
 -- 3. УДАЛЕНИЕ СТАРЫХ/НЕЭФФЕКТИВНЫХ ИНДЕКСОВ (ДИНАМИЧЕСКОЕ)
@@ -2996,10 +3076,9 @@ DO $$
 DECLARE
     v_index_name text;
     v_needed_indexes text[] := ARRAY[
-        'idx_ksk_report_review_files_date',
-        'idx_ksk_report_review_files_format',
-        'idx_ksk_report_review_files_created',
-        'ksk_report_review_files_report_date_key'
+        'idx_ksk_report_review_data_header',
+        'idx_ksk_report_review_data_created',
+        'ksk_report_review_data_report_header_id_key'  -- UNIQUE constraint index
     ];
     v_index_count integer := 0;
 BEGIN
@@ -3007,20 +3086,20 @@ BEGIN
         SELECT indexname
         FROM pg_indexes
         WHERE schemaname = 'upoa_ksk_reports'
-          AND tablename = 'ksk_report_review_files'
+          AND tablename = 'ksk_report_review_data'
           AND indexname NOT LIKE '%_pkey'
     LOOP
         IF NOT v_index_name = ANY(v_needed_indexes) THEN
             EXECUTE 'DROP INDEX IF EXISTS upoa_ksk_reports.' || quote_ident(v_index_name);
-            RAISE NOTICE '[ksk_report_review_files] 🗑️  Удалён ненужный индекс: %', v_index_name;
+            RAISE NOTICE '[ksk_report_review_data] 🗑️  Удалён ненужный индекс: %', v_index_name;
             v_index_count := v_index_count + 1;
         END IF;
     END LOOP;
 
     IF v_index_count = 0 THEN
-        RAISE NOTICE '[ksk_report_review_files] ℹ️  Ненужных индексов не найдено';
+        RAISE NOTICE '[ksk_report_review_data] ℹ️  Ненужных индексов не найдено';
     ELSE
-        RAISE NOTICE '[ksk_report_review_files] ✅ Удалено % ненужных индексов', v_index_count;
+        RAISE NOTICE '[ksk_report_review_data] ✅ Удалено % ненужных индексов', v_index_count;
     END IF;
 END $$;
 
@@ -3028,46 +3107,25 @@ END $$;
 -- 4. СОЗДАНИЕ ОПТИМИЗИРОВАННЫХ ИНДЕКСОВ (идемпотентно)
 -- ============================================================================
 
--- 4.1. B-tree индекс на report_date (уже есть UNIQUE constraint, но добавим явно для ясности)
--- Применение: поиск отчёта по дате
--- Используется для быстрого поиска файла за конкретную дату
+-- 4.1. B-tree индекс на report_header_id (FK)
+-- Применение: JOIN с ksk_report_header, поиск данных конкретного отчёта
 --
-CREATE INDEX IF NOT EXISTS idx_ksk_report_review_files_date
-  ON upoa_ksk_reports.ksk_report_review_files (report_date);
-COMMENT ON INDEX upoa_ksk_reports.idx_ksk_report_review_files_date
-  IS 'B-tree: Поиск отчёта по дате. Основной индекс для быстрого доступа.';
+CREATE INDEX IF NOT EXISTS idx_ksk_report_review_data_header
+  ON upoa_ksk_reports.ksk_report_review_data (report_header_id);
+COMMENT ON INDEX upoa_ksk_reports.idx_ksk_report_review_data_header
+  IS 'B-tree: FK для JOIN с ksk_report_header.';
 
--- 4.2. B-tree индекс на file_format
--- Применение: фильтрация по формату (WHERE file_format = 'excel_xml')
--- Используется для выборки файлов определённого формата
+-- 4.2. B-tree индекс на created_date_time
+-- Применение: временная фильтрация и сортировка
 --
-CREATE INDEX IF NOT EXISTS idx_ksk_report_review_files_format
-  ON upoa_ksk_reports.ksk_report_review_files (file_format);
-COMMENT ON INDEX upoa_ksk_reports.idx_ksk_report_review_files_format
-  IS 'B-tree: Фильтрация по формату файла.';
+CREATE INDEX IF NOT EXISTS idx_ksk_report_review_data_created
+  ON upoa_ksk_reports.ksk_report_review_data (created_date_time);
+COMMENT ON INDEX upoa_ksk_reports.idx_ksk_report_review_data_created
+  IS 'B-tree: Временная фильтрация данных отчёта.';
 
--- 4.3. B-tree индекс на created_datetime
--- Применение: временная фильтрация (ORDER BY created_datetime DESC)
--- Используется для отображения последних файлов
---
-CREATE INDEX IF NOT EXISTS idx_ksk_report_review_files_created
-  ON upoa_ksk_reports.ksk_report_review_files (created_datetime);
-COMMENT ON INDEX upoa_ksk_reports.idx_ksk_report_review_files_created
-  IS 'B-tree: Временная фильтрация и сортировка файлов.';
-
-SELECT '[ksk_report_review_files] ✅ Индексы созданы/проверены';
+SELECT '[ksk_report_review_data] ✅ Индексы созданы/проверены';
 
 COMMIT;
-
--- Изменяем constraint
-ALTER TABLE upoa_ksk_reports.ksk_report_review_files 
-DROP CONSTRAINT IF EXISTS chk_review_file_content;
-
-ALTER TABLE upoa_ksk_reports.ksk_report_review_files 
-ADD CONSTRAINT chk_review_file_content CHECK (
-    file_content IS NOT NULL OR file_content_text IS NOT NULL
-);
-
 
 -- ============================================================================
 -- КОНЕЦ СКРИПТА
@@ -5350,7 +5408,7 @@ END $$;
 
 -- ============================================================================
 -- ФАЙЛ: 010_ksk_report_totals_xls_file.sql
--- Размер: 8.45 KB
+-- Размер: 8.5 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -5500,12 +5558,12 @@ BEGIN
     -- Количество строк данных (без заголовков)
     v_row_count := 1;
 
-    -- Сохраняем файл в таблицу
+    -- Сохраняем файл в таблицу (унифицировано в TEXT)
     INSERT INTO upoa_ksk_reports.ksk_report_files (
         report_header_id,
         file_name,
         file_format,
-        file_content,
+        file_content_text,
         file_size_bytes,
         sheet_count,
         row_count
@@ -5514,7 +5572,7 @@ BEGIN
         p_report_header_id,
         v_file_name,
         'excel_xml',
-        v_xml_content,
+        v_xml_content::TEXT,
         LENGTH(v_xml_content::TEXT),
         1,
         v_row_count
@@ -5531,7 +5589,7 @@ COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_totals_xls_file(INTEGER) IS
 
 -- ============================================================================
 -- ФАЙЛ: 020_ksk_report_list_totals_xls_file.sql
--- Размер: 7.65 KB
+-- Размер: 7.7 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -5670,12 +5728,12 @@ BEGIN
         standalone yes
     );
 
-    -- Сохраняем файл в таблицу
+    -- Сохраняем файл в таблицу (унифицировано в TEXT)
     INSERT INTO upoa_ksk_reports.ksk_report_files (
         report_header_id,
         file_name,
         file_format,
-        file_content,
+        file_content_text,
         file_size_bytes,
         sheet_count,
         row_count
@@ -5684,7 +5742,7 @@ BEGIN
         p_report_header_id,
         v_file_name,
         'excel_xml',
-        v_xml_content,
+        v_xml_content::TEXT,
         LENGTH(v_xml_content::TEXT),
         1,
         v_row_count
@@ -5701,7 +5759,7 @@ COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_list_totals_xls_file(INTEGER) IS
 
 -- ============================================================================
 -- ФАЙЛ: 030_ksk_report_list_totals_by_payment_type_xls_file.sql
--- Размер: 23.54 KB
+-- Размер: 23.59 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -6019,12 +6077,12 @@ BEGIN
         standalone yes
     );
 
-    -- Сохраняем файл в таблицу
+    -- Сохраняем файл в таблицу (унифицировано в TEXT)
     INSERT INTO upoa_ksk_reports.ksk_report_files (
         report_header_id,
         file_name,
         file_format,
-        file_content,
+        file_content_text,
         file_size_bytes,
         sheet_count,
         row_count
@@ -6033,7 +6091,7 @@ BEGIN
         p_report_header_id,
         v_file_name,
         'excel_xml',
-        v_xml_content,
+        v_xml_content::TEXT,
         LENGTH(v_xml_content::TEXT),
         1,
         v_row_count
@@ -6050,7 +6108,7 @@ COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_list_totals_by_payment_type_xls_
 
 -- ============================================================================
 -- ФАЙЛ: 040_ksk_report_totals_by_payment_type_xls_file.sql
--- Размер: 31.74 KB
+-- Размер: 31.78 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -6446,12 +6504,12 @@ BEGIN
         standalone yes
     );
 
-    -- Сохраняем файл в таблицу
+    -- Сохраняем файл в таблицу (унифицировано в TEXT)
     INSERT INTO upoa_ksk_reports.ksk_report_files (
         report_header_id,
         file_name,
         file_format,
-        file_content,
+        file_content_text,
         file_size_bytes,
         sheet_count,
         row_count
@@ -6460,7 +6518,7 @@ BEGIN
         p_report_header_id,
         v_file_name,
         'excel_xml',
-        v_xml_content,
+        v_xml_content::TEXT,
         LENGTH(v_xml_content::TEXT),
         1,
         v_row_count
@@ -6477,7 +6535,7 @@ COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_totals_by_payment_type_xls_file(
 
 -- ============================================================================
 -- ФАЙЛ: 050_ksk_report_figurants_xls_file.sql
--- Размер: 10.12 KB
+-- Размер: 10.17 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -6649,12 +6707,12 @@ BEGIN
         standalone yes
     );
 
-    -- Сохраняем файл в таблицу
+    -- Сохраняем файл в таблицу (унифицировано в TEXT)
     INSERT INTO upoa_ksk_reports.ksk_report_files (
         report_header_id,
         file_name,
         file_format,
-        file_content,
+        file_content_text,
         file_size_bytes,
         sheet_count,
         row_count
@@ -6663,7 +6721,7 @@ BEGIN
         p_report_header_id,
         v_file_name,
         'excel_xml',
-        v_xml_content,
+        v_xml_content::TEXT,
         LENGTH(v_xml_content::TEXT),
         1,
         v_row_count
@@ -6680,11 +6738,16 @@ COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_figurants_xls_file(INTEGER) IS
 
 -- ============================================================================
 -- ФАЙЛ: 060_ksk_report_review_xls_file.sql
--- Размер: 16.54 KB
+-- Размер: 16.96 KB
 -- ============================================================================
 
 -- ============================================================================
 -- ФУНКЦИЯ: ksk_report_review_xls_file
+-- ============================================================================
+-- ⚠️ DEPRECATED: Эта функция устарела!
+--    Используйте ksk_report_review_create_report() через оркестратор отчётов
+--    Таблица ksk_report_review_files больше не существует
+--    Новые отчёты сохраняются в унифицированную ksk_report_files
 -- ============================================================================
 -- ОПИСАНИЕ:
 --   Генерирует Excel XML (SpreadsheetML) файл для отчёта Review
@@ -6713,6 +6776,7 @@ COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_figurants_xls_file(INTEGER) IS
 --   2025-12-08 - FIX: escape_xml теперь удаляет недопустимые XML control characters
 --   2025-12-08 - FIX: Сохранение в file_content_text (TEXT) вместо file_content (XML)
 --                для избежания ошибок валидации XML на больших файлах
+--   2025-12-16 - DEPRECATED: Заменена на ksk_report_review_create_report()
 -- ============================================================================
 
 -- Вспомогательная функция для экранирования XML
@@ -6940,7 +7004,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_review_xls_file(DATE) IS
-    'Генерирует Excel XML файл для отчёта Review. Оптимизировано для больших объёмов (до 500k строк). Сохраняет в ksk_report_review_files с уникальностью по дате.';
+    'DEPRECATED: Используйте ksk_report_review_create_report(). Генерирует Excel XML файл для отчёта Review.';
 
 COMMENT ON FUNCTION upoa_ksk_reports.escape_xml(TEXT) IS
     'Вспомогательная функция для экранирования специальных символов XML: & < > " ''';
@@ -7711,7 +7775,7 @@ COMMENT ON FUNCTION ksk_run_report(VARCHAR, VARCHAR, VARCHAR, DATE, DATE, JSONB)
 
 -- ============================================================================
 -- ФАЙЛ: 002_ksk_cleanup_old_reports.sql
--- Размер: 3.48 KB
+-- Размер: 3 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -7719,14 +7783,13 @@ COMMENT ON FUNCTION ksk_run_report(VARCHAR, VARCHAR, VARCHAR, DATE, DATE, JSONB)
 -- ============================================================================
 -- ОПИСАНИЕ:
 --   Удаляет устаревшие отчёты на основе remove_date
---   Также удаляет файлы review-отчётов старше 7 дней
 --   Рекомендуется запускать ежедневно в cron
 --
 -- ПАРАМЕТРЫ:
 --   Нет
 --
 -- ВОЗВРАЩАЕТ:
---   INTEGER - Общее количество удалённых записей
+--   INTEGER - Количество удалённых заголовков отчётов
 --
 -- ПРИМЕР ИСПОЛЬЗОВАНИЯ:
 --   SELECT ksk_cleanup_old_reports();
@@ -7739,8 +7802,8 @@ COMMENT ON FUNCTION ksk_run_report(VARCHAR, VARCHAR, VARCHAR, DATE, DATE, JSONB)
 --     * ksk_report_totals_by_payment_type_data
 --     * ksk_report_list_totals_by_payment_type_data
 --     * ksk_report_figurants_data
---     * ksk_report_files
---   - Удаляет ksk_report_review_files старше 7 дней (жёсткая очистка)
+--     * ksk_report_files (включая файлы report_review)
+--     * ksk_report_review_data
 --   - Записывает результат в системный лог
 --
 -- ЗАВИСИМОСТИ:
@@ -7749,38 +7812,27 @@ COMMENT ON FUNCTION ksk_run_report(VARCHAR, VARCHAR, VARCHAR, DATE, DATE, JSONB)
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-10-25 - Добавлено логирование
 --   2025-12-08 - Добавлена очистка ksk_report_review_files (7 дней)
+--   2025-12-16 - Унифицировано: review файлы теперь в ksk_report_files (CASCADE через header)
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_cleanup_old_reports()
 RETURNS INTEGER AS $$
 DECLARE
     v_deleted_headers INTEGER;
-    v_deleted_review_files INTEGER;
-    v_total_deleted INTEGER;
-    v_start_time    TIMESTAMP := CLOCK_TIMESTAMP();
-    v_status        VARCHAR := 'success';
-    v_info          TEXT;
+    v_start_time      TIMESTAMP := CLOCK_TIMESTAMP();
+    v_status          VARCHAR := 'success';
+    v_info            TEXT;
 BEGIN
-    -- 1. Удаление устаревших заголовков отчётов (CASCADE удалит связанные данные)
+    -- Удаление устаревших заголовков отчётов (CASCADE удалит связанные данные)
+    -- Включая: ksk_report_review_data, ksk_report_files
     DELETE FROM upoa_ksk_reports.ksk_report_header
     WHERE remove_date < CURRENT_DATE;
 
     GET DIAGNOSTICS v_deleted_headers = ROW_COUNT;
 
-    -- 2. Удаление файлов review-отчётов старше 7 дней (жёсткая очистка)
-    DELETE FROM upoa_ksk_reports.ksk_report_review_files
-    WHERE report_date < CURRENT_DATE - INTERVAL '7 days';
-
-    GET DIAGNOSTICS v_deleted_review_files = ROW_COUNT;
-
-    -- Общее количество удалённых записей
-    v_total_deleted := v_deleted_headers + v_deleted_review_files;
-
     v_info := FORMAT(
-        'Удалено: заголовков отчётов: %s, файлов review (>7 дней): %s, всего: %s',
-        v_deleted_headers,
-        v_deleted_review_files,
-        v_total_deleted
+        'Удалено заголовков отчётов: %s (данные удалены каскадно)',
+        v_deleted_headers
     );
 
     -- Запись в системный лог
@@ -7793,12 +7845,12 @@ BEGIN
         NULL
     );
 
-    RETURN v_total_deleted;
+    RETURN v_deleted_headers;
 END;
 $$ LANGUAGE plpgsql;
 
 COMMENT ON FUNCTION ksk_cleanup_old_reports() IS
-    'Удаляет устаревшие отчёты (по remove_date) и файлы review старше 7 дней. CASCADE удаляет связанные данные.';
+    'Удаляет устаревшие отчёты по remove_date. CASCADE удаляет связанные данные (включая review_data и files).';
 
 
 -- ============================================================================
@@ -8905,100 +8957,456 @@ COMMENT ON FUNCTION ksk_report_figurants(INTEGER, DATE, DATE, JSONB) IS
 
 -- ============================================================================
 -- ФАЙЛ: 012_generate_all_reports_for_period.sql
--- Размер: 3.72 KB
+-- Размер: 6.74 KB
 -- ============================================================================
 
-CREATE OR REPLACE FUNCTION upoa_ksk_reports.generate_all_reports_for_period(p_start_date date DEFAULT '2021-11-01'::date, p_end_date date DEFAULT '2021-11-12'::date)
- RETURNS TABLE(operation_date date, report_type character varying, header_id integer, status character varying, message text)
- LANGUAGE plpgsql
+-- ============================================================================
+-- ФУНКЦИЯ: generate_all_reports_for_period
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Генерирует все типы отчётов за указанный период дат.
+--   Типы отчётов берутся из таблицы ksk_report_orchestrator.
+--   Если отчёт уже существует - вызывает ksk_regenerate_report (перегенерация).
+--   Если отчёт не существует - вызывает ksk_run_report (создание нового).
+--
+-- ПАРАМЕТРЫ:
+--   @p_start_date - Начальная дата периода
+--   @p_end_date   - Конечная дата периода
+--
+-- ВОЗВРАЩАЕТ:
+--   TABLE (operation_date, report_type, header_id, status, message)
+--
+-- ПРИМЕР ИСПОЛЬЗОВАНИЯ:
+--   SELECT * FROM upoa_ksk_reports.generate_all_reports_for_period('2024-01-01', '2024-01-31');
+--
+-- ИСТОРИЯ ИЗМЕНЕНИЙ:
+--   2025-12-16 - Рефакторинг: типы отчётов из оркестратора, логика regenerate/run
+-- ============================================================================
+
+CREATE OR REPLACE FUNCTION upoa_ksk_reports.generate_all_reports_for_period(
+    p_start_date DATE DEFAULT '2021-11-01'::DATE,
+    p_end_date DATE DEFAULT '2021-11-12'::DATE
+)
+RETURNS TABLE(
+    operation_date DATE,
+    report_type CHARACTER VARYING,
+    header_id INTEGER,
+    status CHARACTER VARYING,
+    message TEXT
+)
+LANGUAGE plpgsql
 AS $function$
 DECLARE
     v_current_date DATE;
-    v_report_types TEXT[] := ARRAY['totals', 'totals_by_payment_type', 'list_totals', 'list_totals_by_payment_type', 'figurants'];
-    v_report_type TEXT;
+    v_report_rec RECORD;
+    v_existing_header_id INTEGER;
     v_header_id INTEGER;
     v_header_status VARCHAR;
     v_message TEXT;
-    v_start_time TIMESTAMP(3);
+    v_action TEXT;
     v_error_msg TEXT;
 BEGIN
-    v_start_time := NOW()::TIMESTAMP(3);
-    
     -- ОСНОВНОЙ ЦИКЛ: По каждому дню в периоде
     v_current_date := p_start_date;
-    
+
     WHILE v_current_date <= p_end_date LOOP
-        
-        -- ВНУТРЕННИЙ ЦИКЛ: По каждому типу отчёта
-        FOREACH v_report_type IN ARRAY v_report_types LOOP
+
+        -- ВНУТРЕННИЙ ЦИКЛ: По каждому типу отчёта из оркестратора
+        FOR v_report_rec IN
+            SELECT report_code, report_table, report_function, name
+            FROM upoa_ksk_reports.ksk_report_orchestrator
+            ORDER BY id
+        LOOP
             BEGIN
-                -- Создаём отчёт вызовом ksk_run_report()
-                -- Параметры:
-                -- p_report_code := код отчёта
-                -- p_initiator := 'system' (встроенный, а не пользовательский)
-                -- p_user_login := NULL (нет пользователя)
-                -- p_start_date := дата дня
-                -- p_end_date := NULL (будет автоматически установлена в p_start_date)
-                -- p_parameters := NULL (нет доп. параметров)
-                
-                v_header_id := upoa_ksk_reports.ksk_run_report(
-                    p_report_code := v_report_type,
-                    p_initiator := 'system',
-                    p_user_login := NULL,
-                    p_start_date := v_current_date::date,
-                    p_end_date := NULL,
-                    p_parameters := NULL
-                );
-                
-                -- Получаем финальный статус отчёта из ksk_report_header
-                SELECT t.status INTO v_header_status
-                FROM upoa_ksk_reports.ksk_report_header t
-                WHERE id = v_header_id;
-                
-                v_message := FORMAT(
-                    'Report %s for %s created successfully (header_id=%s, status=%s)',
-                    v_report_type, v_current_date, v_header_id, v_header_status
-                );
-                
+                -- Проверяем существует ли отчёт для этой даты и типа
+                SELECT h.id INTO v_existing_header_id
+                FROM upoa_ksk_reports.ksk_report_header h
+                JOIN upoa_ksk_reports.ksk_report_orchestrator o ON h.orchestrator_id = o.id
+                WHERE o.report_code = v_report_rec.report_code
+                  AND h.start_date = v_current_date
+                LIMIT 1;
+
+                IF v_existing_header_id IS NOT NULL THEN
+                    -- Отчёт существует - регенерируем
+                    v_action := 'regenerate';
+                    v_header_id := upoa_ksk_reports.ksk_regenerate_report(v_existing_header_id);
+
+                    -- ksk_regenerate_report возвращает отрицательное значение при ошибке
+                    IF v_header_id < 0 THEN
+                        v_header_status := 'error';
+                        v_message := FORMAT(
+                            'ERROR: Failed to regenerate %s for %s (existing header_id=%s)',
+                            v_report_rec.report_code, v_current_date, v_existing_header_id
+                        );
+                    ELSE
+                        -- Получаем финальный статус
+                        SELECT t.status INTO v_header_status
+                        FROM upoa_ksk_reports.ksk_report_header t
+                        WHERE id = v_existing_header_id;
+
+                        v_header_id := v_existing_header_id;
+                        v_message := FORMAT(
+                            'Report %s for %s regenerated successfully (header_id=%s, status=%s)',
+                            v_report_rec.report_code, v_current_date, v_header_id, v_header_status
+                        );
+                    END IF;
+                ELSE
+                    -- Отчёт не существует - создаём новый
+                    v_action := 'create';
+                    v_header_id := upoa_ksk_reports.ksk_run_report(
+                        p_report_code := v_report_rec.report_code,
+                        p_initiator := 'system',
+                        p_user_login := NULL,
+                        p_start_date := v_current_date::DATE,
+                        p_end_date := NULL,
+                        p_parameters := NULL
+                    );
+
+                    -- Получаем финальный статус отчёта из ksk_report_header
+                    SELECT t.status INTO v_header_status
+                    FROM upoa_ksk_reports.ksk_report_header t
+                    WHERE id = v_header_id;
+
+                    v_message := FORMAT(
+                        'Report %s for %s created successfully (header_id=%s, status=%s)',
+                        v_report_rec.report_code, v_current_date, v_header_id, v_header_status
+                    );
+                END IF;
+
                 -- Возвращаем успешный результат
-                RETURN QUERY SELECT 
+                RETURN QUERY SELECT
                     v_current_date,
-                    v_report_type::VARCHAR,
+                    v_report_rec.report_code::VARCHAR,
                     v_header_id,
                     v_header_status,
                     v_message;
-                    
+
             EXCEPTION WHEN OTHERS THEN
                 v_error_msg := SQLERRM;
                 v_message := FORMAT(
-                    'ERROR: Failed to generate %s for %s: %s',
-                    v_report_type, v_current_date, v_error_msg
+                    'ERROR: Failed to %s %s for %s: %s',
+                    COALESCE(v_action, 'process'), v_report_rec.report_code, v_current_date, v_error_msg
                 );
-                
+
                 -- Возвращаем ошибку
-                RETURN QUERY SELECT 
+                RETURN QUERY SELECT
                     v_current_date,
-                    v_report_type::VARCHAR,
+                    v_report_rec.report_code::VARCHAR,
                     NULL::INTEGER,
                     'error'::VARCHAR,
                     v_message;
-                    
+
                 RAISE WARNING '%', v_message;
             END;
-            
+
         END LOOP; -- Конец цикла по типам отчётов
-        
+
         v_current_date := v_current_date + INTERVAL '1 day';
-        
+
     END LOOP; -- Конец цикла по датам
 
-END $function$
-;
+END $function$;
+
+COMMENT ON FUNCTION upoa_ksk_reports.generate_all_reports_for_period(DATE, DATE) IS
+    'Генерирует все типы отчётов за период. Существующие отчёты перегенерируются, новые создаются.';
+
+
+-- ============================================================================
+-- ФАЙЛ: 012_ksk_report_review_create_report.sql
+-- Размер: 17.52 KB
+-- ============================================================================
+
+-- ============================================================================
+-- ФУНКЦИЯ: ksk_report_review_create_report
+-- ============================================================================
+-- ОПИСАНИЕ:
+--   Генерирует отчёт Review (проверки) за указанный день
+--   Создаёт Excel XML файл с детальной информацией о транзакциях
+--   Поддерживает фильтрацию по типу резолюции через параметры
+--
+-- ПАРАМЕТРЫ:
+--   @p_report_header_id - ID заголовка отчёта (обязательный)
+--   @p_start_date       - Дата отчёта (включительно)
+--   @p_end_date         - Конечная дата (должна быть p_start_date + 1 day)
+--   @p_parameters       - JSON с опциональным полем "resolution": "allow"|"review"|"deny"|"empty"
+--
+-- ВОЗВРАЩАЕТ:
+--   INTEGER - ID созданного файла в ksk_report_files
+--
+-- ОГРАНИЧЕНИЯ:
+--   - Отчёт генерируется строго за 1 день (p_end_date = p_start_date + 1 day)
+--   - Параметр resolution должен быть одним из: allow, review, deny, empty
+--
+-- ФИЛЬТРАЦИЯ ПО ДАТЕ:
+--   Интервал [p_start_date ... p_end_date) - исключающий конец
+--   Фактически - данные за один день p_start_date
+--
+-- ПРИМЕР ИСПОЛЬЗОВАНИЯ:
+--   -- Все транзакции с резолюцией 'review' за день
+--   SELECT ksk_report_review_create_report(123, '2025-12-15', '2025-12-16', '{"resolution": "review"}');
+--
+--   -- Все транзакции за день (по умолчанию resolution = 'review')
+--   SELECT ksk_report_review_create_report(123, '2025-12-15', '2025-12-16', NULL);
+--
+-- ИСТОРИЯ ИЗМЕНЕНИЙ:
+--   2025-12-16 - Создание функции для системы отчётов
+--   2025-12-16 - Миграция на ksk_report_files (вместо ksk_report_review_files)
+-- ============================================================================
+
+CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_review_create_report(
+    p_report_header_id INTEGER,
+    p_start_date       DATE,
+    p_end_date         DATE,
+    p_parameters       JSONB DEFAULT NULL
+)
+RETURNS INTEGER AS $$
+DECLARE
+    v_resolution TEXT := 'review';  -- Значение по умолчанию
+    v_file_id INTEGER;
+    v_xml_text TEXT;
+    v_data_rows TEXT;
+    v_file_name VARCHAR(500);
+    v_row_count INTEGER;
+    v_file_size INTEGER;
+BEGIN
+    -- =========================================================================
+    -- ВАЛИДАЦИЯ ПАРАМЕТРОВ
+    -- =========================================================================
+
+    -- Проверка p_report_header_id
+    IF p_report_header_id IS NULL THEN
+        RAISE EXCEPTION 'p_report_header_id не может быть NULL';
+    END IF;
+
+    IF NOT EXISTS (
+        SELECT 1 FROM upoa_ksk_reports.ksk_report_header WHERE id = p_report_header_id
+    ) THEN
+        RAISE EXCEPTION 'Заголовок отчёта с id = % не найден', p_report_header_id;
+    END IF;
+
+    -- Проверка что p_end_date = p_start_date + interval '1 day'
+    IF p_end_date != (p_start_date + INTERVAL '1 day')::DATE THEN
+        RAISE EXCEPTION 'p_end_date (%) должна быть равна p_start_date + 1 день (%). Отчёт Review генерируется строго за 1 день.',
+            p_end_date, (p_start_date + INTERVAL '1 day')::DATE;
+    END IF;
+
+    -- Извлечение параметра resolution из p_parameters
+    IF p_parameters IS NOT NULL AND p_parameters ? 'resolution' THEN
+        v_resolution := p_parameters->>'resolution';
+    END IF;
+
+    -- Проверка допустимых значений resolution
+    IF v_resolution NOT IN ('allow', 'review', 'deny', 'empty') THEN
+        RAISE EXCEPTION 'Недопустимое значение resolution: %. Допустимые значения: allow, review, deny, empty', v_resolution;
+    END IF;
+
+    -- =========================================================================
+    -- ГЕНЕРАЦИЯ EXCEL XML ФАЙЛА
+    -- =========================================================================
+
+    -- Формируем имя файла
+    v_file_name := 'review_' || v_resolution || '_' || TO_CHAR(p_start_date, 'YYYYMMDD') || '_' || TO_CHAR(NOW(), 'HH24MI') || '.xls';
+
+    -- Генерируем строки данных через string_agg (оптимизировано для больших объёмов)
+    SELECT
+        string_agg(
+            '<Row>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(corr_id) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(message_timestamp::TEXT) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(algorithm) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(match_value) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(match_payment_field) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(match_payment_value) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(list_code) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(name_figurant) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(president_group) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(auto_login::TEXT) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(has_exclusion::TEXT) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(exclusion_phrase) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(exclusion_name_list) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(is_bypass) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(transaction_resolution) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(figurant_resolition) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(payment_id) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(payment_purpose) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(account_debet) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(account_credit) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(payer_inn) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(payer_name) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(payer_account_number) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(payer_document_type) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(payer_bank_name) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(payer_bank_account_number) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(receiver_account_number) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(receiver_name) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(receiver_inn) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(receiver_bank_name) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(receiver_bank_account_number) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(receiver_document_type) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(amount) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(currency) || '</Data></Cell>' ||
+            '<Cell><Data ss:Type="String">' || upoa_ksk_reports.escape_xml(currency_control) || '</Data></Cell>' ||
+            '</Row>',
+            E'\n'
+        ),
+        COUNT(*)
+    INTO v_data_rows, v_row_count
+    FROM upoa_ksk_reports.ksk_report_review(p_start_date)
+    WHERE rn = 1  -- Убираем дубликаты
+      AND transaction_resolution = v_resolution;  -- Фильтр по резолюции
+
+    -- Если нет данных, создаём пустой отчёт
+    IF v_row_count = 0 THEN
+        v_data_rows := '';
+    END IF;
+
+    -- Собираем полный XML документ
+    v_xml_text := '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+<Styles>
+<Style ss:ID="s1"><Font ss:Bold="1"/></Style>
+</Styles>
+<Worksheet ss:Name="Review">
+<Table>
+<Row>
+<Cell ss:StyleID="s1"><Data ss:Type="String">corr_id</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Время обработки платежа</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Алгоритм</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Значение для поиска на фигуранте</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Поле платежа с совпадением</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Значение поля платежа с совпадением</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Код списка</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Наименование фигуранта</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">presidentGroup</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">autoLogin</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Наличие исключения</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Фраза исключения</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Название списка исключений</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Исключено из контроля</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Решение по транзакции</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Решение по фигуранту</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">ID платежа</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Назначение платежа</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">system.reports.REVIEW.table.column.accountDebit.name</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Счёт кредита</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">ИНН плательщика</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Имя плательщика</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Номер счёта плательщика</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Тип документа плательщика</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Банк плательщика</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Номер счёта банка плательщика</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Номер счёта получателя</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Имя получателя</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">ИНН получателя</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">system.reports.REVIEW.table.column.receiverBankName.name</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Номер счёта банка получателя</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Тип документа получателя</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Сумма</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">Валюта</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">system.reports.REVIEW.table.column.currencyControl.name</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s1"><Data ss:Type="String">corrId</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">messageTimestamp</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">algorithm</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">matchValue</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">matchPaymentField</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">matchPaymentValue</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">listCode</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">nameFigurant</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">presidentGroup</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">autoLogin</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">hasExclusion</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">exclusionPhrase</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">exclusionNameList</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">isBypass</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">transactionResolution</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">figurantResolition</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">paymentId</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">paymentPurpose</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">accountDebit</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">accountCredit</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">payerInn</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">payerName</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">payerAccountNumber</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">payerDocumentType</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">payerBankName</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">payerBankAccountNumber</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">receiverAccountNumber</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">receiverName</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">receiverInn</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">receiverBankName</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">receiverBankAccountNumber</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">receiverDocumentType</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">amount</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">currency</Data></Cell>
+<Cell ss:StyleID="s1"><Data ss:Type="String">currencyControl</Data></Cell>
+</Row>
+' || COALESCE(v_data_rows, '') || '
+</Table>
+</Worksheet>
+</Workbook>';
+
+    -- Вычисляем размер файла
+    v_file_size := LENGTH(v_xml_text);
+
+    -- =========================================================================
+    -- СОХРАНЕНИЕ ФАЙЛА В ksk_report_files (унифицированное хранилище)
+    -- =========================================================================
+
+    INSERT INTO upoa_ksk_reports.ksk_report_files (
+        report_header_id,
+        file_name,
+        file_format,
+        file_content_text,
+        file_size_bytes,
+        sheet_count,
+        row_count
+    )
+    VALUES (
+        p_report_header_id,
+        v_file_name,
+        'excel_xml',
+        v_xml_text,
+        v_file_size,
+        1,
+        v_row_count
+    )
+    RETURNING id INTO v_file_id;
+
+    -- =========================================================================
+    -- СОХРАНЕНИЕ/ОБНОВЛЕНИЕ МЕТАДАННЫХ В ksk_report_review_data
+    -- =========================================================================
+
+    INSERT INTO upoa_ksk_reports.ksk_report_review_data (
+        report_header_id,
+        file_size_bytes,
+        row_count,
+        transaction_resolution
+    )
+    VALUES (
+        p_report_header_id,
+        v_file_size,
+        v_row_count,
+        v_resolution
+    )
+    ON CONFLICT (report_header_id) DO UPDATE SET
+        file_size_bytes = EXCLUDED.file_size_bytes,
+        row_count = EXCLUDED.row_count,
+        transaction_resolution = EXCLUDED.transaction_resolution,
+        created_date_time = NOW();
+
+    RETURN v_file_id;
+END;
+$$ LANGUAGE plpgsql;
+
+COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_review_create_report(INTEGER, DATE, DATE, JSONB) IS
+    'Генерирует Excel XML файл для отчёта Review. Фильтр по резолюции (allow/review/deny/empty). Отчёт строго за 1 день. Сохраняет в ksk_report_files и ksk_report_review_data.';
 
 
 -- ============================================================================
 -- ФАЙЛ: 001_cron.sql
--- Размер: 8.59 KB
+-- Размер: 8.49 KB
 -- ============================================================================
 
 -- ============================================================================
@@ -9086,7 +9494,6 @@ SELECT cron.schedule(
         rec RECORD;
         v_report_id INTEGER;
     BEGIN
-        DELETE FROM upoa_ksk_reports.ksk_report_review_files WHERE report_date >= (CURRENT_DATE - 1)::date;
         FOR rec IN 
             SELECT report_code 
             FROM upoa_ksk_reports.ksk_report_orchestrator
@@ -9300,6 +9707,6 @@ ALTER TABLE upoa_ksk_reports.ksk_figurant_match
 -- ============================================================================
 -- КОНЕЦ ОБЪЕДИНЕННОГО СКРИПТА
 -- ============================================================================
--- Всего файлов обработано: 57
--- Дата завершения: 2025-12-16 09:25:01
+-- Всего файлов обработано: 59
+-- Дата завершения: 2025-12-17 10:05:55
 -- ============================================================================
