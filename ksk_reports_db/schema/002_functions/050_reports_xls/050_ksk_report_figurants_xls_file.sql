@@ -167,12 +167,12 @@ BEGIN
         standalone yes
     );
 
-    -- Сохраняем файл в таблицу
+    -- Сохраняем файл в таблицу (унифицировано в TEXT)
     INSERT INTO upoa_ksk_reports.ksk_report_files (
         report_header_id,
         file_name,
         file_format,
-        file_content,
+        file_content_text,
         file_size_bytes,
         sheet_count,
         row_count
@@ -181,7 +181,7 @@ BEGIN
         p_report_header_id,
         v_file_name,
         'excel_xml',
-        v_xml_content,
+        v_xml_content::TEXT,
         LENGTH(v_xml_content::TEXT),
         1,
         v_row_count

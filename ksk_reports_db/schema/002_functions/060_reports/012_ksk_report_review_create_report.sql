@@ -13,7 +13,7 @@
 --   @p_parameters       - JSON с опциональным полем "resolution": "allow"|"review"|"deny"|"empty"
 --
 -- ВОЗВРАЩАЕТ:
---   INTEGER - ID созданного файла в ksk_report_review_files
+--   INTEGER - ID созданного файла в ksk_report_files
 --
 -- ОГРАНИЧЕНИЯ:
 --   - Отчёт генерируется строго за 1 день (p_end_date = p_start_date + 1 day)
@@ -32,6 +32,7 @@
 --
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-12-16 - Создание функции для системы отчётов
+--   2025-12-16 - Миграция на ksk_report_files (вместо ksk_report_review_files)
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_report_review_create_report(
@@ -232,25 +233,23 @@ BEGIN
     v_file_size := LENGTH(v_xml_text);
 
     -- =========================================================================
-    -- СОХРАНЕНИЕ ФАЙЛА В ksk_report_review_files
+    -- СОХРАНЕНИЕ ФАЙЛА В ksk_report_files (унифицированное хранилище)
     -- =========================================================================
 
-    INSERT INTO upoa_ksk_reports.ksk_report_review_files (
+    INSERT INTO upoa_ksk_reports.ksk_report_files (
         report_header_id,
-        report_date,
         file_name,
         file_format,
-        file_content_text,  -- TEXT вместо XML для больших файлов
+        file_content_text,
         file_size_bytes,
         sheet_count,
         row_count
     )
     VALUES (
         p_report_header_id,
-        p_start_date,
         v_file_name,
         'excel_xml',
-        v_xml_text,  -- Сохраняем как TEXT без ::XML конвертации
+        v_xml_text,
         v_file_size,
         1,
         v_row_count
@@ -284,4 +283,4 @@ END;
 $$ LANGUAGE plpgsql;
 
 COMMENT ON FUNCTION upoa_ksk_reports.ksk_report_review_create_report(INTEGER, DATE, DATE, JSONB) IS
-    'Генерирует Excel XML файл для отчёта Review. Фильтр по резолюции (allow/review/deny/empty). Отчёт строго за 1 день. Сохраняет в ksk_report_review_files и ksk_report_review_data.';
+    'Генерирует Excel XML файл для отчёта Review. Фильтр по резолюции (allow/review/deny/empty). Отчёт строго за 1 день. Сохраняет в ksk_report_files и ksk_report_review_data.';

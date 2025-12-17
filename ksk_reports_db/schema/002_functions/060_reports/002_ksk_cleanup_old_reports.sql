@@ -22,9 +22,8 @@
 --     * ksk_report_totals_by_payment_type_data
 --     * ksk_report_list_totals_by_payment_type_data
 --     * ksk_report_figurants_data
---     * ksk_report_files
+--     * ksk_report_files (включая файлы report_review)
 --     * ksk_report_review_data
---     * ksk_report_review_files
 --   - Записывает результат в системный лог
 --
 -- ЗАВИСИМОСТИ:
@@ -33,7 +32,7 @@
 -- ИСТОРИЯ ИЗМЕНЕНИЙ:
 --   2025-10-25 - Добавлено логирование
 --   2025-12-08 - Добавлена очистка ksk_report_review_files (7 дней)
---   2025-12-16 - Удалена жёсткая очистка review_files (теперь CASCADE через header)
+--   2025-12-16 - Унифицировано: review файлы теперь в ksk_report_files (CASCADE через header)
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION upoa_ksk_reports.ksk_cleanup_old_reports()
@@ -45,7 +44,7 @@ DECLARE
     v_info            TEXT;
 BEGIN
     -- Удаление устаревших заголовков отчётов (CASCADE удалит связанные данные)
-    -- Включая: ksk_report_review_data, ksk_report_review_files
+    -- Включая: ksk_report_review_data, ksk_report_files
     DELETE FROM upoa_ksk_reports.ksk_report_header
     WHERE remove_date < CURRENT_DATE;
 
@@ -71,4 +70,4 @@ END;
 $$ LANGUAGE plpgsql;
 
 COMMENT ON FUNCTION ksk_cleanup_old_reports() IS
-    'Удаляет устаревшие отчёты по remove_date. CASCADE удаляет связанные данные (включая review_data и review_files).';
+    'Удаляет устаревшие отчёты по remove_date. CASCADE удаляет связанные данные (включая review_data и files).';
